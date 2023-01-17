@@ -11,7 +11,7 @@ public class MainController {
 	
 	@GetMapping("/main")
 	public String getMain() {
-		log.info("main......");
+		log.info("main success....");
 		return "index";
 	}
 
