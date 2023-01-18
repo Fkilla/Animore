@@ -14,5 +14,6 @@ public class MainController {
 		log.info("main success....");
 		return "index";
 	}
+	
 
 }
