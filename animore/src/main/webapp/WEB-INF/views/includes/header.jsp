@@ -54,7 +54,7 @@
 		</div>
     <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
 	    <div class="container" >
-	    	<a class="navbar-brand" href="#"><span class="flaticon-pawprint-1 mr-2"></span>Anymore</a>
+	    	<a class="navbar-brand" href="../index"><span class="flaticon-pawprint-1 mr-2"></span>Anymore</a>
 	      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
 	        <span class="fa fa-bars"></span> Menu
 	      </button>
@@ -72,7 +72,7 @@
               <div class="dropdown-menu border-light m-0">
                 <a href="#" class="dropdown-item">입양신청</a>
                 <a href="#" class="dropdown-item">입양절차</a>
-                <a href="#" class="dropdown-item">보호동물 보기</a>
+                <a href="../protectAnimal" class="dropdown-item">보호동물 보기</a>
               </div>
             </li>
             <li class="nav-item dropdown"><a href="#" class="nav-link dropdown-toggle active" data-bs-toggle="dropdown">실종신고</a>
