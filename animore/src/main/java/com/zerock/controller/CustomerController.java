@@ -3,8 +3,10 @@ package com.zerock.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.zerock.domain.NoticeVO;
 import com.zerock.service.NoticeService;
 
 import lombok.AllArgsConstructor;
@@ -27,10 +29,16 @@ public class CustomerController {
 	}
 	
 	@GetMapping("/register")
-	public String register() {
-		log.info("register...");
+	public void register() {
 		
-		return "/customerService/register";
+	}
+	
+	@PostMapping("/register")
+	public String register(NoticeVO notice) {
+		log.info("register...");
+		service.register(notice);
+		
+		return "redirect:/customerService/notice";
 	}
 	
 	
