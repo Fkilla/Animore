@@ -15,15 +15,8 @@ import lombok.extern.log4j.Log4j;
 @AllArgsConstructor
 @RequestMapping("/customerService/*")
 public class CustomerController {
-	
 	private NoticeService service;
-//	
-//	@GetMapping("/index")
-//	public String main() {
-//		log.info("main");
-//		return "/index";
-//	}
-	
+
 	// 전체 목록 보여주기
 	@GetMapping("/notice")
 	public String customerService(Model model) {

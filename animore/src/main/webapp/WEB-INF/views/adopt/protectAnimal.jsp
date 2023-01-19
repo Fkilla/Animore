@@ -1,13 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@include file="./includes/header.jsp"%>
+<%@include file="../includes/header.jsp"%>
 
     <section class="ftco-section " style="font-family: 'NanumSquareNeo';">
       <div class="overlay"></div>
       <div class="container">
         <div class="row justify-content-center pb-5 mb-3">
           <div class="col-md-7 heading-section text-center ftco-animate">
-            <span><img src="images/pet-care.png"></span>
+            <span><img src="../images/pet-care.png"></span>
             <h2>애니모어 보호 동물</h2>
           </div>
         </div>
@@ -19,7 +19,7 @@
             <div class="item">
               <div class="d-flex ftco-animate">
                 <div class="blog-entry align-self-stretch">
-                  <a href="blog-single.html" class="block-20 rounded" style="background-image: url('images/any-dog1.jpg');">
+                  <a href="blog-single.html" class="block-20 rounded" style="background-image: url('../images/any-dog1.jpg');">
                   </a>
                   <div class="text p-4">
                     <div class="meta mb-2">
@@ -38,7 +38,7 @@
             <div class="item">
               <div class="d-flex ftco-animate">
                 <div class="blog-entry align-self-stretch">
-                  <a href="blog-single.html" class="block-20 rounded" style="background-image: url('images/any-dog2.jpg');">
+                  <a href="blog-single.html" class="block-20 rounded" style="background-image: url('../images/any-dog2.jpg');">
                   </a>
                   <div class="text p-4">
                     <div class="meta mb-2">
@@ -57,7 +57,7 @@
             <div class="item">
               <div class="d-flex ftco-animate">
                 <div class="blog-entry align-self-stretch">
-                  <a href="blog-single.html" class="block-20 rounded" style="background-image: url('images/any-dog3.jpg');">
+                  <a href="blog-single.html" class="block-20 rounded" style="background-image: url('../images/any-dog3.jpg');">
                   </a>
                   <div class="text p-4">
                     <div class="meta mb-2">
@@ -77,7 +77,7 @@
             <div class="item">
               <div class="d-flex ftco-animate">
                 <div class="blog-entry align-self-stretch">
-                  <a href="blog-single.html" class="block-20 rounded" style="background-image: url('images/any-cat1.jpg');">
+                  <a href="blog-single.html" class="block-20 rounded" style="background-image: url('../images/any-cat1.jpg');">
                   </a>
                   <div class="text p-4">
                     <div class="meta mb-2">
@@ -95,7 +95,7 @@
             <div class="item">
               <div class="d-flex ftco-animate">
                 <div class="blog-entry align-self-stretch">
-                  <a href="blog-single.html" class="block-20 rounded" style="background-image: url('images//any-cat2.jpg');">
+                  <a href="blog-single.html" class="block-20 rounded" style="background-image: url('../images//any-cat2.jpg');">
                   </a>
                   <div class="text p-4">
                     <div class="meta mb-2">
@@ -112,7 +112,7 @@
             <div class="item">
               <div class="d-flex ftco-animate">
                 <div class="blog-entry align-self-stretch">
-                  <a href="blog-single.html" class="block-20 rounded" style="background-image: url('images/any-cat3.jpg');">
+                  <a href="blog-single.html" class="block-20 rounded" style="background-image: url('../images/any-cat3.jpg');">
                   </a>
                   <div class="text p-4">
                     <div class="meta mb-2">
@@ -134,4 +134,4 @@
       </div>
     </section>
 
-<%@include file="./includes/footer.jsp"%>
+<%@include file="../includes/footer.jsp"%>

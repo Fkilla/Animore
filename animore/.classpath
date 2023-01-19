@@ -40,7 +40,7 @@
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="C:/app/user/product/11.2.0/dbhome_1/jdbc/lib/ojdbc6.jar">
+	<classpathentry kind="lib" path="D:/app/jjks2/product/11.2.0/dbhome_1/jdbc/lib/ojdbc6.jar">
 		<attributes>
 			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
 		</attributes>

@@ -14,4 +14,6 @@ public class IndexController {
 		log.info("main.....");
 		return "index";
 	}
+	
+	
 }

@@ -9,7 +9,7 @@
           <div class="col-md-11 ftco-animate text-center">
           	<h1 class="mb-4">Adopt Animals, Adopt Family</h1>
             <h3 class="mb-4" style="font-family: 'NanumSquareNeo';">애니모어는 사지 않고 입양하는 문화를 만듭니다.</h3>
-            <p><a href="#" class="btn btn-primary mr-md-4 py-3 px-4" >입양하기<span class="ion-ios-arrow-forward"></span></a></p>
+            <p><a href="/adopt/protectAnimal" class="btn btn-primary mr-md-4 py-3 px-4" >입양하기<span class="ion-ios-arrow-forward"></span></a></p>
           </div>
         </div>
       </div>
