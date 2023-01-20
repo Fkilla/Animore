@@ -15,8 +15,9 @@ import lombok.extern.log4j.Log4j;
 @Controller
 @Log4j
 @AllArgsConstructor
-@RequestMapping("/customerService/*")
-public class CustomerController {
+@RequestMapping("/manager/*")
+public class ManagerController {
+	
 	private NoticeService service;
 
 	// 공지사항 전체 목록 보여주기
@@ -28,13 +29,11 @@ public class CustomerController {
 		return "/customerService/notice";
 	}
 	
-	// 글쓰기 폼 띄우기
 	@GetMapping("/register")
 	public void register() {
 		
 	}
 	
-	// 글쓰고 반영되게
 	@PostMapping("/register")
 	public String register(NoticeVO notice) {
 		log.info("register...");
@@ -49,15 +48,5 @@ public class CustomerController {
 		
 		return "/customerService/faq";
 	}
-	
-	// qna 게시판
-	@GetMapping("/qna")
-	public String qna() {
-		
-		return "/customerService/qna";
-	}
-
-	
-	
 
 }

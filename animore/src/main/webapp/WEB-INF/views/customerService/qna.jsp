@@ -8,7 +8,6 @@
 	<div class="col-lg-12">
 		<div class="panel panel-default">
 			<div class="panel-heading">
-				<form>
 				<button type="button">
 					<a href="/customerService/notice">공지사항</a> 
 				</button>
@@ -16,7 +15,6 @@
 					<a href="/customerService/faq">자주하는질문</a>
 				</button>
 				<button type="button"><a href="/customerService/qna">QNA</a></button>
-				</form>
 			</div>
 
 			<div class="container">
@@ -25,34 +23,34 @@
 						<th>번 호</th>
 						<th>제 목</th>
 						<th>글쓴이</th>
+						<th>조회수</th>
 						<th>작성일</th>
 					</tr>
-
-					<c:forEach items="${customer}" var="board">
-						<tr>
-							<td><c:out value="${board.bno}" /></td>
-							<td><a class='move' href='<c:out value="${board.bno}"/>'>
-									<c:out value="${board.title}" />
-							</a></td>
-							<td><c:out value="${board.writer}" /></td>
-							<td><fmt:formatDate pattern="yyyy-MM-dd"
-									value="${board.regdate}" /></td>
-						</tr>
-					</c:forEach>
+					<tr>
+						<td>1</td>
+						<td>테이블 테스트 테이블 테스트 테이블 테스트</td>
+						<td>홍길동</td>
+						<td>3</td>
+						<td>2023.01.20</td>
+					</tr>
+					<tr>
+						<td>2</td>
+						<td>테이블 테스트 테이블 테스트 테이블 테스트</td>
+						<td>홍길동</td>
+						<td>1</td>
+						<td>2023.01.20</td>
+					</tr>
+					<tr>
+						<td>3</td>
+						<td>테이블 테스트 테이블 테스트 테이블 테스트</td>
+						<td>홍길동</td>
+						<td>1</td>
+						<td>2023.01.20</td>
+					</tr>
 				</table>
-				<button id='regBtn' type="button" class="btn btn-xs pull-right">글쓰기</button>
 			</div>
 		</div>
 	</div>
 </div>
-
-<script>
-	// 글쓰기 버튼을 눌렀을 때
-	$(function() {
-		$("#regBtn").on("click", function() {
-			self.location = "/customerService/register";
-		});
-	});
-</script>
 
 <%@include file="../includes/footer.jsp"%>
