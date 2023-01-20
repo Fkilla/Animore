@@ -87,12 +87,6 @@
                 <a href="#" class="dropdown-item">입소절차</a>
               </div>
             </li>
-	          <li class="nav-item dropdown"><a href="#" class="nav-link dropdown-toggle active" data-bs-toggle="dropdown">애니모어몰</a>
-              <div class="dropdown-menu border-light m-0">
-                <a href="#" class="dropdown-item">상품목록</a>
-                <a href="#" class="dropdown-item">장바구니</a>
-              </div>
-            </li>
             
 	          <li class="nav-item dropdown"><a href="#" class="nav-link dropdown-toggle active" data-bs-toggle="dropdown">커뮤니티</a>
               <div class="dropdown-menu border-light m-0">
