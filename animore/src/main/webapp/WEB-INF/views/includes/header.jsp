@@ -71,7 +71,7 @@
             <li class="nav-item dropdown"><a href="/adopt/protectAnimal" class="nav-link dropdown-toggle active" data-bs-toggle="dropdown">입양하기</a>
               <div class="dropdown-menu border-light m-0">
                 <a href="/adopt/protectAnimal" class="dropdown-item">입양신청</a>
-                <a href="#" class="dropdown-item">입양절차</a>
+                <a href="/adopt/procedure" class="dropdown-item">입양절차</a>
               </div>
             </li>
             <li class="nav-item dropdown"><a href="#" class="nav-link dropdown-toggle active" data-bs-toggle="dropdown">실종신고</a>
