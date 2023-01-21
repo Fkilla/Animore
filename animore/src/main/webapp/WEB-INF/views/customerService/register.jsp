@@ -34,9 +34,9 @@
 								<label>비밀글</label> <input type="checkbox"/>
 							</div>				
 										
-							<button type="submit" class="btn btn-info">등록</button>
-							<button type="reset" class="btn btn-info">새로작성</button>
-							<button type="submit" class="btn btn-info">
+							<button type="submit" class="btn btn-outline-dark">등록</button>
+							<button type="reset" class="btn btn-outline-dark">새로작성</button>
+							<button type="submit" class="btn btn-outline-dark">
 								<a href="/customerService/notice">목록</a>
 							</button>
 						</form>

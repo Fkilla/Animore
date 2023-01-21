@@ -9437,7 +9437,7 @@ textarea.form-control {
     letter-spacing: 1px; }
     .blog-entry .meta > div a {
       color: #999999;
-      font-weight: 500; }
+      font-weight: 500; }   
       .blog-entry .meta > div a:hover {
         color: #333333; }
   .blog-entry .btn-custom {
@@ -9805,3 +9805,8 @@ textarea.form-control {
   100% {
     stroke-dasharray: 89, 200;
     stroke-dashoffset: -136px; } }
+    
+    
+.blog-entry .meta .myfont14 {
+	font-size : 14px;
+}
