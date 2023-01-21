@@ -16,13 +16,19 @@ public class AdoptController {
 	// 입양신청
 	@GetMapping("/protectAnimal")
 	public void protectAnimal() {
-		log.info("protectAnimal");
+		log.info("protectAnimal...");
 	}
 	
 	// 입양 절차
 	@GetMapping("/procedure")
 	public void procedure() {
-		log.info("procedure");
+		log.info("procedure...");
+	}
+	
+	// 동물 상세보기 페이지
+	@GetMapping("/animalDetails")
+	public void animalDetails() {
+		log.info("animalDetails...");
 	}
 
 }

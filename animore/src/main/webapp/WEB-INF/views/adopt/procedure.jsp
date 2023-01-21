@@ -16,7 +16,7 @@
 			<div class="col-md-6 d-flex align-self-stretch px-4 ftco-animate">
 				<div class="d-block services text-center">
 					<div class="icon d-flex align-items-center justify-content-center">
-						<span><img src="../images/pet-love.png"></span>
+						<span><img src="../images/pet-love1.png"></span>
 					</div>
 					<div class="media-body p-4">
 						<h3 class="heading">1. 공고확인</h3>
@@ -34,7 +34,7 @@
 			<div class="col-md-6 d-flex align-self-stretch px-4 ftco-animate">
 				<div class="d-block services text-center">
 					<div class="icon d-flex align-items-center justify-content-center">
-						<span><img src="../images/forum.png"></span>
+						<span><img src="../images/forum1.png"></span>
 					</div>
 					<div class="media-body p-4">
 						<h3 class="heading">2. 입양 전 상담</h3>
@@ -55,7 +55,7 @@
 			<div class="col-md-6 d-flex align-self-stretch px-4 ftco-animate">
 				<div class="d-block services text-center">
 					<div class="icon d-flex align-items-center justify-content-center">
-						<span><img src="../images/hotel.png"></span>
+						<span><img src="../images/hotel1.png"></span>
 					</div>
 					<div class="media-body p-4">
 						<h3 class="heading">3. 보호소방문</h3>
@@ -73,7 +73,7 @@
 			<div class="col-md-6 d-flex align-self-stretch px-4 ftco-animate">
 				<div class="d-block services text-center">
 					<div class="icon d-flex align-items-center justify-content-center">
-						<span><img src="../images/story.png"></span>
+						<span><img src="../images/story1.png"></span>
 					</div>
 					<div class="media-body p-4">
 						<h3 class="heading">4. 입양신청서 작성</h3>
