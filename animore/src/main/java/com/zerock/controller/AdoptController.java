@@ -30,5 +30,17 @@ public class AdoptController {
 	public void animalDetails() {
 		log.info("animalDetails...");
 	}
+	
+	// 입양신청 전 체크리스트
+	@GetMapping("/checklist")
+	public void checklist() {
+		log.info("checklist...");
+	}
+	
+	// 입양신청 폼
+	@GetMapping("/animalform")
+	public void animalform() {
+		log.info("animalform...");
+	}
 
 }

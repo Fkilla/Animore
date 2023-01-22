@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@include file="../includes/header.jsp"%>
 
-<section class="ftco-section" style="font-family: 'NanumSquareNeo';">
+<section class="ftco-section" style="font-family: 'NanumSquareNeo';" align="center">
 	<div class="overlay"></div>
 	<div class="container">
 		<div class="row justify-content-center pb-5 mb-3">
@@ -28,13 +28,13 @@
 								<h5>품종 : 비숑 </h5>
 								<h5>중성화유무 : 유 </h5>
 								<h5>안락사까지 남은 기간  : 20일 </h5>
-								<h5>특징 : 소심하지만 착한 아기공쥬 "아람이"를 소개합니다!😍
+								<h5>특징 : <br> 소심하지만 착한 아기공쥬 "아람이"를 소개합니다!😍
                       우리 아람이는 사진보다 실물이 천만배는 더 귀염뽀짝하고 사랑스러운 아가에요!
                       사람을 너무 좋아하는 순둥이 아람이에게 사랑을 듬뿍 주시며 자신감을 가득 채워주실 평생가족을 찾습니다!</h5>
 							</div>
 
 							<button type="button" class="btn btn-outline-danger"><i class="fa fa-heart-o fa-lg" aria-hidden="true"></i>찜하기</button>
-							<button type="button" class="btn btn-outline-secondary"><i class="fa fa-check" aria-hidden="true"></i>입양하기</button>
+							<button id="formBtn"type="button" class="btn btn-outline-secondary"><i class="fa fa-check" aria-hidden="true"></i>입양하기</button>
 
 					</div>
 				</div>
@@ -54,6 +54,12 @@
 	$(function() {
 		$("#paBtn").on("click", function() {
 			self.location = "/adopt/protectAnimal";
+		});
+	});
+	
+	$(function() {
+		$("#formBtn").on("click", function() {
+			self.location = "/adopt/checklist";
 		});
 	});
 </script>

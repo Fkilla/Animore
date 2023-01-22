@@ -8,7 +8,7 @@
 		<div class="row justify-content-center pb-5 mb-3">
 			<div class="col-md-7 heading-section text-center ftco-animate">
 				<span><img src="../images/pet-care.png"></span>
-				<h2>애니모어 보호 동물</h2>
+				<h2>입양하기</h2>
 			</div>
 		</div>
 
@@ -20,7 +20,7 @@
 					<a class="block-20 rounded"
 						style="background-image: url('../images/any-dog2.jpg');"> </a>
 					<div class="text p-4" style="width: 349.99px">
-						<a href="/adopt/animalDetails" target="_blank">
+						<a href="/adopt/animalDetails">
 							<div class="meta mb-2" style="color: black">
 								<div class="myfont14">공고번호 : 231</div>
 								<br />

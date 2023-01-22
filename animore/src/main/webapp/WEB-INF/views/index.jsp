@@ -39,8 +39,8 @@
                 <img src="images/dog-in-front-of-a-man.png">
               </div>
               <div class="media-body">
-                <h3 class="heading">임시보호</h3>
-                <p>임시보호가 필요한 <br>아이들을 확인해보세요.</p>
+                <h3 class="heading">애니모어몰</h3>
+                <p>유기동물 후원 애니모어 공식 쇼핑몰</p>
                 <a href="#" class="btn-custom d-flex align-items-center justify-content-center"><span class="fa fa-chevron-right"></span><i class="sr-only">Read more</i></a>
               </div>
             </div>    
@@ -207,9 +207,8 @@
                   </a>
                   <div class="text p-4">
                     <div class="meta mb-2">
-                      <div><a href="#">2023.01.13</a></div>
-                      <div><a href="#">안락사 15일 전</a></div>
-                      <div><a href="#" class="meta-chat"><span class="fa fa-comment"></span> 3</a></div>
+                      <div><a href="#">공고번호 : 230</a></div>
+                      <div><a href="#">안락사까지 남은 기간  : 30일</a></div>
                     </div>
                     <h3 class="heading"><a href="#">우리 사랑스러운 모카를 소개합니다!
                       모카는 생후 4개월로 추정되는 수컷아가이구요.
@@ -226,9 +225,8 @@
                   </a>
                   <div class="text p-4">
                     <div class="meta mb-2">
-                      <div><a href="#">2023.01.18</a></div>
-                      <div><a href="#">안락사 18일 전</a></div>
-                      <div><a href="#" class="meta-chat"><span class="fa fa-comment"></span> 7</a></div>
+                      <div><a href="#">공고번호 : 221</a></div>
+                      <div><a href="#">안락사까지 남은 기간  : 25일</a></div>
                     </div>
                     <h3 class="heading"><a href="#">소심하지만 착한 아기공쥬 "아람이"를 소개합니다!😍
                       우리 아람이는 사진보다 실물이 천만배는 더 귀염뽀짝하고 사랑스러운 아가에요!
@@ -245,9 +243,8 @@
                   </a>
                   <div class="text p-4">
                     <div class="meta mb-2">
-                      <div><a href="#">2023.01.31</a></div>
-                      <div><a href="#">안락사 20일 전</a></div>
-                      <div><a href="#" class="meta-chat"><span class="fa fa-comment"></span> 5</a></div>
+                      <div><a href="#">공고번호 : 219</a></div>
+                      <div><a href="#">안락사까지 남은 기간  : 20일</a></div>
                     </div>
                     <h3 class="heading"><a href="#">
                       ✔ 하우스(켄넬), 앉아, 목줄, 훈련 매우 완벽합니다.<br>
@@ -265,9 +262,8 @@
                   </a>
                   <div class="text p-4">
                     <div class="meta mb-2">
-                      <div><a href="#">2023.01.31</a></div>
-                      <div><a href="#">안락사 20일 전</a></div>
-                      <div><a href="#" class="meta-chat"><span class="fa fa-comment"></span> 5</a></div>
+                      <div><a href="#">공고번호 : 201</a></div>
+                      <div><a href="#">안락사까지 남은 기간  : 20일</a></div>
                     </div>
                     <h3 class="heading"><a href="#">
                       한 눈에 봐도 배가 불러있던 아띠는 보호소 입구 길냥이들 밥을 허겁지겁 먹고 있던 아이에요..😢 경계심이 심했지만, 간식으로 유인하니 할머님에게 다가와주었다고 해요.
@@ -283,9 +279,8 @@
                   </a>
                   <div class="text p-4">
                     <div class="meta mb-2">
-                      <div><a href="#">2023.01.31</a></div>
-                      <div><a href="#">안락사 20일 전</a></div>
-                      <div><a href="#" class="meta-chat"><span class="fa fa-comment"></span> 5</a></div>
+                      <div><a href="#">공고번호 : 194</a></div>
+                      <div><a href="#">안락사까지 남은 기간  : 41일</a></div>
                     </div>
                     <h3 class="heading"><a href="#">
                       중성화와 예방접종 완료한 수컷 코숏 치즈 태비 고양이입니다! 동물병원에서 나이는 한 살정도일거라고 말씀하셨어요! 몸무게는 3.3kg입니다. 치아, 귀, 피부 모두 깨끗한 고양이입니다. 그리고 무엇보다 동글동글 귀엽고 사랑스럽게 생겼답니다! 이름은 치몽이지만 가족이 되어주셔서 더 예쁘고 좋은 이름으로 불러주세요! </a></h3>
@@ -300,9 +295,8 @@
                   </a>
                   <div class="text p-4">
                     <div class="meta mb-2">
-                      <div><a href="#">2023.01.31</a></div>
-                      <div><a href="#">안락사 20일 전</a></div>
-                      <div><a href="#" class="meta-chat"><span class="fa fa-comment"></span> 5</a></div>
+                      <div><a href="#">공고번호 : 301</a></div>
+                      <div><a href="#">안락사까지 남은 기간  : 31일</a></div>
                     </div>
                     <h3 class="heading"><a href="#">
                       아파트 주차장 구석에서 경비원님의 제보로 어미도 없이 구조된 아깽이입니다.
