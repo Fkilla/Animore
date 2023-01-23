@@ -4,47 +4,56 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <%@include file="../includes/header.jsp"%>
 
-<div class="container">
-	<div class="row">
-		<div class="col-lg-12">
-			<h1 class="page-header">글쓰기</h1>
-		</div>
-	</div>
-	<table class="table table-bordered table-hover table-condensed">
-		<div class="row">
-			<div class="col-lg-12">
-				<div class="panel panel-default">
-					<div class="panel-heading"></div>
-					<div class="panel-body">
-						<form role="form" action="/customerService/register" method="post">
-							<div class="form-group">
-								<label>제목</label> <input class="form-control" name="title" />
-							</div>
-
-							<div class="form-group">
-								<label>내용</label>
-								<textarea class="form-control" row="10" name="content"></textarea>
-							</div>
-
-							<div class="form-group">
-								<label>비밀번호</label> <input class="form-control" name="writer" />
-							</div>
-							
-							<div class="form-group">
-								<label>비밀글</label> <input type="checkbox"/>
-							</div>				
-										
-							<button type="submit" class="btn btn-outline-dark">등록</button>
-							<button type="reset" class="btn btn-outline-dark">새로작성</button>
-							<button type="submit" class="btn btn-outline-dark">
-								<a href="/customerService/notice">목록</a>
-							</button>
-						</form>
-					</div>
-				</div>
+<section class="ftco-section" style="font-family: 'NanumSquareNeo';">
+	<div class="overlay"></div>
+	<div class="container">
+		<div class="row justify-content-center pb-5 mb-3">
+			<div class="col-md-7 heading-section text-center ftco-animate">
+				<span><img src="../images/edit.png"></span>
+				<h2>글쓰기</h2>
 			</div>
 		</div>
-	</table>
-</div>
+		
+		
+		<form role="form" style="color:black">
+			<div class="form-group">
+				<label for="title">제목</label> 
+				<input type="text" class="form-control" placeholder="제목을 입력해주세요.">
+			</div>
+			
+			<div class="form-group">
+				<label for="content">내용</label>
+				<textarea class="form-control" name="content" rows="14"
+					placeholder="내용을 입력해주세요."></textarea>
+			</div>
+        	
+			<div class="form-group">
+				<label for="formFileSm" class="form-label">파일첨부</label>
+				<input class="form-control" id="formFileSm" type="file">
+			</div>
+        	
+			<div class="form-group">
+				<label>비밀번호</label> <input class="form-control" name="password" placeholder="게시글에 사용할 비밀번호를 입력하세요."/>
+			</div>
+
+			<div class="form-group">
+				<label>비밀글</label> <input type="checkbox" />
+			</div>
+        	
+			<button type="submit" class="btn btn-outline-primary">등록</button>
+			<button type="reset" class="btn btn-outline-dark">새로작성</button>
+			<button id="listBtn" type="button" class="btn btn-outline-dark">목록</button>
+		</form>
+	</div>
+</section>
+
+
+<script type="text/javascript">
+$(function() {
+	$("#listBtn").on("click", function() {
+		self.location = "/customerService/notice";
+	});
+});
+</script>
 
 <%@include file="../includes/footer.jsp"%>

@@ -43,6 +43,13 @@ public class CustomerController {
 		return "redirect:/customerService/notice";
 	}
 	
+	// 글 상세보기
+	@GetMapping("/get")
+	public String get() {
+		log.info("get...");
+		return "/customerService/get";
+	}
+	
 	// 자주하는 질문 전체 목록 보여주기
 	@GetMapping("/faq")
 	public String faq() {
@@ -57,6 +64,7 @@ public class CustomerController {
 		return "/customerService/qna";
 	}
 
+	
 	
 	
 

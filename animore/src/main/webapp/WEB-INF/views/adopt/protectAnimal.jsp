@@ -2,19 +2,36 @@
     pageEncoding="UTF-8"%>
 <%@include file="../includes/header.jsp"%>
 
+
+    <section class="hero-wrap hero-wrap-2" style="background-image: url('../images/bg_2.jpg');" data-stellar-background-ratio="0.5">
+      <div class="overlay"></div>
+      <div class="container" style="font-family: 'NanumSquareNeo';">
+        <div class="row no-gutters slider-text align-items-end">
+          <div class="col-md-9 ftco-animate pb-5">
+             <p class="breadcrumbs mb-2"><span class="mr-2"><a href="/index">Home <i class="ion-ios-arrow-forward"></i></a></span> <span>입양하기 <i class="ion-ios-arrow-forward"></i></span></p> 
+            <h1 class="mb-0 bread" style="font-family: 'NanumSquareNeo';">입양신청</h1>
+            <br>
+            <p class="breadcrumbs mb-2"><span class="mr-2"><a href="/adopt/protectAnimal">입양신청<i class="ion-ios-arrow-forward"></i></a></span>
+               <span class="mr-2"><a href="/adopt/procedure">입양절차<i class="ion-ios-arrow-forward"></i></a></span>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    
 <section class="ftco-section" style="font-family: 'NanumSquareNeo';">
 	<div class="overlay"></div>
 	<div class="container">
 		<div class="row justify-content-center pb-5 mb-3">
 			<div class="col-md-7 heading-section text-center ftco-animate">
 				<span><img src="../images/pet-care.png"></span>
-				<h2>입양하기</h2>
+				<h2>입양신청</h2>
 			</div>
 		</div>
 
 		<!-- 보호동물목록 -->
 		<div class="row d-flex">
-
 			<div class="col-md-4 d-flex ftco-animate">
 				<div class="blog-entry align-self-stretch">
 					<a class="block-20 rounded"
