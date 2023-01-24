@@ -50,47 +50,37 @@
 							<th>번호</th>
 							<th>제목</th>
 							<th>작성자</th>
+							<th>조회수</th>
 							<th>작성일</th>
 						</tr>
 
-						<c:forEach items="${customer}" var="board">
-							<tr align="center">
-								<td><c:out value="${board.bno}" /></td>
-								<td><a href='<c:out value="${board.bno}"/>'> <c:out
-											value="${board.title}" />
-								</a></td>
-								<td><c:out value="${board.writer}" /></td>
-								<td><fmt:formatDate pattern="yyyy-MM-dd"
-										value="${board.regdate}" /></td>
-							</tr>
-						</c:forEach>
+						<tr align="center">
+							<td>3</td>
+							<td>유기동물 입양 후 필요한 용품들은? 애니모어몰에서 만나보세요! ★첫 구매시 50% 할인 쿠폰 증정★</td>
+							<td>애니모어센터</td>
+							<td>31</td>
+							<td>2023.01.24</td>
+						</tr>
+						<tr align="center">
+							<td>2</td>
+							<td>설 연휴기간 배송 지연 안내</td>
+							<td>애니모어센터</td>
+							<td>29</td>
+							<td>2023.01.22</td>
+						</tr>
+						<tr align="center">
+							<td>1</td>
+							<td>포인핸드 공식 홈페이지 오픈 준비중입니다 :)</td>
+							<td>애니모어센터</td>
+							<td>48</td>
+							<td>2023.01.01</td>
+						</tr>
 					</table>
-					<button id='regBtn' type="button"
-						class="btn btn-outline-dark pull-right">작성하기</button>
-				</div>
-
-				<div class='row'>
-					<div class="col-log-12">
-						<form id='searchForm' action="/customerService/notice"
-							method='get'>
-							<select name='type'>
-								<option>선택</option>
-								<option>제목</option>
-								<option>작성자</option>
-								<option>내용</option>
-							</select> <input type='text' name='keyword' /> <input type='hidden'
-								name='pageNum' value='<c:out value="${pageMaker.cri.pageNum}"/>' />
-							<input type='hidden' name='amount'
-								value='<c:out value="${pageMaker.cri.amount}"/>' />
-							<button class='btn btn-default'>Search</button>
-						</form>
-					</div>
 				</div>
 			</div>
 		</div>
 	</div>
 	<br>
-
 
 	<div class="row mt-5">
 		<div class="col text-center">
@@ -103,11 +93,6 @@
 					<li><a href="#">3</a></li>
 					<li><a href="#">4</a></li>
 					<li><a href="#">5</a></li>
-					<li><a href="#">6</a></li>
-					<li><a href="#">7</a></li>
-					<li><a href="#">8</a></li>
-					<li><a href="#">9</a></li>
-					<li><a href="#">10</a></li>
 					<li><a href="#">&gt;</a></li>
 					<li><a href="#">&gt;&gt;</a></li>
 				</ul>

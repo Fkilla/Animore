@@ -10,7 +10,7 @@
         <div class="row no-gutters slider-text align-items-end">
           <div class="col-md-9 ftco-animate pb-5">
              <p class="breadcrumbs mb-2"><span class="mr-2"><a href="/index">Home <i class="ion-ios-arrow-forward"></i></a></span> <span>고객센터<i class="ion-ios-arrow-forward"></i></span></p> 
-            <h1 class="mb-0 bread" style="font-family: 'NanumSquareNeo';">문의사항</h1>
+            <h1 class="mb-0 bread" style="font-family: 'NanumSquareNeo';">문의하기</h1>
             <br>
             <p class="breadcrumbs mb-2">
                <span class="mr-2"><a href="/customerService/notice">공지사항<i class="ion-ios-arrow-forward"></i></a></span>
@@ -32,7 +32,7 @@
 				<div class="row justify-content-center pb-5 mb-3">
 					<div class="col-md-7 heading-section text-center ftco-animate">
 						<span><img src="../images/chat.png"></span>
-						<h2>문의사항</h2>
+						<h2>문의하기</h2>
 					</div>
 				</div>
 
@@ -86,6 +86,27 @@
 		</div>
 	</div>
 	
+	<div class='row'>
+		<div class="col text-center">
+			<form id='searchForm' action="/customerService/qna" method='get'>
+				<select name='type'>
+					<option>선택</option>
+					<option>제목</option>
+					<option>작성자</option>
+					<option>내용</option>
+					<option value="TC">제목+내용</option>
+					<option value="TW">제목+작성자</option>
+					<option value="TWC">제목+내용+작성자</option>
+				</select> <input type='text' name='keyword' /> <input type='hidden'
+					name='pageNum' value='<c:out value="${pageMaker.cri.pageNum}"/>' />
+				<input type='hidden' name='amount'
+					value='<c:out value="${pageMaker.cri.amount}"/>' />
+				<button class='btn btn-default btn-xs'><i class="fa fa-search" aria-hidden="true"></i>검색하기</button>
+			</form>
+		</div>
+	</div>	
+	
+	
 	<div class="row mt-5">
 		<div class="col text-center">
 			<div class="block-27">
@@ -97,11 +118,6 @@
 					<li><a href="#">3</a></li>
 					<li><a href="#">4</a></li>
 					<li><a href="#">5</a></li>
-					<li><a href="#">6</a></li>
-					<li><a href="#">7</a></li>
-					<li><a href="#">8</a></li>
-					<li><a href="#">9</a></li>
-					<li><a href="#">10</a></li>
 					<li><a href="#">&gt;</a></li>
 					<li><a href="#">&gt;&gt;</a></li>
 				</ul>

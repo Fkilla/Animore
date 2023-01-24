@@ -66,7 +66,6 @@
 							<td>2023.01.20</td>
 						</tr>
 					</table>
-					<button id='regBtn' type="button" class="btn btn-outline-dark pull-right">글쓰기</button>
 				</div>
 			</div>
 		</div>
@@ -83,11 +82,6 @@
 					<li><a href="#">3</a></li>
 					<li><a href="#">4</a></li>
 					<li><a href="#">5</a></li>
-					<li><a href="#">6</a></li>
-					<li><a href="#">7</a></li>
-					<li><a href="#">8</a></li>
-					<li><a href="#">9</a></li>
-					<li><a href="#">10</a></li>
 					<li><a href="#">&gt;</a></li>
 					<li><a href="#">&gt;&gt;</a></li>
 				</ul>
