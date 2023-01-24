@@ -34,9 +34,10 @@
 		<div class="row d-flex">
 			<div class="col-md-12 d-flex ftco-animate">
 				<div class="blog-entry align-self-stretch">
-					<a class="block-20 rounded"
+					<!-- <a class="block-20 rounded"
 						style="background-image: url('../images/any-dog2.jpg');
-								height:600px;"></a>
+								height:600px;"></a> -->
+					<img style="weight: 1080px; height: 720px" src="../images/any-dog2.jpg" class="img-fluid rounded" /> 
 					<div class="text p-4" >
 							<div class="meta mb-4" style="color: black">
 								<h5>공고번호 : 231</h5>

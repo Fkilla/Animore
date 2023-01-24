@@ -39,7 +39,7 @@
 						<h3 class="heading">1. 공고확인</h3>
 						<br>
 						<p>애니모어센터에서 보호중인 아이들의 공고를 확인 해주세요.</p>
-						<a href="#"
+						<a 
 							class="btn-custom d-flex align-items-center justify-content-center"><span
 							class="fa fa-chevron-right"></span><i class="sr-only">Read
 								more</i></a>
@@ -59,54 +59,52 @@
 						<p>입양을 원하는 아이를 대상으로 입양 상담이 진행되며
 						<br>
 						아이에 대한 정보를 안내해 드려요.</p>
-						<a href="#"
+						<a 
 							class="btn-custom d-flex align-items-center justify-content-center"><span
 							class="fa fa-chevron-right"></span><i class="sr-only">Read
 								more</i></a>
 					</div>
 				</div>
 			</div>
+		</div>
 			
 
-			
-			<div class="col-md-6 d-flex align-self-stretch px-4 ftco-animate">
-				<div class="d-block services text-center">
-					<div class="icon d-flex align-items-center justify-content-center">
-						<span><img src="../images/hotel1.png"></span>
+			<div class="row" style="margin-top: 50px; padding-top: 50px">
+				<div class="col-md-6 d-flex align-self-stretch px-4 ftco-animate">
+					<div class="d-block services text-center">
+						<div class="icon d-flex align-items-center justify-content-center">
+							<span><img src="../images/hotel1.png"></span>
+						</div>
+						<div class="media-body p-4">
+							<h3 class="heading">3. 보호소방문</h3>
+							<br>
+							<p>보호소에 직접 방문하여 보호중인 아이를 만나보세요.</p>
+							<a 
+								class="btn-custom d-flex align-items-center justify-content-center"><span
+								class="fa fa-chevron-right"></span><i class="sr-only">Read
+									more</i></a>
+						</div>
 					</div>
-					<div class="media-body p-4">
-						<h3 class="heading">3. 보호소방문</h3>
-						<br>
-						<p>보호소에 직접 방문하여 보호중인 아이를 만나보세요.</p>
-						<a href="#"
-							class="btn-custom d-flex align-items-center justify-content-center"><span
-							class="fa fa-chevron-right"></span><i class="sr-only">Read
-								more</i></a>
+				</div>
+			
+			
+				<div class="col-md-6 d-flex align-self-stretch px-4 ftco-animate">
+					<div class="d-block services text-center">
+						<div class="icon d-flex align-items-center justify-content-center">
+							<span><img src="../images/story1.png"></span>
+						</div>
+						<div class="media-body p-4">
+								<h3 class="heading">4. 입양신청서 작성</h3>
+								<br>
+								<p>모바일로 입양신청서를 작성해주시면 일주일 이내로 연락드립니다.</p>
+								<a 
+									class="btn-custom d-flex align-items-center justify-content-center"><span
+									class="fa fa-chevron-right"></span><i class="sr-only">Read
+										more</i></a>
+						</div>
 					</div>
 				</div>
 			</div>
-			
-			
-			<div class="col-md-6 d-flex align-self-stretch px-4 ftco-animate">
-				<div class="d-block services text-center">
-					<div class="icon d-flex align-items-center justify-content-center">
-						<span><img src="../images/story1.png"></span>
-					</div>
-					<div class="media-body p-4">
-						<h3 class="heading">4. 입양신청서 작성</h3>
-						<br>
-						<p>모바일로 입양신청서를 작성해주시면 일주일 이내로 연락드립니다.</p>
-						<a href="#"
-							class="btn-custom d-flex align-items-center justify-content-center"><span
-							class="fa fa-chevron-right"></span><i class="sr-only">Read
-								more</i></a>
-					</div>
-				</div>
-			</div>
-			
-			
-			
-		</div>
 	</div>
 </section>
 

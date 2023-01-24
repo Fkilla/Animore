@@ -15,11 +15,12 @@
 
 		<div class="row d-flex">
 			<div class="col-md-4 d-flex ftco-animate">
-				<div class="blog-entry align-self-stretch">
-					<a class="block-20 rounded"
-						style="background-image: url('../images/any-dog2.jpg');"> </a>
-					<div class="text p-4" style="width: 349.99px">
-						<a href="/adopt/animalDetails">
+				<div class="blog-entry align-self-stretch" onclick="location.href='/adopt/animalDetails'")>
+					<!-- onclick="location.href='원하는 요청 링크'" -->
+					<!-- <a class="block-20 rounded"
+						style="background-image: url('../images/any-dog2.jpg');"> </a> -->
+						<img src="../images/any-dog2.jpg" class="img-fluid rounded"/>
+					<div class="text p-4">
 							<div class="meta mb-2" style="color: black">
 								<div class="myfont14">공고번호 : 231</div>
 								<br />
@@ -36,18 +37,17 @@
 								<div class="myfont14">안락사까지 남은 기간 : 20일</div>
 								<br />
 							</div>
-						</a>
 					</div>
 				</div>
 			</div>
 
 
 			<div class="col-md-4 d-flex ftco-animate">
-				<div class="blog-entry align-self-stretch">
-					<a href="#" class="block-20 rounded"
-						style="background-image: url('../images/any-dog1.jpg');"> </a>
-					<div class="text p-4" style="width: 349.99px">
-						<a href="#">
+				<div class="blog-entry align-self-stretch" onclick="location.href='/adopt/animalDetails'">
+<!-- 					<a href="#" class="block-20 rounded"
+						style="background-image: url('../images/any-dog1.jpg');"> </a> -->
+						<img src="../images/any-dog1.jpg" class="img-fluid rounded"/>
+					<div class="text p-4">
 							<div class="meta mb-2" style="color: black">
 								<div class="myfont14">공고번호 : 230</div>
 								<br />
@@ -64,18 +64,17 @@
 								<div class="myfont14">안락사까지 남은 기간 : 40일</div>
 								<br />
 							</div>
-						</a>
 					</div>
 				</div>
 			</div>
 
 
 			<div class="col-md-4 d-flex ftco-animate">
-				<div class="blog-entry align-self-stretch">
-					<a href="#" class="block-20 rounded"
-						style="background-image: url('../images/any-dog3.jpg');"> </a>
-					<div class="text p-4" style="width: 349.99px">
-						<a href="#">
+				<div class="blog-entry align-self-stretch" onclick="location.href='/adopt/animalDetails'">
+<!-- 					<a href="#" class="block-20 rounded"
+						style="background-image: url('../images/any-dog3.jpg');"> </a> -->
+						<img src="../images/any-dog3.jpg" class="img-fluid rounded"/>
+					<div class="text p-4">
 							<div class="meta mb-2" style="color: black">
 								<div class="myfont14">공고번호 : 230</div>
 								<br />
@@ -92,7 +91,6 @@
 								<div class="myfont14">안락사까지 남은 기간 : 50일</div>
 								<br />
 							</div>
-						</a>
 					</div>
 				</div>
 			</div>
