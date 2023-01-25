@@ -22,7 +22,7 @@
 
 
 
-<section class="ftco-section" style="font-family: 'NanumSquareNeo';"
+<section class="ftco-section" style="font-family: 'NanumSquareNeo'; color:black;"
 	align="center">
 	<div class="overlay"></div>
 	<div class="container">
@@ -33,8 +33,7 @@
 			</div>
 		</div>
 
-
-		<form style="color:black">
+		<form>
 			<h3>신청서는 최대한 자세하게 적어주셔야 입양에 유리합니다.</h3>
 			<br />
 			<hr />

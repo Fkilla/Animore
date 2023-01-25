@@ -13,7 +13,7 @@
 			<div>
 				<h5>개인정보</h5>
 				<p>개인정보 수정</p>
-				<p>나의 찜 목록 확인</p>
+				<p><a href="/myPage/myZzim">나의 찜 목록 확인</a></p>
 			</div>
 			<div>
 				<h5>쇼핑</h5>
@@ -46,7 +46,7 @@
 							<div class="meta mb-2" style="color: black">
 								<div class="myfont14">공고번호 : 231</div>
 								<br />
-								<div class="myfont14">이름 : 두부</div>
+								<div class="myfont14">이름 : 아람</div>
 								<br />
 								<div class="myfont14">나이 : 3살</div>
 								<br />

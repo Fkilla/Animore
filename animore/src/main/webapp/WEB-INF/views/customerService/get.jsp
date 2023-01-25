@@ -3,7 +3,7 @@
 <%@include file="../includes/header.jsp"%>
 
 <section class="ftco-section ftco-degree-bg"
-	style="font-family: 'NanumSquareNeo';">
+	style="color: black; font-family: 'NanumSquareNeo';">
 	<div class="container">
 		<div class="row">
 			<div class="col-md-12">제목&nbsp; 값 불러올 곳</div>
@@ -33,7 +33,7 @@
 </section>
 
 <section class="card bg-light col-lg-12"
-	style="font-family: 'NanumSquareNeo';">
+	style="color: black; font-family: 'NanumSquareNeo';">
 
 	<div class="panel-heading">
 		<i class="fa fa-comments fa-fw"></i> 댓글

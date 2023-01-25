@@ -41,7 +41,7 @@
 					<div class="text p-4" >
 							<div class="meta mb-4" style="color: black">
 								<h5>공고번호 : 231</h5>
-								<h5>이름 : 두부</h5>
+								<h5>이름 : 아람</h5>
 								<h5>나이 : 3살</h5>
 								<h5>성별 : 여아 </h5>
 								<h5>품종 : 비숑 </h5>

@@ -42,23 +42,5 @@ public class AdoptController {
 	public void animalform() {
 		log.info("animalform...");
 	}
-	
-	// 나의 찜 목록 보기
-	@GetMapping("/myZzim")
-	public void zzim() {
-		log.info("myZzim...");
-	}
-	
-	// 나의 구매 내역 보기
-	@GetMapping("/orderlist")
-	public void orderlist() {
-		log.info("orderlist...");
-	}
-	
-	// 장바구니
-	@GetMapping("/cart")
-	public void cart() {
-		log.info("cart...");
-	}	
 
 }

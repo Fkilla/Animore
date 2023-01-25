@@ -56,10 +56,10 @@
 					onclick="location.href='/adopt/animalDetails'">
 					<img src="../images/any-dog2.jpg" class="img-fluid rounded" />
 					<div class="text p-4 col text-center" >
-						<div class="meta mb-2" style="color: black">
+						<div class="meta mb-2">
 							<div class="myfont14">공고번호 : 231</div>
 							<br />
-							<div class="myfont14">이름 : 두부</div>
+							<div class="myfont14">이름 : 아람</div>
 							<br />
 							<div class="myfont14">나이 : 3살</div>
 							<br />
@@ -82,7 +82,7 @@
 					onclick="location.href='/adopt/animalDetails'">
 					<img src="../images/any-dog1.jpg" class="img-fluid rounded" />
 					<div class="text p-4 col text-center">
-						<div class="meta mb-2" style="color: black">
+						<div class="meta mb-2">
 							<div class="myfont14">공고번호 : 230</div>
 							<br />
 							<div class="myfont14">이름 : 흰별이</div>
@@ -134,7 +134,7 @@
 					onclick="location.href='/adopt/animalDetails'">
 					<img src="../images/any-cat1.jpg" class="img-fluid rounded" />
 					<div class="text p-4 col text-center">
-						<div class="meta mb-2" style="color: black">
+						<div class="meta mb-2">
 							<div class="myfont14">공고번호 : 229</div>
 							<br />
 							<div class="myfont14">이름 : 치즈</div>
@@ -160,7 +160,7 @@
 					onclick="location.href='/adopt/animalDetails'">
 					<img src="../images/any-cat2.jpg" class="img-fluid rounded" />
 					<div class="text p-4 col text-center">
-						<div class="meta mb-2" style="color: black">
+						<div class="meta mb-2">
 							<div class="myfont14">공고번호 : 228</div>
 							<br />
 							<div class="myfont14">이름 : 왕자</div>
@@ -186,7 +186,7 @@
 					onclick="location.href='/adopt/animalDetails'">
 					<img src="../images/any-cat3.jpg" class="img-fluid rounded" />
 					<div class="text p-4 col text-center">
-						<div class="meta mb-2" style="color: black">
+						<div class="meta mb-2">
 							<div class="myfont14">공고번호 : 227</div>
 							<br />
 							<div class="myfont14">이름 : 호두</div>
