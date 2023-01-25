@@ -27,7 +27,7 @@
 ■ 수집하는 개인정보 항목 - 센터는 수집한 개인정보를 다음의 목적을 위해 활용합니다. 이용자의 식별을 위한 필수 정보 : 성함,연락처,주소,생년월일
 ■ 개인정보의 보유 및 이용기간
 회사는 이용자 자격을 유지하고 있는 동안 수집된 이용자의 개인 정보를 보유,이용 할 수 있으며 탈퇴하거나 자격을 상실할 경우에는 이용자의 별도 요청이 없더라도 수집된 회원 정보를 삭제 및 파기합니다. 단, 회사 내부의 방침이나 관계 법령의 규정 등에 의하여 보존할 필요가 있는 경우 회사는 아래와 같이 일정한 기간 동안 회원정보를 보관하며 이용자의 처리정지, 삭제 요구권의 대상이 되지 아니합니다.</textarea>
-			<br> <label><input id="check" type="checkbox" />
+			<br> <label><input name="check" type="checkbox" />
 				&nbsp;동의</label>
 			<hr />
 
@@ -37,21 +37,21 @@
 			<div class="row mb-2">
 				<label for="number" class="col-sm-4 col-form-label">공고번호</label>
 				<div class="col-sm-7">
-					<input type="text" class="form-control" id="number"
+					<input type="text" class="form-control" name="number"
 						placeholder="공고번호" />
 				</div>
 			</div>
 			<div class="row mb-2">
 				<label for="name" class="col-sm-4 col-form-label">신청자 이름</label>
 				<div class="col-sm-7">
-					<input type="text" class="form-control" id="name" name="name"
+					<input type="text" class="form-control" name="name"
 						placeholder="신청자 이름" />
 				</div>
 			</div>
 			<div class="row mb-2">
 				<label for="phone" class="col-sm-4 col-form-label">신청자 연락처</label>
 				<div class="col-sm-7">
-					<input type="text" class="form-control" id="phone" name="phone"
+					<input type="text" class="form-control" name="phone"
 						placeholder="신청자 연락처" />
 				</div>
 			</div>
@@ -59,7 +59,7 @@
 				<label for="birthday" class="col-sm-4 col-form-label">신청자
 					생년월일</label>
 				<div class="col-sm-7">
-					<input type="text" class="form-control" id="birthday"
+					<input type="text" class="form-control" name="birthday"
 						placeholder="신청자 생년월일" />
 				</div>
 			</div>
@@ -67,7 +67,7 @@
 				<label for="residence" class="col-sm-4 col-form-label">신청자
 					거주지</label>
 				<div class="col-sm-7">
-					<input type="text" class="form-control" id="residence"
+					<input type="text" class="form-control" name="residence"
 						placeholder="신청자 거주지" />
 				</div>
 			</div>
@@ -75,7 +75,7 @@
 				<label for="famliy" class="col-sm-4 col-form-label">가족 구성원과
 					직업을 작성해주세요. </label>
 				<div class="col-sm-7">
-					<input type="text" class="form-control" id="famliy" />
+					<input type="text" class="form-control" name="famliy" />
 				</div>
 			</div>
 			<div class="row mb-2">
@@ -136,7 +136,7 @@
 				<label for="reasons" class="col-sm-4 col-form-label">유기동물을
 					입양하고 싶은 이유를 작성해주세요.</label>
 				<div class="col-sm-7">
-					<textarea id="reasons" spellcheck="false"
+					<textarea name="reasons" spellcheck="false"
 				style="width: 100%; height: 100px; resize: none;" > </textarea>
 				</div>
 			</div>

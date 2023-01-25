@@ -53,7 +53,7 @@
 		<div class="row d-flex">
 			<div class="col-md-4 d-flex ftco-animate" id="animalList">
 				<div class="blog-entry align-self-stretch"
-					onclick="location.href='/adopt/animalDetails'">
+					onclick="location.href='/adopt/animalDetails'" style="cursor:pointer;">
 					<img src="../images/any-dog2.jpg" class="img-fluid rounded" />
 					<div class="text p-4 col text-center" >
 						<div class="meta mb-2">
@@ -79,7 +79,7 @@
 
 			<div class="col-md-4 d-flex ftco-animate" id="animalList">
 				<div class="blog-entry align-self-stretch"
-					onclick="location.href='/adopt/animalDetails'">
+					onclick="location.href='/adopt/animalDetails'" style="cursor:pointer;">
 					<img src="../images/any-dog1.jpg" class="img-fluid rounded" />
 					<div class="text p-4 col text-center">
 						<div class="meta mb-2">
@@ -105,7 +105,7 @@
 
 			<div class="col-md-4 d-flex ftco-animate" id="animalList">
 				<div class="blog-entry align-self-stretch"
-					onclick="location.href='/adopt/animalDetails'">
+					onclick="location.href='/adopt/animalDetails'" style="cursor:pointer;">
 					<img src="../images/any-dog3.jpg" class="img-fluid rounded" />
 					<div class="text p-4 col text-center">
 						<div class="meta mb-2" style="color: black">
@@ -131,7 +131,7 @@
 
 			<div class="col-md-4 d-flex ftco-animate" id="animalList">
 				<div class="blog-entry align-self-stretch"
-					onclick="location.href='/adopt/animalDetails'">
+					onclick="location.href='/adopt/animalDetails'" style="cursor:pointer;">
 					<img src="../images/any-cat1.jpg" class="img-fluid rounded" />
 					<div class="text p-4 col text-center">
 						<div class="meta mb-2">
@@ -157,7 +157,7 @@
 
 			<div class="col-md-4 d-flex ftco-animate" id="animalList">
 				<div class="blog-entry align-self-stretch"
-					onclick="location.href='/adopt/animalDetails'">
+					onclick="location.href='/adopt/animalDetails'" style="cursor:pointer;">
 					<img src="../images/any-cat2.jpg" class="img-fluid rounded" />
 					<div class="text p-4 col text-center">
 						<div class="meta mb-2">
@@ -183,7 +183,7 @@
 
 			<div class="col-md-4 d-flex ftco-animate" id="animalList">
 				<div class="blog-entry align-self-stretch"
-					onclick="location.href='/adopt/animalDetails'">
+					onclick="location.href='/adopt/animalDetails'" style="cursor:pointer;">
 					<img src="../images/any-cat3.jpg" class="img-fluid rounded" />
 					<div class="text p-4 col text-center">
 						<div class="meta mb-2">

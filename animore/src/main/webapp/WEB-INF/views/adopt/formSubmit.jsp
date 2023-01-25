@@ -88,7 +88,7 @@
 				</tr>						
 			</table>
 		</div>
-		<button type="button" class="btn btn-outline-secondary">확인</button>
+		<button class="btn btn-outline-secondary" onclick="location.href='/index'">확인</button>
 
 
 
