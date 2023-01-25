@@ -2,6 +2,7 @@ package com.zerock.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import lombok.AllArgsConstructor;
@@ -37,10 +38,17 @@ public class AdoptController {
 		log.info("checklist...");
 	}
 	
-	// 입양신청 폼
+	// 입양신청서 폼
 	@GetMapping("/animalform")
 	public void animalform() {
 		log.info("animalform...");
+	}
+	
+	// 입양신청서 제출완료 페이지
+	@PostMapping("/formSubmit")
+	public void formSubmit() {
+		log.info("formSubmit...");
+		
 	}
 
 }

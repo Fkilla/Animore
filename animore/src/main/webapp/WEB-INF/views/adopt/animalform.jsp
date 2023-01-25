@@ -4,24 +4,6 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <%@include file="../includes/header.jsp"%>
 
-    <section class="hero-wrap hero-wrap-2" style="background-image: url('../images/bg_2.jpg');" data-stellar-background-ratio="0.5">
-      <div class="overlay"></div>
-      <div class="container" style="font-family: 'NanumSquareNeo';">
-        <div class="row no-gutters slider-text align-items-end">
-          <div class="col-md-9 ftco-animate pb-5">
-             <p class="breadcrumbs mb-2"><span class="mr-2"><a href="/index">Home <i class="ion-ios-arrow-forward"></i></a></span> <span>입양하기 <i class="ion-ios-arrow-forward"></i></span></p> 
-            <h1 class="mb-0 bread" style="font-family: 'NanumSquareNeo';">입양신청서</h1>
-            <br>
-            <p class="breadcrumbs mb-2"><span class="mr-2"><a href="/adopt/protectAnimal">입양신청<i class="ion-ios-arrow-forward"></i></a></span>
-               <span class="mr-2"><a href="/adopt/procedure">입양절차<i class="ion-ios-arrow-forward"></i></a></span>
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-
-
 <section class="ftco-section" style="font-family: 'NanumSquareNeo'; color:black;"
 	align="center">
 	<div class="overlay"></div>
@@ -33,7 +15,7 @@
 			</div>
 		</div>
 
-		<form>
+		<form action="/adopt/formSubmit" method="post">
 			<h3>신청서는 최대한 자세하게 적어주셔야 입양에 유리합니다.</h3>
 			<br />
 			<hr />
@@ -62,14 +44,14 @@
 			<div class="row mb-2">
 				<label for="name" class="col-sm-4 col-form-label">신청자 이름</label>
 				<div class="col-sm-7">
-					<input type="text" class="form-control" id="name"
+					<input type="text" class="form-control" id="name" name="name"
 						placeholder="신청자 이름" />
 				</div>
 			</div>
 			<div class="row mb-2">
 				<label for="phone" class="col-sm-4 col-form-label">신청자 연락처</label>
 				<div class="col-sm-7">
-					<input type="text" class="form-control" id="phone"
+					<input type="text" class="form-control" id="phone" name="phone"
 						placeholder="신청자 연락처" />
 				</div>
 			</div>
@@ -105,7 +87,7 @@
 				</div>
 			</div>
 			<div class="row mb-2">
-				<label for="check2" class="col-sm-4 col-form-label">가족 중에
+				<label for="check2" class="col-sm-4 col-form-label">가족 중
 					동물에 의한 알레르기가 있는 사람이 있나요?</label>
 				<div class="col-sm-7">
 					<input type="radio" name="check2" value="예"/> 예 
@@ -163,11 +145,11 @@
 			<br />
 
 			<h5>위 질문에 거짓 없이 사실만을 기록 하였습니까?</h5>
-			<label><input id="check" type="checkbox" /> &nbsp; 사실만 기록했습니다.</label> 
+			<label><input id="check2" type="checkbox" /> &nbsp; 사실만 기록했습니다.</label> 
 			<br /><br />
 			<button type="reset" class="btn btn-outline-secondary">새로작성</button>
-			<button type="submit" class="btn btn-outline-primary">제출하기</button>
-			<button id="cancelBtn"type="button" class="btn btn-outline-danger">취소</button>
+			<button id="submitBtn" type="submit" class="btn btn-outline-primary">제출하기</button>
+			<button id="cancelBtn" type="button" class="btn btn-outline-danger">취소</button>
 		</form>
 
 	</div>
@@ -182,6 +164,8 @@ $(function() {
 		self.location = "/adopt/protectAnimal";
 	});
 });
+
+
 </script>
 
 <%@include file="../includes/footer.jsp"%>

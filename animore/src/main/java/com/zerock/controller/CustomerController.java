@@ -50,14 +50,14 @@ public class CustomerController {
 		return "/customerService/get";
 	}
 	
-	// 자주하는 질문 전체 목록 보여주기
+	// 자주하는 질문(faq) 전체 목록 보여주기
 	@GetMapping("/faq")
 	public String faq() {
 		
 		return "/customerService/faq";
 	}
 	
-	// qna 게시판
+	// 문의하기(qna) 게시판
 	@GetMapping("/qna")
 	public String qna() {
 		
