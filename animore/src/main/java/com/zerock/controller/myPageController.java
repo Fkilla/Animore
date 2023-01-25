@@ -11,7 +11,7 @@ import lombok.extern.log4j.Log4j;
 @AllArgsConstructor
 @Log4j
 @RequestMapping("/myPage/*")
-public class ZzimController {
+public class myPageController {
 
 	// 나의 찜 목록 보기
 	@GetMapping("/myZzim")

@@ -13,7 +13,7 @@ import lombok.extern.log4j.Log4j;
 @RequestMapping("/adopt/*")
 public class AdoptController {
 	
-	// 입양신청
+	// 입양 신청
 	@GetMapping("/protectAnimal")
 	public void protectAnimal() {
 		log.info("protectAnimal...");
