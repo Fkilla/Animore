@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+	<%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@include file="./includes/header.jsp"%>
 
@@ -9,7 +9,7 @@
           <div class="col-md-11 ftco-animate text-center">
           	<h1 class="mb-4">Adopt Animals, Adopt Family</h1>
             <h3 class="mb-4" style="font-family: 'NanumSquareNeo';">애니모어는 사지 않고 입양하는 문화를 만듭니다.</h3>
-            <p><a href="#" class="btn btn-primary mr-md-4 py-3 px-4" >입양하기<span class="ion-ios-arrow-forward"></span></a></p>
+            <p><a href="#" class="btn btn-primary mr-md-4 py-3 px-4" style="font-family: 'NanumSquareNeo';">입양하기<span class="ion-ios-arrow-forward"></span></a></p>
           </div>
         </div>
       </div>
@@ -18,7 +18,7 @@
     <section class="ftco-section bg-light ftco-no-pt ftco-intro">
     	<div class="container" style="font-family: 'NanumSquareNeo';">
     		<div class="row">
-          <div class="col-md-4 d-flex align-self-stretch px-4 ftco-animate">
+          <div class="col-md-4 d-flex align-self-stretch px-4 ftco-animate" onclick="location.href='#'">
             <div class="d-block services text-center">
               <div class="icon d-flex align-items-center justify-content-center">
             		<!-- <span class="flaticon-blind"></span> -->
@@ -28,24 +28,22 @@
                 <h3 class="heading">동물병원 검색</h3>
                 <p>가까운 동물병원을 검색해보세요</p>
                 <p></p>
-                <a href="#" class="btn-custom d-flex align-items-center justify-content-center"><span class="fa fa-chevron-right"></span><i class="sr-only">Read more</i></a>
               </div>
             </div>      
           </div>
-          <div class="col-md-4 d-flex align-self-stretch px-4 ftco-animate">
+          <div class="col-md-4 d-flex align-self-stretch px-4 ftco-animate" onclick="location.href='#'">
             <div class="d-block services text-center">
               <div class="icon d-flex align-items-center justify-content-center">
             		<!-- <span class="flaticon-dog-eating"></span> -->
                 <img src="images/dog-in-front-of-a-man.png">
               </div>
               <div class="media-body">
-                <h3 class="heading">임시보호</h3>
-                <p>임시보호가 필요한 <br>아이들을 확인해보세요.</p>
-                <a href="#" class="btn-custom d-flex align-items-center justify-content-center"><span class="fa fa-chevron-right"></span><i class="sr-only">Read more</i></a>
+                <h3 class="heading">애니모어 몰</h3>
+                <p>애니모어만의 상품을 구매하고 <br>아이들에게 힘을 보태주세요.</p>
               </div>
             </div>    
           </div>
-          <div class="col-md-4 d-flex align-self-stretch px-4 ftco-animate">
+          <div class="col-md-4 d-flex align-self-stretch px-4 ftco-animate" onclick="location.href='#'">
             <div class="d-block services text-center">
               <div class="icon d-flex align-items-center justify-content-center">
             		<!-- <span class="flaticon-grooming"></span> -->
@@ -54,7 +52,6 @@
               <div class="media-body">
                 <h3 class="heading">공지사항</h3>
                 <p>애니모어팀에서 소식을 알립니다.</p>
-                <a href="#" class="btn-custom d-flex align-items-center justify-content-center"><span class="fa fa-chevron-right"></span><i class="sr-only">Read more</i></a>
               </div>
             </div>      
           </div>
@@ -113,13 +110,18 @@
 						  <div class="card">
 						    <div class="card-header p-0" id="headingOne">
 						      <h2 class="mb-0">
-						        <button href="#collapseOne" class="d-flex py-3 px-4 align-items-center justify-content-between btn btn-link" data-parent="#accordion" data-toggle="collapse" aria-expanded="true" aria-controls="collapseOne">
+						        <button href="#collapseOne" class="d-flex py-3 px-4 align-items-center justify-content-between btn btn-link" data-parent="#accordion" data-toggle="collapse" aria-expanded="false" aria-controls="collapseOne">
 						        	<p class="mb-0">애니모어 X 마하그리드 캠페인</p>
-						          <i class="fa" aria-hidden="true"></i>
+						          <i>
+						            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-search-heart" viewBox="0 0 16 16">
+									  <path d="M6.5 4.482c1.664-1.673 5.825 1.254 0 5.018-5.825-3.764-1.664-6.69 0-5.018Z"/>
+									  <path d="M13 6.5a6.471 6.471 0 0 1-1.258 3.844c.04.03.078.062.115.098l3.85 3.85a1 1 0 0 1-1.414 1.415l-3.85-3.85a1.007 1.007 0 0 1-.1-.115h.002A6.5 6.5 0 1 1 13 6.5ZM6.5 12a5.5 5.5 0 1 0 0-11 5.5 5.5 0 0 0 0 11Z"/>
+									</svg>
+								  </i>
 						        </button>
 						      </h2>
 						    </div>
-						    <div class="collapse show" id="collapseOne" role="tabpanel" aria-labelledby="headingOne">
+						    <div class="collapse" id="collapseOne" role="tabpanel" aria-labelledby="headingOne">
 						      <div class="card-body py-30 px-0">
                     <ul>
 						      		<li style="list-style:none; text-align:left; display:inline-blick; margin-right: 40px;" >애니모어와 패션 브랜드 마하그리드가 함께 하는 유기동물 입양 캠페인. 입양된 동물과 동물을 맞이하는 새로운 가족은 모두 유기동물 입양 문화에 긍정적인 영향을 미치는 ‘포지티브 인플루언서’라는 메시지를 담았습니다. 콜라보 컬렉션은 반팔 티셔츠, 반바지, 모자, 반려동물 의류, 이동 가방 등으로 구성되었으며, 제품 판매 수익금 일부는 유기동물을 위한 후원금으로 사용됩니다.</li>
@@ -134,7 +136,12 @@
 						      <h2 class="mb-0">
 						        <button href="#collapseTwo" class="d-flex py-3 px-4 align-items-center justify-content-between btn btn-link" data-parent="#accordion" data-toggle="collapse" aria-expanded="false" aria-controls="collapseTwo">
 						        	<p class="mb-0">유기동물 입양자를 위한 ‘애니모어샵’ 오픈</p>
-						          <i class="fa" aria-hidden="true"></i>
+						          <i>
+						            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-search-heart" viewBox="0 0 16 16">
+									  <path d="M6.5 4.482c1.664-1.673 5.825 1.254 0 5.018-5.825-3.764-1.664-6.69 0-5.018Z"/>
+									  <path d="M13 6.5a6.471 6.471 0 0 1-1.258 3.844c.04.03.078.062.115.098l3.85 3.85a1 1 0 0 1-1.414 1.415l-3.85-3.85a1.007 1.007 0 0 1-.1-.115h.002A6.5 6.5 0 1 1 13 6.5ZM6.5 12a5.5 5.5 0 1 0 0-11 5.5 5.5 0 0 0 0 11Z"/>
+									</svg>
+								  </i>
 						        </button>
 						      </h2>
 						    </div>
@@ -152,7 +159,12 @@
 						      <h2 class="mb-0">
 						        <button href="#collapseThree" class="d-flex py-3 px-4 align-items-center justify-content-between btn btn-link" data-parent="#accordion" data-toggle="collapse" aria-expanded="false" aria-controls="collapseThree">
 						        	<p class="mb-0">지디아 지하철 입양홍보 캠페인</p>
-						          <i class="fa" aria-hidden="true"></i>
+						          <i>
+						            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-search-heart" viewBox="0 0 16 16">
+									  <path d="M6.5 4.482c1.664-1.673 5.825 1.254 0 5.018-5.825-3.764-1.664-6.69 0-5.018Z"/>
+									  <path d="M13 6.5a6.471 6.471 0 0 1-1.258 3.844c.04.03.078.062.115.098l3.85 3.85a1 1 0 0 1-1.414 1.415l-3.85-3.85a1.007 1.007 0 0 1-.1-.115h.002A6.5 6.5 0 1 1 13 6.5ZM6.5 12a5.5 5.5 0 1 0 0-11 5.5 5.5 0 0 0 0 11Z"/>
+									</svg>
+								  </i>
 						        </button>
 						      </h2>
 						    </div>
@@ -170,7 +182,12 @@
 						      <h2 class="mb-0">
 						        <button href="#collapseFour" class="d-flex py-3 px-4 align-items-center justify-content-between btn btn-link" data-parent="#accordion" data-toggle="collapse" aria-expanded="false" aria-controls="collapseThree">
 						        	<p class="mb-0">애니모어 매거진 창간</p>
-						          <i class="fa" aria-hidden="true"></i>
+						          <i>
+						            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-search-heart" viewBox="0 0 16 16">
+									  <path d="M6.5 4.482c1.664-1.673 5.825 1.254 0 5.018-5.825-3.764-1.664-6.69 0-5.018Z"/>
+									  <path d="M13 6.5a6.471 6.471 0 0 1-1.258 3.844c.04.03.078.062.115.098l3.85 3.85a1 1 0 0 1-1.414 1.415l-3.85-3.85a1.007 1.007 0 0 1-.1-.115h.002A6.5 6.5 0 1 1 13 6.5ZM6.5 12a5.5 5.5 0 1 0 0-11 5.5 5.5 0 0 0 0 11Z"/>
+									</svg>
+								  </i>
 						        </button>
 						      </h2>
 						    </div>
