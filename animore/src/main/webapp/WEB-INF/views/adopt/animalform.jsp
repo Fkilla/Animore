@@ -15,7 +15,7 @@
 			</div>
 		</div>
 
-		<form action="/adopt/formSubmit" method="post">
+		<form name="frm" action="/adopt/formSubmit" method="post">
 			<h3>신청서는 최대한 자세하게 적어주셔야 입양에 유리합니다.</h3>
 			<br />
 			<hr />
@@ -27,7 +27,7 @@
 ■ 수집하는 개인정보 항목 - 센터는 수집한 개인정보를 다음의 목적을 위해 활용합니다. 이용자의 식별을 위한 필수 정보 : 성함,연락처,주소,생년월일
 ■ 개인정보의 보유 및 이용기간
 회사는 이용자 자격을 유지하고 있는 동안 수집된 이용자의 개인 정보를 보유,이용 할 수 있으며 탈퇴하거나 자격을 상실할 경우에는 이용자의 별도 요청이 없더라도 수집된 회원 정보를 삭제 및 파기합니다. 단, 회사 내부의 방침이나 관계 법령의 규정 등에 의하여 보존할 필요가 있는 경우 회사는 아래와 같이 일정한 기간 동안 회원정보를 보관하며 이용자의 처리정지, 삭제 요구권의 대상이 되지 아니합니다.</textarea>
-			<br> <label><input name="check" type="checkbox" />
+			<br> <label><input id="check" type="checkbox" />
 				&nbsp;동의</label>
 			<hr />
 
@@ -72,8 +72,7 @@
 				</div>
 			</div>
 			<div class="row mb-2">
-				<label for="famliy" class="col-sm-4 col-form-label">가족 구성원과
-					직업을 작성해주세요. </label>
+				<label for="famliy" class="col-sm-4 col-form-label">가족 구성원과 직업을 작성해주세요.</label>
 				<div class="col-sm-7">
 					<input type="text" class="form-control" name="famliy" />
 				</div>
@@ -157,12 +156,48 @@
 </section>
 
 
+<!-- 모달창 -->
+<div class="modal fade" id="exampleModal" tabindex="-1"
+	aria-labelledby="exampleModalLabel" aria-hidden="true" style="font-family: 'NanumSquareNeo';">
+	<div class="modal-dialog modal-dialog-centered text-center">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="exampleModalLabel">경고</h5>
+			</div>
+			<div class="modal-body">입력하지 않은 질문이 있습니다. 확인해주세요.</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+
 <script type="text/javascript">
 // 취소 버튼을 눌렀을 때
 $(function() {
 	$("#cancelBtn").on("click", function() {
 		self.location = "/adopt/protectAnimal";
 	});
+	
+ 	$("#submitBtn").on("click", function() {
+	    animalForm = document.frm;  
+	    if(!$("#check").is(':checked') || !$("#check2").is(':checked')) {
+			$("#exampleModal").modal("show");
+			return false;
+	    };
+  	    if(animalForm.number.value=="" || animalForm.name.value=="" || animalForm.phone.value=="" ||
+ 	    	animalForm.birthday.value=="" || animalForm.residence.value=="" || animalForm.famliy.value=="" ||
+ 	    	animalForm.check1.value=="" || animalForm.check2.value=="" || animalForm.check3.value=="" || 
+ 	    	animalForm.check4.value=="" || animalForm.check5.value=="" || animalForm.check6.value=="" || 
+ 	    	animalForm.reasons.value==""){
+	    	$("#exampleModal").modal("show");
+	       return false;
+    	};
+	}); 
+
+
+	
 });
 
 
