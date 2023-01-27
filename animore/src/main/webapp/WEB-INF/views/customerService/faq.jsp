@@ -50,27 +50,20 @@
 					<th>작성일</th>
 					<th>조회수</th>
 				</tr>
-				<tr>
-					<td>3</td>
-					<td>이미지 업로드가 안돼요.</td>
-					<td>애니모어센터</td>
-					<td>2023.01.20</td>
-					<td>5</td>
-				</tr>
-				<tr>
-					<td>2</td>
-					<td>후원은 어떻게 하나요.</td>
-					<td>애니모어센터</td>
-					<td>2023.01.20</td>
-					<td>9</td>
-				</tr>
-				<tr>
-					<td>1</td>
-					<td>게시판에 글은 어떻게 쓰나요.</td>
-					<td>애니모어센터</td>
-					<td>2023.01.20</td>
-					<td>24</td>
-				</tr>
+					<c:forEach items="${list}" var="board">
+						<tr>
+							<td><c:out value="${board.bno}" /></td>
+							<td><a class='move' href='<c:out value="${board.bno}"/>'>
+							<c:out value="${board.title}"/></a></td>
+							<td><c:out value="${board.id}" /></td>
+							<td><fmt:formatDate pattern="yyyy-MM-dd"
+									value="${board.regdate}" /></td>
+							<!-- <td><fmt:formatDate pattern="yyyy-MM-dd"
+									value="${board.updatedate}" /></td> -->
+							<td>1</td>
+						</tr>
+					</c:forEach>
+
 			</table>
 		</div>
 	</div>

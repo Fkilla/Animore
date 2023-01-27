@@ -15,21 +15,27 @@
 		</div>
 		
 		
-		<form role="form" style="color:black">
+		<form role="form" action="/customerService/register" method="post" style="color:black">
 			<div class="form-group">
-				<label for="title">제목</label> 
-				<input type="text" class="form-control" placeholder="제목을 입력해주세요.">
+				<label>제목</label> 
+				<input type="text" class="form-control" name="title" placeholder="제목을 입력해주세요.">
 			</div>
 			
 			<div class="form-group">
-				<label for="content">내용</label>
+				<label>작성자</label> 
+				<input type="text" class="form-control" name="id" placeholder="작성자를 입력해주세요.">
+			</div>
+			
+			<div class="form-group">
+				<label>내용</label>
 				<textarea class="form-control" name="content" rows="14"
 					placeholder="내용을 입력해주세요."></textarea>
 			</div>
-        	
+			
+       	
 			<div class="form-group">
-				<label for="formFileSm" class="form-label">파일첨부</label>
-				<input class="form-control" id="formFileSm" type="file">
+				<label class="form-label">파일첨부</label>
+				<input class="form-control" name="fileupload" type="file">
 			</div>
         	
 			<div class="form-group">
@@ -37,8 +43,8 @@
 			</div>
 
 			<div class="form-group">
-				<label>비밀글</label> <input type="checkbox" />
-			</div>
+				<label>비밀글</label> <input name="passwordCheck" type="checkbox" />
+			</div> 
         	
 			<button type="submit" class="btn btn-outline-primary">등록</button>
 			<button type="reset" class="btn btn-outline-dark">새로작성</button>
@@ -51,7 +57,7 @@
 <script type="text/javascript">
 $(function() {
 	$("#listBtn").on("click", function() {
-		self.location = "/customerService/notice";
+		self.location = "/customerService/qna";
 	});
 });
 </script>

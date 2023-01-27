@@ -1,17 +1,19 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <%@include file="../includes/header.jsp"%>
 
 <section class="ftco-section ftco-degree-bg"
 	style="color: black; font-family: 'NanumSquareNeo';">
 	<div class="container">
 		<div class="row">
-			<div class="col-md-12">제목&nbsp; 값 불러올 곳</div>
+			<div class="col-md-12">제목&nbsp; <c:out value="${board.title}"></c:out></div>
 		</div><hr>
 		<div class="row">
-			<div class="col-md-8">작성자&nbsp; 값 불러올 곳</div>
-			<div class="col-md-2">작성일자&nbsp; 값 불러올 곳</div>
-			<div class="col-md-2">조회수&nbsp; 값 불러올 곳</div>
+			<div class="col-md-8">작성자&nbsp; <c:out value="${board.id}"></c:out></div>
+			<div class="col-md-2">작성일자&nbsp; <fmt:formatDate pattern="yyyy/MM/dd" value="${board.regdate}"></fmt:formatDate></div>
+			<div class="col-md-2">조회수&nbsp; <c:out value="${board.count}"></c:out></div>
 		</div><hr>
 
 		<div class="form-group">
@@ -22,13 +24,23 @@
 				<p>
 					<img src="../images/image_1.jpg" alt="" class="img-fluid">
 				</p>
-				<h2 class="mb-3">❤️사랑스러운 우리집 막내 “포비“ ❤️</h2>
-				<p>진짜 애교쟁이에다가 말은 정말 안듣는 말썽꾸러기 포비예요 ㅎ 밖에서는 완전 겁쟁이에 품에 안기기 바쁘지만
-					집에서는 어찌나 땡강쟁이인지 이뻐 죽겠어요 ㅎ 벌써 포비를 데려온도 2달이 되었는데 그동안 많이 큰 것 같네요 너무
-					아쉽기도 하고 대견하기도 하고 ㅠ 막상 산책가면 신나서 날라다니는데 하네스 착용하면 대자로 엎드려서 시전도 해준답니다
-					ㅎㅎ 어딜가나 이쁨받는 저희집 막내 소개 및 자랑글이였습니다 항상 행복하게 해주께❤️ㅎㅎ</p>
+				<p><c:out value="${board.content}"></c:out></p>
 			</div>
 		</div>
+		<hr />
+		<div class="text-center">
+			<button data-oper="modify" class="btn btn-default">수정</button>
+			<button data-oper="list" class="btn btn-default">목록</button>
+		</div>
+		
+		<form id="operForm" action="/customerService/modify" method="get">
+			<input type="hidden" id="bno" name="bno" value='<c:out value="${ board.bno }" />'>
+			<input type="hidden" name="pageNum" value='<c:out value="${ cri.pageNum }" />'>
+			<input type="hidden" name="amount" value='<c:out value="${ cri.amount }" />'>
+			<input type="hidden" name="type" value='<c:out value="${ cri.type }" />'>
+			<input type="hidden" name="keyword" value='<c:out value="${ cri.keyword }" />'>
+		</form>
+		
 	</div>
 </section>
 
@@ -60,5 +72,21 @@
 		</div>
 	</div>
 </section>
+
+
+<script>
+$(document).ready(function(){
+	let operForm = $("#operForm");
+	$("button[data-oper='modify']").on("click", function(e){
+		operForm.attr("action","/customerService/modify").submit();
+	});
+	
+	$("button[data-oper='list']").on("click", function(e){
+		operForm.find("#bno").remove();
+		operForm.attr("action", "/customerService/qna")
+		operForm.submit();
+	});
+});
+</script>
 
 <%@include file="../includes/footer.jsp"%>

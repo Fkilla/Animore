@@ -5,9 +5,7 @@ import java.util.Date;
 import lombok.Data;
 
 @Data
-public class NoticeVO {
-	
-	// 공지사항
+public class QNAVO {
 	private Long bno;
 	private String title;
 	private String content;

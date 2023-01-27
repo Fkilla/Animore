@@ -50,27 +50,20 @@
 					<th>조회수</th>
 				</tr>
 
-				<tr>
-					<td>3</td>
-					<td>유기동물 입양 후 필요한 용품들은? 애니모어몰에서 만나보세요! ★첫 구매시 50% 할인 쿠폰 증정★</td>
-					<td>애니모어센터</td>
-					<td>2023.01.24</td>
-					<td>31</td>
-				</tr>
-				<tr>
-					<td>2</td>
-					<td>설 연휴기간 배송 지연 안내</td>
-					<td>애니모어센터</td>
-					<td>2023.01.22</td>
-					<td>29</td>
-				</tr>
-				<tr>
-					<td>1</td>
-					<td>애니모어 공식 홈페이지 오픈:)</td>
-					<td>애니모어센터</td>
-					<td>2023.01.01</td>
-					<td>48</td>
-				</tr>
+					<c:forEach items="${list}" var="board">
+						<tr>
+							<td><c:out value="${board.bno}" /></td>
+							<td><a class='move' href='<c:out value="${board.bno}"/>'>
+							<c:out value="${board.title}"/></a></td>
+							<td><c:out value="${board.id}" /></td>
+							<td><fmt:formatDate pattern="yyyy-MM-dd"
+									value="${board.regdate}" /></td>
+							<!-- <td><fmt:formatDate pattern="yyyy-MM-dd"
+									value="${board.updatedate}" /></td> -->
+							<td>1</td>
+						</tr>
+					</c:forEach>
+
 			</table>
 		</div>
 	</div>

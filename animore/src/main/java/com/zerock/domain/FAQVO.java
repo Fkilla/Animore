@@ -5,9 +5,9 @@ import java.util.Date;
 import lombok.Data;
 
 @Data
-public class NoticeVO {
-	
-	// 공지사항
+public class FAQVO {
+
+	// FAQ
 	private Long bno;
 	private String title;
 	private String content;
@@ -15,4 +15,5 @@ public class NoticeVO {
 	private Date regdate;
 	private Date updatedate;
 	private int count;
+	
 }
