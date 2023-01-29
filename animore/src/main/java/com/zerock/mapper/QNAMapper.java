@@ -27,5 +27,8 @@ public interface QNAMapper {
 	
 	// qna 수정
 	public int update(QNAVO vo);
+	
+	// 조회수 증가
+	public int viewCount(Long bno);
 
 }

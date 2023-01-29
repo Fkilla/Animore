@@ -53,18 +53,5 @@ public class NoticeMapperTests {
 //		log.info("delete count:" + mapper.delete(3L));
 //		
 //	}
-	
-	// 공지사항 수정
-	@Test
-	public void testUpdate() {
-		NoticeVO notice = new NoticeVO();
-		
-		notice.setBno(5L);
-		notice.setTitle("애니모어센터에서 공지 드립니다.");
-		notice.setContent("테스트용 공지입니다.");
-		
-		int count = mapper.update(notice);
-		log.info("update : " + count);
-	}
 
 }

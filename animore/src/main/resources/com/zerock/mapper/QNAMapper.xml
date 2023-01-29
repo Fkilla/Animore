@@ -7,7 +7,7 @@
 <!-- qna 전체 목록 -->
 <select id="getList" resultType="com.zerock.domain.QNAVO">
 	<![CDATA[
-	select * from qna where bno > 0
+	select * from qna where bno > 0 
 	]]>
 </select>
 
@@ -15,10 +15,10 @@
 <select id="getListPaging" resultType="com.zerock.domain.QNAVO">
 	<![CDATA[
 	select
-		bno, title, content, id, regdate, updatedate from
+		bno, title, content, id, regdate, updatedate, count from
 			(
 				select /*+INDEX_DESC(qna pk_qna) */
-				rownum rn, bno, title, content, id, regdate, updatedate
+				rownum rn, bno, title, content, id, regdate, updatedate, count
 				from qna
 				where
 	]]>
@@ -102,6 +102,14 @@
 	title = #{title},
 	content = #{content},
 	updatedate = sysdate
+	where bno = #{bno}
+</update>
+
+<!-- 조회수 추가 -->
+<update id="viewCount">
+	update qna
+	set
+	count = count + 1
 	where bno = #{bno}
 </update>
 

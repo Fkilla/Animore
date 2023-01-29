@@ -22,7 +22,7 @@
 							class="ion-ios-arrow-forward"></i></a></span> <span class="mr-2"><a
 						href="/customerService/faq">FAQ<i
 							class="ion-ios-arrow-forward"></i></a></span> <span class="mr-2"><a
-						href="/customerService/qna">문의하기<i
+						href="/customerService/qna">QNA<i
 							class="ion-ios-arrow-forward"></i></a></span>
 				</p>
 			</div>
@@ -53,50 +53,74 @@
 					<c:forEach items="${list}" var="board">
 						<tr>
 							<td><c:out value="${board.bno}" /></td>
-							<td><a class='move' href='<c:out value="${board.bno}"/>'>
-							<c:out value="${board.title}"/></a></td>
+	 						<td><a href='/customerService/noticeget?bno=<c:out value="${ board.bno }"/>'>
+	 						<c:out value="${ board.title }" /></a></td>
 							<td><c:out value="${board.id}" /></td>
 							<td><fmt:formatDate pattern="yyyy-MM-dd"
 									value="${board.regdate}" /></td>
 							<!-- <td><fmt:formatDate pattern="yyyy-MM-dd"
 									value="${board.updatedate}" /></td> -->
-							<td>1</td>
+							<td><c:out value="${board.count}" /></td>
 						</tr>
 					</c:forEach>
 
 			</table>
 		</div>
 	</div>
+</div>
+
+<div class='row' style="color: black; font-family: 'NanumSquareNeo';">
+	<div class="col text-center">
+		<form id='searchForm' action="/customerService/notice" method='get'>
+			<select name='type'>
+				<option value="" <c:out value="${ pageMaker.cri.type == null?'selected':'' }" />>선택</option>
+				<option value="T" <c:out value="${ pageMaker.cri.type eq 'T'?'selected':'' }" />>제목</option>
+				<option value="C" <c:out value="${ pageMaker.cri.type eq 'C'?'selected':'' }" />>내용</option>
+				<option value="I" <c:out value="${ pageMaker.cri.type eq 'W'?'selected':'' }" />>작성자</option>
+				<option value="TC" <c:out value="${ pageMaker.cri.type eq 'TC'?'selected':'' }" />>제목+내용</option>
+				<option value="TI" <c:out value="${ pageMaker.cri.type eq 'TW'?'selected':'' }" />>제목+작성자</option>
+				<option value="TIC" <c:out value="${ pageMaker.cri.type eq 'TWC'?'selected':'' }" />>제목+내용+작성자</option>
+			</select> 
+			<input type='text' name='keyword' value='<c:out value="${pageMaker.cri.keyword}"/>' /> 
+			<input type='hidden' name='pageNum' value='<c:out value="${pageMaker.cri.pageNum}"/>' />
+			<input type='hidden' name='amount' value='<c:out value="${pageMaker.cri.amount}"/>' />
+			<button class='btn btn-default btn-xs'><i class="fa fa-search" aria-hidden="true"></i>검색하기
+			</button>
+		</form>
+	</div>
+</div>
 
 
-	<div class="row mt-5">
-		<div class="col text-center">
-			<div class="block-27">
-				<ul>
-					<li><a href="#">&lt;&lt;</a></li>
-					<li><a href="#">&lt;</a></li>
-					<li class="active"><span>1</span></li>
-					<li><a href="#">2</a></li>
-					<li><a href="#">3</a></li>
-					<li><a href="#">4</a></li>
-					<li><a href="#">5</a></li>
-					<li><a href="#">&gt;</a></li>
-					<li><a href="#">&gt;&gt;</a></li>
-				</ul>
-			</div>
+<div class="row mt-5">
+	<div class="col text-center">
+		<div class="block-27">
+			<ul>
+				<c:if test="${ pageMaker.prev }">
+					<li class="paginate_button"><a href="${ pageMaker.startPage-1 }">&lt;</a></li>
+				</c:if>
+				
+				<c:forEach var="num" begin="${ pageMaker.startPage }" end="${ pageMaker.endPage }">
+					<li class="paginate_button ${ pageMaker.cri.pageNum == num ? "active":"" } "><a href="${ num }">${num}</a></li>
+				</c:forEach>
+
+				<c:if test="${ pageMaker.next }">
+					<li class="paginate_button"><a href="${ pageMaker.endPage + 1 }">&gt;</a></li>
+				</c:if>	
+			</ul>
 		</div>
 	</div>
-
 </div>
 <br />
 
 <script>
-	// 글쓰기 버튼을 눌렀을 때
-	$(function() {
-		$("#regBtn").on("click", function() {
-			self.location = "/customerService/register";
-		});
+$(document).ready(function(){
+	$(".move").on("click", function(e){
+		e.preventDefault();
+		actionForm.append("<input type='hidden' name='bno' value='"+$(this).attr("href")+"'>");
+		actionForm.attr("action", "/customerService/noticeget");
+		actionForm.submit();
 	});
+}); 
 </script>
 
 <%@include file="../includes/footer.jsp"%>

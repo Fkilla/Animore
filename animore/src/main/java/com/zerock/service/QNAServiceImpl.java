@@ -66,4 +66,11 @@ public class QNAServiceImpl implements QNAService {
 		return mapper.update(vo) == 1;
 	}
 
+	// 조회수 증가
+	@Override
+	public int viewCount(Long bno) {
+		log.info("viewCount...");
+		return mapper.viewCount(bno);
+	}
+
 }

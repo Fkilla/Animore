@@ -1,5 +1,7 @@
 package com.zerock.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -7,14 +9,18 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.zerock.domain.Criteria;
 import com.zerock.domain.PageDTO;
 import com.zerock.domain.QNAVO;
+import com.zerock.domain.ReplyVO;
 import com.zerock.service.FAQService;
 import com.zerock.service.NoticeService;
+import com.zerock.service.QNAReplyService;
 import com.zerock.service.QNAService;
 
 import lombok.Setter;
@@ -33,17 +39,35 @@ public class CustomerController {
 	
 	@Setter(onMethod_= @Autowired)
 	private FAQService faq;
+	
+	@Setter(onMethod_= @Autowired)
+	private QNAReplyService qnaReply;
 
 	
 	
 	// 공지사항 전체 목록 보여주기
 	@GetMapping("/notice")
-	public String customerService(Model model) {
-		log.info("notice list....");
-		model.addAttribute("list", notice.getList());
+	public void noticeList(Criteria cri, Model model) {
+		log.info("list : " + cri);
 		
-		return "/customerService/notice";
+		model.addAttribute("list", notice.getList(cri));
+		// model.addAttribute("pageMaker", new PageDTO(cri, 123));
+		
+		int total = notice.getTotal(cri);
+		log.info("total:" + total);
+		model.addAttribute("pageMaker", new PageDTO(cri, total));
 	}
+
+	// 공지사항 상세글 보여주기
+	@GetMapping("/noticeget")
+	public void noticeget(@RequestParam("bno") Long bno, @ModelAttribute("cri") Criteria cri, Model model) {
+		log.info("/noticeget");
+		// 조회수 카운트
+		notice.viewCount(bno);
+		//model.addAttribute("replylist", qnaReply.getList());
+		model.addAttribute("noticeget", notice.get(bno));		
+	}
+	
 	
 	// 자주하는 질문(faq) 전체 목록 보여주기
 	@GetMapping("/faq")
@@ -75,6 +99,7 @@ public class CustomerController {
 	@GetMapping("/qna")
 	public void list(Criteria cri, Model model) {
 		log.info("list : " + cri);
+		
 		model.addAttribute("list", qna.getList(cri));
 		// model.addAttribute("pageMaker", new PageDTO(cri, 123));
 		
@@ -105,6 +130,9 @@ public class CustomerController {
 	@GetMapping({"/get", "/modify"})
 	public void get(@RequestParam("bno") Long bno, @ModelAttribute("cri") Criteria cri, Model model) {
 		log.info("/get or modify");
+		// 조회수 카운트
+		qna.viewCount(bno);
+		//model.addAttribute("replylist", qnaReply.getList());
 		model.addAttribute("board", qna.get(bno));
 	}
 	
@@ -137,7 +165,44 @@ public class CustomerController {
 		
 		return "redirect:/customerService/qna";
 	}
-
 	
+//	@PostMapping("/get")
+//	public String registerReply(ReplyVO reply) {
+//		log.info("Post Get...");
+//		
+//		// 등록 작업
+//		qnaReply.registerReply(reply);
+//		
+//		return "redirect:/customerService/get?bno=" + reply.getBno();
+//	}
+	
+	
+	// 댓글 목록 ajax
+	@ResponseBody
+	@GetMapping(value = "/get/replyList")
+	public List<ReplyVO> getReplyList(@RequestParam("bno") Long bno) throws Exception {
+		 log.info("get reply list");
+		   
+		 List<ReplyVO> reply = qnaReply.getList(bno);
+		 
+		 return reply;
+		} 
+	
+	// 댓글 쓰기 ajax
+	@ResponseBody
+	@PostMapping(value = "/get/registerReply")
+	public void registerReply(ReplyVO reply) {
+		log.info("register Reply...");
+		
+		qnaReply.registerReply(reply);
+	}
+	
+	// 댓글 삭제 ajax
+	@ResponseBody
+	@PostMapping("/get/deleteReply")
+	public void deleteReply(ReplyVO reply) {
+		log.info("delete Reply");
+		qnaReply.deleteReply(reply);
+	}
 
 }

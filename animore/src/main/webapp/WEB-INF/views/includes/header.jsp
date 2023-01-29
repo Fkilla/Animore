@@ -25,6 +25,67 @@
     <link href="https://hangeul.pstatic.net/hangeul_static/css/nanum-square-neo.css" rel="stylesheet">
     
   	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.1/font/bootstrap-icons.css">
+  
+  
+  <!-- 유진 js파일  -->
+  		<script type="text/javascript">
+		function replyList(){
+			var bno = ${ board.bno };
+			$.getJSON("/customerService/get/replyList" + "?bno=" + bno, function(data){
+				var str = "";
+				
+				$(data).each(function(){
+					console.log(data);
+					
+					var replydate = new Date(this.replydate);
+					replydate = replydate.toLocaleDateString("ko-US")
+					
+ 					str += "<br />"
+						
+ 						+  "<div class='ms-3'>"
+						+  "<div class='fw-bold'><b>" + this.id + "</b></div>"
+						+  "<div>" + this.reply + "</div>"
+						+  "<div>" + replydate + "</div>"
+						+  "<form>"
+						+  "<div class='replyFooter'>"
+						+  "<button type='button' class='modify' data-rno='" + this.rno + "'>수정</button>"
+						+  "<button type='button' class='delete' data-rno='" + this.rno + "'>삭제</button>"
+						+  "</div>"
+						+  "</form>";
+						
+				});
+				$("div.d-flex.mb-4").html(str);
+			});
+		}
+		
+		
+		function registerReply(){
+			$("#addReplyBtn").click(function(){
+				var formObj = $(".card-body form[role='form']");
+				var bno = $("#bno").val();
+				var id = $("#id").val();
+				var reply = $("#reply").val();
+				
+				var data = {
+						bno : bno,
+						id : id,
+						reply : reply
+				};
+				
+				$.ajax({
+					url : "/customerService/get/registerReply",
+					type : "post",
+					data : data,
+					success : function(){
+						replyList();
+						$("#reply").val("");
+					}
+				});
+			});
+		}
+		</script>
+  
+  
   </head>
   <body>
 

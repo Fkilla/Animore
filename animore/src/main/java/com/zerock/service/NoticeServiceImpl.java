@@ -4,7 +4,9 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
+import com.zerock.domain.Criteria;
 import com.zerock.domain.NoticeVO;
+import com.zerock.domain.QNAVO;
 import com.zerock.mapper.NoticeMapper;
 
 import lombok.AllArgsConstructor;
@@ -18,17 +20,24 @@ public class NoticeServiceImpl implements NoticeService {
 	private NoticeMapper mapper;
 	
 	// 공지사항 목록 전체 불러오기
+//	@Override
+//	public List<NoticeVO> getList() {
+//		log.info("Notice getList.....");
+//		return mapper.getList();
+//	}
+	
+	// 공지사항 목록 전체 불러오기
 	@Override
-	public List<NoticeVO> getList() {
-		log.info("Notice getList.....");
-		return mapper.getList();
+	public List<NoticeVO> getList(Criteria cri) {
+		log.info("Notice getList....." + cri);
+		return mapper.getListPaging(cri);
 	}
-
-	// 공지사항 글 쓰기
+	
+	// 공지사항 전체 데이터 갯수 처리
 	@Override
-	public void register(NoticeVO notice) {
-		log.info("Notice register.... : " + notice);
-		mapper.insertSelectKey(notice);
+	public int getTotal(Criteria cri) {
+		log.info("get total count");
+		return mapper.getTotalCount(cri);
 	}
 
 	// 특정 공지사항 읽기
@@ -38,19 +47,13 @@ public class NoticeServiceImpl implements NoticeService {
 		return mapper.read(bno);
 	}
 
-	// 공지사항 삭제
+	// 조회수 증가
 	@Override
-	public int remove(Long bno) {
-		log.info("delete.... : " + bno);
-		return mapper.delete(bno);
-	}
+	public int viewCount(Long bno) {
+		log.info("NoticeViewCount...");
+		return mapper.viewCount(bno);
+	}	
 	
-	// 공지사항 수정
-	@Override
-	public int modify(NoticeVO notice) {
-		log.info("modify : " + notice);
-		return mapper.update(notice);
-	}
 	
 	
 

@@ -17,8 +17,8 @@ public class PageDTO {
 		this.cri = cri;
 		this.total = total;
 		
-		this.endPage = (int) (Math.ceil(cri.getPageNum() / 10.0)) * 10; // 페이징의 끝번호
-		this.startPage = this.endPage - 9; // 페이징의 시작번호
+		this.endPage = (int) (Math.ceil(cri.getPageNum() / 5.0)) * 5; // 페이징의 끝번호
+		this.startPage = this.endPage - 4; // 페이징의 시작번호
 		
 		int realEnd = (int) (Math.ceil((total * 1.0) / cri.getAmount())); // 실제 끝페이지가 몇 번까지 되는지 계산
 		

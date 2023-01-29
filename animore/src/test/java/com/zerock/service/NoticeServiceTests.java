@@ -46,13 +46,5 @@ public class NoticeServiceTests {
 //	public void testDelete() {
 //		log.info("delete....: " + service.remove(2L));
 //	}
-	
-	@Test
-	public void testModify() {
-		NoticeVO notice = service.get(17L);
-		
-		notice.setTitle("애니모어센터입니다. 수정된 게시글 입니다.");
-		
-		log.info("modify.... : " + service.modify(notice));
-	}
+
 }

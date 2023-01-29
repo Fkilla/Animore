@@ -60,7 +60,7 @@
 									value="${board.regdate}" /></td>
 							<!-- <td><fmt:formatDate pattern="yyyy-MM-dd"
 									value="${board.updatedate}" /></td> -->
-							<td>1</td>
+							<td><c:out value="${board.count}" /></td>
 						</tr>
 					</c:forEach>
 			</table>

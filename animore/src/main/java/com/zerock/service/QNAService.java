@@ -27,4 +27,7 @@ public interface QNAService {
 	
 	// qna 수정
 	public boolean modify(QNAVO vo);
+	
+	// 조회수 증가
+	public int viewCount(Long bno);
 }
