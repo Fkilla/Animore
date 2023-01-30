@@ -28,62 +28,60 @@
   
   
   <!-- 유진 js파일  -->
-  		<script type="text/javascript">
-		function replyList(){
-			var bno = ${ board.bno };
-			$.getJSON("/customerService/get/replyList" + "?bno=" + bno, function(data){
-				var str = "";
+ <script>
+	function replyList(){
+		var bno = ${ board.bno };
+		$.getJSON("/customerService/get/replyList" + "?bno=" + bno, function(data){
+			var str = "";
+			
+			$(data).each(function(){
+				console.log(data);
 				
-				$(data).each(function(){
-					console.log(data);
+				var replydate = new Date(this.replydate);
+				replydate = replydate.toLocaleDateString("ko-US")
+
+					str += "<br />"
+						+  "<div data-rno='" + this.rno + "'>"
+					+  "<span><b>" + this.id + "</b></span>"
+					+  "<span>&nbsp;&nbsp;" + replydate + "</span>"
+					+  "<p>" + this.reply + "</p>"
+					+  "</div>"
+
+					+  "<div class='replyFooter'>"
+					+  "<button type='button' class='modify' data-rno='" + this.rno + "'>수정</button>"
+					+  "<button type='button' class='remove' data-rno='" + this.rno + "'>삭제</button>"
+					+  "</div>";
 					
-					var replydate = new Date(this.replydate);
-					replydate = replydate.toLocaleDateString("ko-US")
-					
- 					str += "<br />"
-						
- 						+  "<div class='ms-3'>"
-						+  "<div class='fw-bold'><b>" + this.id + "</b></div>"
-						+  "<div>" + this.reply + "</div>"
-						+  "<div>" + replydate + "</div>"
-						+  "<form>"
-						+  "<div class='replyFooter'>"
-						+  "<button type='button' class='modify' data-rno='" + this.rno + "'>수정</button>"
-						+  "<button type='button' class='delete' data-rno='" + this.rno + "'>삭제</button>"
-						+  "</div>"
-						+  "</form>";
-						
-				});
-				$("div.d-flex.mb-4").html(str);
 			});
-		}
-		
-		
-		function registerReply(){
-			$("#addReplyBtn").click(function(){
-				var formObj = $(".card-body form[role='form']");
-				var bno = $("#bno").val();
-				var id = $("#id").val();
-				var reply = $("#reply").val();
-				
-				var data = {
-						bno : bno,
-						id : id,
-						reply : reply
-				};
-				
-				$.ajax({
-					url : "/customerService/get/registerReply",
-					type : "post",
-					data : data,
-					success : function(){
-						replyList();
-						$("#reply").val("");
-					}
-				});
+			$("div.d-flex.mb-4 li").html(str);
+		});
+	}
+	
+	function registerReply(){
+		$("#addReplyBtn").click(function(){
+			var formObj = $(".card-body form[role='form']");
+			var bno = $("#bno").val();
+			var id = $("#id").val();
+			var reply = $("#reply").val();
+			
+			var data = {
+					bno : bno,
+					id : id,
+					reply : reply
+			};
+			
+			$.ajax({
+				url : "/customerService/get/registerReply",
+				type : "post",
+				data : data,
+				success : function(){
+					replyList();
+					$("#reply").val("");
+				}
 			});
-		}
-		</script>
+		});
+	}
+ </script>
   
   
   </head>

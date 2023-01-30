@@ -48,63 +48,61 @@ public class CustomerController {
 	// 공지사항 전체 목록 보여주기
 	@GetMapping("/notice")
 	public void noticeList(Criteria cri, Model model) {
-		log.info("list : " + cri);
+		log.info("Notice List : " + cri);
 		
 		model.addAttribute("list", notice.getList(cri));
-		// model.addAttribute("pageMaker", new PageDTO(cri, 123));
 		
 		int total = notice.getTotal(cri);
-		log.info("total:" + total);
+		log.info("Notice total:" + total);
 		model.addAttribute("pageMaker", new PageDTO(cri, total));
 	}
 
 	// 공지사항 상세글 보여주기
 	@GetMapping("/noticeget")
 	public void noticeget(@RequestParam("bno") Long bno, @ModelAttribute("cri") Criteria cri, Model model) {
-		log.info("/noticeget");
+		log.info("Notice get.....");
 		// 조회수 카운트
 		notice.viewCount(bno);
-		//model.addAttribute("replylist", qnaReply.getList());
 		model.addAttribute("noticeget", notice.get(bno));		
 	}
 	
+////////////////////////////////////////////////////////////////////////////////////////
 	
-	// 자주하는 질문(faq) 전체 목록 보여주기
+	// FAQ 전체 목록 보여주기
 	@GetMapping("/faq")
-	public String faq(Model model) {
-		log.info("faq list...");
-		model.addAttribute("list", faq.faqGetList());
+	public void faqList(Criteria cri, Model model) {
+		log.info("FAQ List : " + cri);
 		
-		return "/customerService/faq";
+		model.addAttribute("list", faq.getList(cri));
+		
+		int total = faq.getTotal(cri);
+		log.info("FAQ total:" + total);
+		model.addAttribute("pageMaker", new PageDTO(cri, total));
+	}
+
+	// FAQ 상세글 보여주기
+	@GetMapping("/faqget")
+	public void faqget(@RequestParam("bno") Long bno, @ModelAttribute("cri") Criteria cri, Model model) {
+		log.info("faqget....");
+		// 조회수 카운트
+		faq.viewCount(bno);
+		model.addAttribute("faqget", faq.get(bno));		
 	}
 	
-	// 문의하기(qna) 전체 목록 보여주기
-//	@GetMapping("/qna")
-//	public String qnaBoard(Model model) {
-//		log.info("qna list....");
-//		model.addAttribute("list", qna.getList());
-//		
-//		return "/customerService/qna";
-//	}
 	
-	// 문의하기(qna) 전체 목록 보여주기 + 페이지처리
-//	@GetMapping("/qna")
-//	public void list(Criteria cri, Model model) {
-//		log.info("list : " + cri);
-//		model.addAttribute("list", qna.getList(cri));
-//		model.addAttribute("pageMaker", new PageDTO(cri, 123));
-//	}
+////////////////////////////////////////////////////////////////////////////////////////
+
 	
 	// 문의하기(qna) 전체 목록 보여주기 + 페이지처리 + 전체 글 가져오기
 	@GetMapping("/qna")
 	public void list(Criteria cri, Model model) {
-		log.info("list : " + cri);
+		log.info("QNA List : " + cri);
 		
 		model.addAttribute("list", qna.getList(cri));
 		// model.addAttribute("pageMaker", new PageDTO(cri, 123));
 		
 		int total = qna.getTotal(cri);
-		log.info("total:" + total);
+		log.info("QNA total:" + total);
 		model.addAttribute("pageMaker", new PageDTO(cri, total));
 	}
 
@@ -194,7 +192,7 @@ public class CustomerController {
 	public void registerReply(ReplyVO reply) {
 		log.info("register Reply...");
 		
-		qnaReply.registerReply(reply);
+		qnaReply.insert(reply);
 	}
 	
 	// 댓글 삭제 ajax

@@ -7,7 +7,7 @@ import com.zerock.domain.ReplyVO;
 public interface QNAReplyMapper {
 
 	// 댓글 작성
-	public void registerReply(ReplyVO reply);
+	public void insert(ReplyVO reply);
 
 	// 댓글 목록
 	public List<ReplyVO> list(Long bno);
@@ -17,4 +17,7 @@ public interface QNAReplyMapper {
 	
 	// 댓글 삭제 시 아이디 체크
 	public String replyIdCheck(Long rno);
+	
+	// 댓글 수정
+	public void modifyReply(ReplyVO reply);
 }

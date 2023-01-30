@@ -8,7 +8,7 @@ import com.zerock.domain.ReplyVO;
 public interface QNAReplyService {
 
 	// 댓글 등록
-	public void registerReply(ReplyVO reply);
+	public void insert(ReplyVO reply);
 	
 	// 댓글 목록
 	public List<ReplyVO> getList(Long bno);

@@ -11,7 +11,7 @@
 	]]>
 </select>
 
-<!-- qna 전체 목록 + 페이지네이션 -->
+<!-- 공지사항 전체 목록 + 페이지네이션 -->
 <select id="getListPaging" resultType="com.zerock.domain.NoticeVO">
 	<![CDATA[
 	select
@@ -48,7 +48,7 @@
 	]]>
 </select>
 
-<!-- qna 전체 데이터 갯수 처리 -->
+<!-- 공지사항 전체 데이터 갯수 처리 -->
 <select id="getTotalCount" resultType="int">
 	<![CDATA[
 	select count(*) from notice where 

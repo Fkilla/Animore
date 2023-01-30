@@ -5,7 +5,7 @@
 <mapper namespace="com.zerock.mapper.QNAReplyMapper">
 
 <!-- 댓글 작성 -->
-<insert id="registerReply">
+<insert id="insert">
 	insert into qna_reply (bno, id, rno, reply)
 	values (#{bno}, #{id}, qna_reply_seq.nextval , #{reply})
 </insert>
@@ -13,19 +13,26 @@
 <!-- 댓글 전체 목록 -->
 <select id="list" resultType="com.zerock.domain.ReplyVO">
 	<![CDATA[
-	select * from qna_reply where rno > 0 order by rno desc
+	select * from qna_reply where rno = #{rno}
 	]]>
 </select>
 
 <!-- 댓글 삭제 -->
 <delete id="deleteReply">
 	delete qna_reply
-		where rno = #{rno} and id = #{id}
+		where rno = #{rno}
+		<!-- and id = #{id} -->
 </delete>
 
 <!-- 댓글 삭제 시 아이디 확인 처리 -->
 <select id="replyIdCheck" resultType="String">
 	select id from qna_reply where id = #{id}
 </select>
+
+<!-- 댓글 수정 -->
+<update id="modifyReply">
+	update qna_reply
+	set reply = #{reply}, updatedate = sysdate where rno = #{rno}
+</update>
 
 </mapper>

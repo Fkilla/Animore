@@ -8,7 +8,7 @@ import com.zerock.domain.NoticeVO;
 public interface NoticeMapper {
 	
 	// 공지사항 목록 전체 불러오기
-	public List<NoticeVO> getList();
+	// public List<NoticeVO> getList();
 	
 	// 공지사항 목록 전체 + 페이지 처리
 	public List<NoticeVO> getListPaging(Criteria cri);

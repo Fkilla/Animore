@@ -19,9 +19,9 @@ public class QNAReplyServiceImpl implements QNAReplyService {
 
 	// 댓글 작성
 	@Override
-	public void registerReply(ReplyVO reply) {
-		log.info("registerReply...");
-		mapper.registerReply(reply);
+	public void insert(ReplyVO reply) {
+		log.info("insert Reply...");
+		mapper.insert(reply);
 	}
 
 	// 댓글 목록 보여주기

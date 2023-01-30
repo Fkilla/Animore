@@ -45,80 +45,61 @@
 </section>
 
 <!-- 댓글창 -->
-<section class="card bg-light col-lg-12"
-	style="color: black; font-family: 'NanumSquareNeo';">
-
-	<div class="panel-heading">
-		<i class="fa fa-comments fa-fw"></i> 댓글
-	</div>
-	<div class="card-body">
-		<!-- 댓글 폼-->
-		<form role="form" id="replyForm" class="mb-4" method="post">
-			<input type="hidden" id="bno" name="bno" value="${ board.bno }" />
+<section class="card bg-light col-lg-12" style="color: black; font-family: 'NanumSquareNeo';">
+<div class='row'>
+	<div class="col-lg-12">
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<i class="fa fa-comments fa-fw"></i> 댓글
+				<button id='addReplyBtn' class='btn btn-default btn-xs pull-right'>작성하기</button>
+			</div>
 			
-			<input type="text" name="id" id="id"/>
-			<textarea class="form-control" rows="4" placeholder="댓글을 작성 해보세요." name="reply" id="reply"></textarea>
-			<button type="button" id='addReplyBtn' data-oper="register" class='btn btn-default btn-xs pull-right'>작성</button>
-		
-			<!-- 댓글 등록 ajax -->
-			<script type="text/javascript">
-				registerReply();
-			</script>
-		</form>
-		<br />
-		
-<%-- 		<c:forEach items="${replylist}" var="r_list">
-		<div class="d-flex mb-4">
-			<div class="ms-3">
-				<div class="fw-bold"><c:out value="${r_list.id}" /></div>
-				<p><c:out value="${r_list.reply}" /></p>
-				<small class="pull-left"><fmt:formatDate pattern="yyyy-MM-dd"
-									value="${r_list.replydate}" /></small>
+			<div class="panel-body">
+				<ul class="chat">
+				
+				</ul>
 			</div>
 		</div>
-		</c:forEach> --%>
-		
-
-
-		<!-- 댓글 목록 -->
-		<form>
-		<div class="d-flex mb-4">
-
-		</div>
-		</form>
-		
-		<script type="text/javascript">
-			replyList();
-		</script>
-		
-		<script type="text/javascript">
-			$(document).on("click", ".delete", function(){
-				var deleteConfirm = confirm("정말로 삭제하시겠습니까?");
-				
-				id(deleteConfirm){
-				var data = { rno : $(this).attr("data-rno") };
-				
-				$.ajax({
-					url : "/customerService/get/deleteReply",
-					type : "post",
-					data : { rno : $(this).attr("data-rno") },
-					success : function() {
-						replyList();
-					}
-				});
-				}
-			});
-		</script>
 	</div>
-	
+</div>
 </section>
 
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog"
+	aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal"
+				aria-hidden="true">&times;</button>
+				<h4 class="modal-title" id="myModalLabel"></h4>
+			</div>
+			<div class="modal-body">
+				<div class="form-group">
+					<label>작성자</label>
+					<input class="form-control"	id='replyer'>
+				</div>
+				<div class="form-group">
+					<label>내용</label>
+					<textarea style="resize: none;" spellcheck="false" rows="8" class="form-control" name='reply'></textarea>
+				</div>
+			</div>
+			<div class="modal-footer">
+ 				<button id='modalModBtn' type="button" class="btn btn-warning">수정</button>
+				<button id='modalRemoveBtn' type="button" class="btn btn-danger">삭제</button>
+				<button id='modalRegisterBtn' type="button" class="btn btn-primary">작성</button>
+				<button id='modalCloseBtn' type='button' class='btn btn-default'>닫기</button>
+		    </div>
+		</div>
+	</div>
+</div>
+
+<script type="text/javascript" src="/resources/js/reply.js"></script>
 
 <script>
 $(document).ready(function(){
 	let operForm = $("#operForm");
-	$("button[data-oper='register']").on("click", function(e){
-		operForm.attr("action","/customerService/get")
+	$("button[data-oper='modify']").on("click", function(e){
+		operForm.attr("action","/customerService/modify").submit();
 	});
 	
 	$("button[data-oper='list']").on("click", function(e){
@@ -128,5 +109,6 @@ $(document).ready(function(){
 	});
 });
 </script>
+
 
 <%@include file="../includes/footer.jsp"%>

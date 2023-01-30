@@ -53,8 +53,8 @@
 					<c:forEach items="${list}" var="board">
 						<tr>
 							<td><c:out value="${board.bno}" /></td>
-	 						<td><a href='/customerService/noticeget?bno=<c:out value="${ board.bno }"/>'>
-	 						<c:out value="${ board.title }" /></a></td>
+							<td><a class='move' href='<c:out value="${board.bno}"/>'>
+							<c:out value="${board.title}"/></a></td>
 							<td><c:out value="${board.id}" /></td>
 							<td><fmt:formatDate pattern="yyyy-MM-dd"
 									value="${board.regdate}" /></td>
@@ -112,14 +112,67 @@
 </div>
 <br />
 
+<form id="actionForm" action="/customerService/notice" method="get">
+	<input type="hidden" name="pageNum" value="${pageMaker.cri.pageNum }">
+	<input type="hidden" name="amount" value="${pageMaker.cri.amount }">
+	<input type="hidden" name="type" value="${pageMaker.cri.type }">
+	<input type="hidden" name="keyword" value="${pageMaker.cri.keyword }">
+</form>
+
+<!-- 모달창 -->
+<div class="modal fade" id="alertModal" tabindex="-1"
+	aria-labelledby="exampleModalLabel" aria-hidden="true" style="font-family: 'NanumSquareNeo';">
+	<div class="modal-dialog modal-dialog-centered text-center">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="alertModal">알림</h5>
+			</div>
+			<div class="modal-body"></div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+			</div>
+		</div>
+	</div>
+</div>
+
 <script>
 $(document).ready(function(){
+	
+	var actionForm = $("#actionForm");
+	$(".paginate_button a").on("click", function(e){
+		e.preventDefault();
+		console.log("click");
+		actionForm.find("input[name='pageNum']").val($(this).attr("href"));
+		actionForm.submit();
+	});
+	
 	$(".move").on("click", function(e){
 		e.preventDefault();
 		actionForm.append("<input type='hidden' name='bno' value='"+$(this).attr("href")+"'>");
 		actionForm.attr("action", "/customerService/noticeget");
 		actionForm.submit();
 	});
+	
+ 		var searchForm = $("#searchForm");
+ 		
+ 		$("#searchForm button").on("click", function(e){
+ 			if(!searchForm.find("option:selected").val()){ // 검색 조건을 선택하지 않았다면
+ 				$(".modal-body").html("검색 종류를 선택하세요.");
+ 				$("#alertModal").modal("show");
+ 				return false;
+ 			}
+ 			
+ 			if(!searchForm.find("input[name='keyword']").val()){ // 검색어가 없다면
+ 				$(".modal-body").html("검색어를 입력하세요.");
+ 				$("#alertModal").modal("show");
+ 				return false;
+ 			}
+ 			
+ 			searchForm.find("input[name='pageNum']").val("1"); // 검색은 1페이지가 뜨도록 한다.
+ 			e.preventDefault();
+ 			
+ 			searchForm.submit();
+ 		});	
 }); 
 </script>
 
