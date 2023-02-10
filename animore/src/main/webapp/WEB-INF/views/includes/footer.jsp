@@ -9,10 +9,11 @@
 					<div class="col-md-6 col-lg-4 mb-6 mb-md-0">
 						<h2 class="footer-heading">Anymore</h2>
 						<p>우리 미래 세대에게 진정한 가치 사회를 이어주고 동물들이 웃을 수 있는 사회가 되기 위해 애니모어가 최선의 노력을 하겠습니다. 애니모어에 지속적인 관심과 격려로 함께 해주세요.</p>
-						<ul class="ftco-footer-social p-0">
-              <li class="ftco-animate"><a href="#" data-toggle="tooltip" data-placement="top" title="Twitter"><span class="fa fa-twitter"></span></a></li>
-              <li class="ftco-animate"><a href="#" data-toggle="tooltip" data-placement="top" title="Facebook"><span class="fa fa-facebook"></span></a></li>
-              <li class="ftco-animate"><a href="#" data-toggle="tooltip" data-placement="top" title="Instagram"><span class="fa fa-instagram"></span></a></li>
+						<br/>
+			<ul class="ftco-footer-social p-0">
+              <li class="ftco-animate"><a href="https://www.facebook.com/" data-toggle="tooltip" data-placement="top" title="Facebook"><span class="fa fa-facebook"></span></a></li>
+              <li class="ftco-animate"><a href="https://twitter.com/?lang=ko" data-toggle="tooltip" data-placement="top" title="Twitter"><span class="fa fa-twitter"></span></a></li>
+              <li class="ftco-animate"><a href="https://www.instagram.com/" data-toggle="tooltip" data-placement="top" title="Instagram"><span class="fa fa-instagram"></span></a></li>
             </ul>
 					</div>
 					<div class="col-md-6 col-lg-4 mb-6 mb-md-0">
@@ -20,15 +21,15 @@
 						<div class="block-23 mb-3">
               <ul>
                 <li><span class="icon fa fa-map"></span><span class="text">서울특별시 성동구 행당로 17길 1-77</span></li>
-                <li><a href="#"><span class="icon fa fa-phone"></span><span class="text">02-2292-6337<br>(평일 09:00~12:00, 13:00~18:00)</span></a></li>
-                <li><a href="#"><span class="icon fa fa-paper-plane"></span><span class="text">info@anymore.or.kr</span></a></li>
+                <li><span class="icon fa fa-phone"></span><span class="text">02-2292-6337<br>(평일 09:00~12:00, 13:00~18:00)</span></li>
+                <li><span class="icon fa fa-paper-plane"></span><span class="text">info@anymore.or.kr</span></li>
               </ul>
             </div>
 					</div>
           <div class="col-md-6 col-lg-4 mb-6 mb-md-0">
 						<h2 class="footer-heading">후원문의</h2>
 						<p>후원금은 사지 않고 입양하는 문화를 만들어 가기 위한 활동에 사용됩니다.</p>
-            <a href="#">바로가기</a>
+            <a href="/about/support">바로가기</a>
 					</div>
 				</div>
 				<div class="row mt-5">
@@ -55,8 +56,6 @@
   <script src="../js/owl.carousel.min.js"></script>
   <script src="../js/jquery.magnific-popup.min.js"></script>
   <script src="../js/scrollax.min.js"></script>
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
-  <script src="../js/google-map.js"></script>
   <script src="../js/main.js"></script>
     
  

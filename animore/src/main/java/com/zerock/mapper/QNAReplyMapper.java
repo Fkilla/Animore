@@ -2,22 +2,26 @@ package com.zerock.mapper;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Param;
+
+import com.zerock.domain.Criteria;
 import com.zerock.domain.ReplyVO;
 
 public interface QNAReplyMapper {
 
 	// 댓글 작성
-	public void insert(ReplyVO reply);
+	public int insertReply(ReplyVO reply);
 
-	// 댓글 목록
-	public List<ReplyVO> list(Long bno);
+	// 게시물의 댓글 목록
+	public ReplyVO listReply(Long bno);
 	
 	// 댓글 삭제
-	public int deleteReply(ReplyVO reply);
-	
-	// 댓글 삭제 시 아이디 체크
-	public String replyIdCheck(Long rno);
+	public int deleteReply(Long rno);
 	
 	// 댓글 수정
-	public void modifyReply(ReplyVO reply);
+	public int updateReply(ReplyVO reply);
+	
+	// 댓글 페이징 처리
+	public List<ReplyVO> pagingReply(@Param("cri") Criteria cri, @Param("bno") Long bno);
+
 }

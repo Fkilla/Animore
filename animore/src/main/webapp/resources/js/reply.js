@@ -7,7 +7,7 @@ var replyService = (function(){
 		
 		$.ajax({
 			type : 'post',
-			url : '/replies/new',
+			url : '/reply/new',
 			data : JSON.stringify(reply),
 			contentType : "application/json; charset=utf-8",
 			success : function(result, status, xhr){
@@ -27,7 +27,7 @@ var replyService = (function(){
 	function getList(param, callback, error){
 		var bno = param.bno;
 		var page = param.page || 1;
-		$.getJSON("/replies/pages/" + bno + "/" + page + ".json",
+		$.getJSON("/reply/pages/" + bno + "/" + page + ".json",
 				function(data){
 			if(callback){
 				callback(data);
@@ -43,7 +43,7 @@ var replyService = (function(){
 	function remove(rno, callback, error){
 		$.ajax({
 			type : 'delete',
-			url : '/replies/' + rno,
+			url : '/reply/' + rno,
 			success : function(deleteResult, status, xhr){
 				if(callback){
 					callback(deleteResult);
@@ -62,7 +62,7 @@ var replyService = (function(){
 		console.log("RNO: " + reply.rno);
 		$.ajax({
 			type : 'put',
-			url : '/replies/' + reply.rno,
+			url : '/reply/' + reply.rno,
 			data : JSON.stringify(reply),
 			contentType : "application/json; charset=utf-8",
 			success : function(result, status, xhr){
@@ -80,7 +80,7 @@ var replyService = (function(){
 	
 	// 하나의 댓글 조회
 	function get(rno, callback, error){
-		$.get("/replies/" + rno + ".json", function(result){
+		$.get("/reply/" + rno + ".json", function(result){
 			if(callback){
 				callback(result);
 			}

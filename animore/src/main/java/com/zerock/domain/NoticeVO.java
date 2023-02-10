@@ -1,6 +1,7 @@
 package com.zerock.domain;
 
 import java.util.Date;
+import java.util.List;
 
 import lombok.Data;
 
@@ -15,4 +16,6 @@ public class NoticeVO {
 	private Date regdate;
 	private Date updatedate;
 	private int count;
+	
+	private List<NoticeAttachVO> attachList;
 }

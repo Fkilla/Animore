@@ -4,51 +4,61 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <%@include file="../includes/header.jsp"%>
 
+<script>
+	document.getElementById("home").setAttribute("class", "nav-item");
+</script>
+
+<style>
+	a{
+		color:#808080;
+	}
+	select, input {
+		font-size:15px;
+		height:40px;
+	}
+</style>
+
 <section class="hero-wrap hero-wrap-2"
-	style="background-image: url('../images/bg_2.jpg');"
+	style="background-image: url('../images/cat-bg.jpg');"
 	data-stellar-background-ratio="0.5">
 	<div class="overlay"></div>
 	<div class="container" style="font-family: 'NanumSquareNeo';">
 		<div class="row no-gutters slider-text align-items-end">
 			<div class="col-md-9 ftco-animate pb-5">
-				<p class="breadcrumbs mb-2">
-					<span class="mr-2"><a href="/index">Home <i
-							class="ion-ios-arrow-forward"></i></a></span>
-				</p>
 				<h1 class="mb-0 bread" style="font-family: 'NanumSquareNeo';">공지사항</h1>
-				<br>
-				<p class="breadcrumbs mb-2">
-					<span class="mr-2"><a href="/customerService/notice">공지사항<i
-							class="ion-ios-arrow-forward"></i></a></span> <span class="mr-2"><a
-						href="/customerService/faq">FAQ<i
-							class="ion-ios-arrow-forward"></i></a></span> <span class="mr-2"><a
-						href="/customerService/qna">QNA<i
-							class="ion-ios-arrow-forward"></i></a></span>
+				<p class="breadcrumbs mb-2" style="padding:10px;">
+					<span class="mr-2" style="color: gray;">공지사항</span>
+					<!-- <span class="mr-2"><a href="/customerService/notice">공지사항<i class="ion-ios-arrow-forward"></i></a></span> -->
+					<span class="mr-2">/</span> 
+					<span class="mr-2"><a href="/customerService/faq">자주묻는 질문<i class="ion-ios-arrow-forward"></i></a></span>
+					<!-- <span class="mr-2" style="color: gray;">자주묻는 질문</span> -->
+					<span class="mr-2">/</span> 
+					<span class="mr-2"><a href="/customerService/qna">문의하기<i class="ion-ios-arrow-forward"></i></a></span>
 				</p>
 			</div>
 		</div>
 	</div>
 </section>
 
+<div class="title">
+	<h1>공지사항</h1>
+	애니모어에서 회원님들을 위한 공지사항을 안내 드립니다.
+</div>
+
 <br />
+<section class="ftco-section" style="color: black; font-family: 'NanumSquareNeo';">
 <div class="container" style="color: black; font-family: 'NanumSquareNeo';">
 	<div class="row" align="center">
 		<div class="col-lg-12">
-			<div class="text-center ftco-animate">
-				<span><img src="../images/notice.png"></span>
-				<h2>공지사항</h2>
-				<h5>애니모어에서 회원님들을 위한 공지사항을 안내 드립니다.</h5>
-			</div>
-			<br />
 			
 			<table class="table table-bordered table-hover table-condensed text-center">
-				<tr>
+				<thead>
 					<th>번호</th>
 					<th>제목</th>
 					<th>작성자</th>
 					<th>작성일</th>
 					<th>조회수</th>
-				</tr>
+				</thead>
 
 					<c:forEach items="${list}" var="board">
 						<tr>
@@ -69,6 +79,7 @@
 	</div>
 </div>
 
+
 <div class='row' style="color: black; font-family: 'NanumSquareNeo';">
 	<div class="col text-center">
 		<form id='searchForm' action="/customerService/notice" method='get'>
@@ -84,8 +95,9 @@
 			<input type='text' name='keyword' value='<c:out value="${pageMaker.cri.keyword}"/>' /> 
 			<input type='hidden' name='pageNum' value='<c:out value="${pageMaker.cri.pageNum}"/>' />
 			<input type='hidden' name='amount' value='<c:out value="${pageMaker.cri.amount}"/>' />
-			<button class='btn btn-default btn-xs'><i class="fa fa-search" aria-hidden="true"></i>검색하기
-			</button>
+<!-- 			<button class='btn btn-default btn-xs'><i class="fa fa-search" aria-hidden="true"></i>검색하기
+			</button> -->
+			<button type="button" class="btn btn-primary ml-2" style="font-family: 'NanumSquareNeo';"><i class="fa fa-search" aria-hidden="true"></i>검색<span class="ion-ios-arrow-forward"></span></button>
 		</form>
 	</div>
 </div>
@@ -110,6 +122,7 @@
 		</div>
 	</div>
 </div>
+</section>
 <br />
 
 <form id="actionForm" action="/customerService/notice" method="get">

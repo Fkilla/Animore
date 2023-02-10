@@ -3,12 +3,15 @@ package com.zerock.mapper;
 import java.util.List;
 
 import com.zerock.domain.Criteria;
+import com.zerock.domain.FAQVO;
 import com.zerock.domain.NoticeVO;
 
 public interface NoticeMapper {
+	//게시글 등록
+	public void insert(NoticeVO board);
+		
+	public void insertSelectKey(NoticeVO board);
 	
-	// 공지사항 목록 전체 불러오기
-	// public List<NoticeVO> getList();
 	
 	// 공지사항 목록 전체 + 페이지 처리
 	public List<NoticeVO> getListPaging(Criteria cri);
@@ -21,5 +24,7 @@ public interface NoticeMapper {
 	
 	// 공지사항 조회수 증가
 	public int viewCount(Long bno);
+
+	
 	
 }

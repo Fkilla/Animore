@@ -1,124 +1,94 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+   pageEncoding="UTF-8"%>
 <%@include file="../includes/header.jsp"%>
 
-
-<div class="container"
-	style="color: black; font-family: 'NanumSquareNeo';">
-	<div class="row" align="center">
-		<div class="col-lg-12">
-			<br /> <br />
-		</div>
-		<div class="col-md-2">
-			<div>
-				<h5>개인정보</h5>
-				<p>개인정보 수정</p>
-				<p><a href="/myPage/myZzim">나의 찜 목록 확인</a></p>
-			</div>
-			<div>
-				<h5>쇼핑</h5>
-				<p>구매내역 확인</p>
-			</div>
-			<div>
-				<h5>내가 작성한 폼</h5>
-				<p>방문 신청 폼</p>
-				<p>입양 신청 폼</p>
-			</div>
-			<div>
-				<h5>회원 탈퇴</h5>
-			</div>
-
-		</div>
-
-		<div class="col-lg-10">
-			<div class="col-md-7 heading-section text-center ftco-animate">
-				<h2>나의 찜 목록</h2>
-				<br />
-			</div>
-			
-			
-			<div class="row d-flex">
-				<div class="col-md-4 d-flex ftco-animate">
-					<div class="blog-entry align-self-stretch"
-						onclick="location.href='/adopt/animalDetails'">
-						<img src="../images/any-dog2.jpg" class="img-fluid rounded" />
-						<div class="text p-4">
-							<div class="meta mb-2" style="color: black">
-								<div class="myfont14">공고번호 : 231</div>
-								<br />
-								<div class="myfont14">이름 : 아람</div>
-								<br />
-								<div class="myfont14">나이 : 3살</div>
-								<br />
-								<div class="myfont14">성별 : 여아</div>
-								<br />
-								<div class="myfont14">품종 : 비숑</div>
-								<br />
-								<div class="myfont14">중성화 유무 : 유</div>
-								<br />
-								<div class="myfont14">안락사까지 남은 기간 : 20일</div>
-								<br />
-							</div>
-						</div>
-					</div>
-				</div>
+<script>
+	document.getElementById("home").setAttribute("class", "nav-item");
+</script>
 
 
-				<div class="col-md-4 d-flex ftco-animate">
-					<div class="blog-entry align-self-stretch"
-						onclick="location.href='/adopt/animalDetails'">
-						<img src="../images/any-dog1.jpg" class="img-fluid rounded" />
-						<div class="text p-4">
-							<div class="meta mb-2" style="color: black">
-								<div class="myfont14">공고번호 : 230</div>
-								<br />
-								<div class="myfont14">이름 : 흰별이</div>
-								<br />
-								<div class="myfont14">나이 : 2살</div>
-								<br />
-								<div class="myfont14">성별 : 여아</div>
-								<br />
-								<div class="myfont14">품종 : 말티즈</div>
-								<br />
-								<div class="myfont14">중성화 유무 : 유</div>
-								<br />
-								<div class="myfont14">안락사까지 남은 기간 : 40일</div>
-								<br />
-							</div>
-						</div>
-					</div>
-				</div>
+
+<style>
+	a{
+		color:#808080;
+	}
+	.select_menu {
+		margin-bottom: 30px;
+		margin-left: 10px;
+	}
+	#animalList {
+	cursor: pointer;
+	}
+	
+	#animalList .myfont14 {
+		color: black transition-property: color;
+		transition-duration: 0.3s;
+	}
+	
+	#animalList:hover .myfont14 {
+		color: #CDBBA7;
+	}
+</style>
 
 
-				<div class="col-md-4 d-flex ftco-animate">
-					<div class="blog-entry align-self-stretch"
-						onclick="location.href='/adopt/animalDetails'">
-						<img src="../images/any-dog3.jpg" class="img-fluid rounded" />
-						<div class="text p-4">
-							<div class="meta mb-2" style="color: black">
-								<div class="myfont14">공고번호 : 230</div>
-								<br />
-								<div class="myfont14">이름 : 초코</div>
-								<br />
-								<div class="myfont14">나이 : 1살</div>
-								<br />
-								<div class="myfont14">성별 : 남아</div>
-								<br />
-								<div class="myfont14">품종 : 믹스견</div>
-								<br />
-								<div class="myfont14">중성화 유무 : 무</div>
-								<br />
-								<div class="myfont14">안락사까지 남은 기간 : 50일</div>
-								<br />
-							</div>
-						</div>
-					</div>
-				</div>
-				
-				
-			</div>
-		</div>
-	</div>
+<section class="ftco-section" style="font-family: 'NanumSquareNeo';">
+	<div class="container"
+		style="color: black; font-family: 'NanumSquareNeo';">
+		<div class="row">
+	      <div class="col-md-2">
+	      	<h5>개인정보</h5>
+	      	<div class="select_menu">
+	      		<span><a href="/myPage/edit">개인정보 수정</a></span><br/>
+	      		<!-- <span style="color:#CDBBA7">개인정보 수정</span><br/> -->
+	      		<!-- <span><a href="/myPage/myZzim">나의 찜 목록 확인</a></span> -->
+	      		<span style="color:#CDBBA7">나의 찜 목록 확인</span>
+	      	</div>
+	      	<h5>쇼핑</h5>
+	      	<div class="select_menu">
+	      		<span><a href="/myPage/order_list">구매내역 확인</a></span>
+	      	</div>
+	      	<h5>내가 작성한 폼</h5>
+	      	<div class="select_menu">
+	      		<span><a href="/myPage/visit_reg_form">방문 신청 폼</a></span><br/>
+	      		<span><a href="/myPage/adopt_reg_form">입양 신청 폼</a></span>
+	      	</div>
+	      	<h5>회원 탈퇴</h5>
+	      	<div class="select_menu">
+	      		<span><a href="/myPage/account_delete">회원탈퇴 하기</a></span>
+	      	</div>
+	
+	      </div>
+	
+			<div class="col-lg-10">
+				<h3 style="margin-bottom: 30px"><b>나의 찜 목록</b></h3>		
+         
+         <div class="row d-flex">
+         <c:forEach items="${list}" var="protectList">
+            <div class="col-md-4 d-flex ftco-animate">
+						<div class="blog-entry align-self-stretch"
+						onclick="location.href='/adopt/animalDetails?board_num='+
+						<c:out value="${ protectList.board_num }" />">
+<!--                   <img src="../images/any-dog2.jpg" class="img-fluid rounded" /> -->
+  					<c:forEach items="${image}" var="protectImage">
+	  					<c:if test="${ protectList.board_num == protectImage.board_num }">
+							<img class="img-fluid rounded" src="/adopt/protectAnimalDisplay?fileName=${ protectImage.uploadPath }/${ protectImage.uuid }_${ protectImage.fileName }"/>
+						</c:if> 
+					</c:forEach>
+                  <div class="text p-4">
+                     <div class="meta mb-2" style="color: black">
+						<div id="board_num" class="myfont14">공고번호  : <c:out value="${ protectList.board_num }" /></div>
+						<br />
+						<div class="myfont14">이름 : <c:out value="${ protectList.animal_name }" /></div>
+						<br />
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </c:forEach>
+         </div>
+         
+      </div>
+   </div>
 </div>
-
+</section>
 <%@include file="../includes/footer.jsp"%>

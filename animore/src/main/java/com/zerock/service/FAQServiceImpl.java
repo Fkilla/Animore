@@ -2,21 +2,56 @@ package com.zerock.service;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.zerock.domain.Criteria;
+import com.zerock.domain.FAQAttachVO;
 import com.zerock.domain.FAQVO;
+import com.zerock.mapper.FAQAttachMapper;
 import com.zerock.mapper.FAQMapper;
 
 import lombok.AllArgsConstructor;
+import lombok.Setter;
 import lombok.extern.log4j.Log4j;
 
-@Service
+
 @Log4j
+@Service
 @AllArgsConstructor
 public class FAQServiceImpl implements FAQService {
+
+	@Setter(onMethod_ = @Autowired)
+	private FAQMapper mapper; 
 	
-	private FAQMapper mapper;
+	@Setter(onMethod_ = @Autowired)
+	private FAQAttachMapper attachMapper;
+	
+	
+	@Transactional
+	@Override
+	public void register(FAQVO board) {
+		log.info("register..." + board);
+		mapper.insertSelectKey(board);
+		
+		if(board.getAttachList() == null || board.getAttachList().size() <= 0) {
+			return;
+		}
+		board.getAttachList().forEach(attach ->{
+			attach.setBno(board.getBno());
+			attachMapper.insert(attach);
+		});
+		
+	}
+	
+	//파일 업로드
+	@Override
+	public List<FAQAttachVO> getAttachList(Long bno) {
+		log.info("get Attach list by bno" + bno);
+		return attachMapper.findByBno(bno);
+	}
+	
 
 	// FAQ 목록 전체 불러오기
 	@Override

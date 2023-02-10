@@ -25,12 +25,11 @@
 		<load-on-startup>1</load-on-startup>
 		
 		<multipart-config>
-			<location>C:\\upload\\temp</location>
+			<location>C:\\upload</location> <!-- 파일이 업로드되면 여기에 두겠다! 하는 경로 -->
 			<max-file-size>20971520</max-file-size>
 			<max-request-size>41943040</max-request-size>
 			<file-size-threshold>20971520</file-size-threshold>
 		</multipart-config>
-		
 	</servlet>
 		
 	<servlet-mapping>
@@ -51,6 +50,5 @@
       <filter-name>encoding</filter-name>
       <servlet-name>appServlet</servlet-name>
    </filter-mapping>
-
 
 </web-app>

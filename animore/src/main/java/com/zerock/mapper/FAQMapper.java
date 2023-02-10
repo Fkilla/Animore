@@ -2,12 +2,19 @@ package com.zerock.mapper;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Mapper;
+
 import com.zerock.domain.Criteria;
 import com.zerock.domain.FAQVO;
 
+@Mapper
 public interface FAQMapper {
 	
-	// public List<FAQVO> faqGetList();
+	//faq 게시글 등록
+	public void insert(FAQVO board);
+	
+	public void insertSelectKey(FAQVO board);
+
 	
 	// faq 목록 전체 + 페이지 처리
 	public List<FAQVO> getListPaging(Criteria cri);

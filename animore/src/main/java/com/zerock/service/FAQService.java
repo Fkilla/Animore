@@ -3,9 +3,19 @@ package com.zerock.service;
 import java.util.List;
 
 import com.zerock.domain.Criteria;
+import com.zerock.domain.FAQAttachVO;
 import com.zerock.domain.FAQVO;
 
 public interface FAQService {
+	
+	//관리자페이지에서 게시글 등록하기위해 추가해뒀습니다
+	public void register(FAQVO board);
+	
+	//파일올리기
+	public List<FAQAttachVO> getAttachList(Long bno);
+	
+	
+	
 	
 	//public List<FAQVO> faqGetList();
 	
@@ -20,5 +30,7 @@ public interface FAQService {
 	
 	// FAQ 조회수 증가
 	public int viewCount(Long bno);
+
+
 
 }

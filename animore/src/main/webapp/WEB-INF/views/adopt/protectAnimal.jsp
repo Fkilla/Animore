@@ -5,6 +5,10 @@
 <%@include file="../includes/header.jsp"%>
 
 <style>
+#animalList {
+	cursor: pointer;
+}
+
 #animalList .myfont14 {
 	color: black transition-property: color;
 	transition-duration: 0.3s;
@@ -13,219 +17,106 @@
 #animalList:hover .myfont14 {
 	color: #CDBBA7;
 }
+select, input {
+	font-size:15px;
+	height:40px;
+}
 </style>
+
+<script>
+</script>
 
 
 <section class="hero-wrap hero-wrap-2"
-	style="background-image: url('../images/bg_2.jpg');"
+	style="background-image: url('../images/cat-bg.jpg');"
 	data-stellar-background-ratio="0.5">
 	<div class="overlay"></div>
 	<div class="container" style="font-family: 'NanumSquareNeo';">
 		<div class="row no-gutters slider-text align-items-end">
 			<div class="col-md-9 ftco-animate pb-5">
-				<p class="breadcrumbs mb-2">
-					<span class="mr-2"><a href="/index">Home <i
-							class="ion-ios-arrow-forward"></i></a></span> <span>입양하기 <i
-						class="ion-ios-arrow-forward"></i></span>
-				</p>
-				<h1 class="mb-0 bread" style="font-family: 'NanumSquareNeo';">입양신청</h1>
-				<br>
-				<p class="breadcrumbs mb-2">
-					<span class="mr-2"><a href="/adopt/protectAnimal">입양신청<i
-							class="ion-ios-arrow-forward"></i></a></span> <span class="mr-2"><a
-						href="/adopt/procedure">입양절차<i class="ion-ios-arrow-forward"></i></a></span>
+				<h1 class="mb-0 bread" style="font-family: 'NanumSquareNeo';">입양하기</h1>
+				<p class="breadcrumbs mb-2" style="padding:10px;">
+					<!-- <span class="mr-2" style="color: gray;">입양절차</span> -->
+					<span class="mr-2"><a href="/adopt/procedure">입양절차<i class="ion-ios-arrow-forward"></i></a></span>
+					<span class="mr-2">/</span> 
+					<!-- <span class="mr-2"><a href="/adopt/protectAnimal">입양하기<i class="ion-ios-arrow-forward"></i></a></span> -->
+					<span class="mr-2" style="color: gray;">입양하기</span>
 				</p>
 			</div>
 		</div>
 	</div>
 </section>
 
+<div class="title">
+	<h1>입양하기</h1>
+	회원님의 따뜻한 손길이 필요합니다.
+</div>
 
 <section class="ftco-section" style="font-family: 'NanumSquareNeo';">
 	<div class="overlay"></div>
 	<div class="container">
-		<div class="row justify-content-center pb-5 mb-3">
-			<div class="col-md-7 heading-section text-center ftco-animate">
-				<span><img src="../images/pet-care.png"></span>
-				<h2>입양신청</h2>
-			</div>
-		</div>
 
+
+<!-- <img src="c:\upload\2023\02\08\2b7911b1-6e0b-4318-b75f-20531cf26e2b_any-cat2.jpg" /> -->		
 		<!-- 보호동물목록 -->
+		
 		<div class="row d-flex">
+			<c:forEach items="${list}" var="protectList">
 			<div class="col-md-4 d-flex ftco-animate" id="animalList">
-				<div class="blog-entry align-self-stretch"
-					onclick="location.href='/adopt/animalDetails'" style="cursor:pointer;">
-					<img src="../images/any-dog2.jpg" class="img-fluid rounded" />
+				<div class="blog-entry align-self-stretch" pk="<c:out value= "${ protectList.board_num }" />"
+					 style="cursor:pointer;">
+					 <!-- <img src="../images/any-dog2.jpg" class="img-fluid rounded" /> -->
+
+  					<c:forEach items="${image}" var="protectImage">
+	  					<c:if test="${ protectList.board_num == protectImage.board_num }">
+							<img class="img-fluid rounded" src="/adopt/protectAnimalDisplay?fileName=${ protectImage.uploadPath }/${ protectImage.uuid }_${ protectImage.fileName }"/>
+						</c:if> 
+					</c:forEach>
+
 					<div class="text p-4 col text-center" >
 						<div class="meta mb-2">
-							<div class="myfont14">공고번호 : 231</div>
+							<div class="myfont14">
+								<span id="board_num">공고번호 : <c:out value= "${ protectList.board_num }" /></span><br/>
+								<span>이름 : <c:out value= "${ protectList.animal_name }" /></span><br/>
+								<span>나이 : <c:out value= "${ protectList.age }" />살</span><br/>
+								<span>성별 : <c:out value= "${ protectList.sex }" /></span><br/>
+								<span>품종 : <c:out value= "${ protectList.variety }" /></span><br/>
+								<span>중성화 유무 : <c:out value= "${ protectList.tnr }" /></span><br/>
+								<span>안락사 날짜 : <c:out value= "${ protectList.euthanasia_day }" /></span>
+							</div>
+<%-- 							<div id="board_num" class="myfont14">공고번호  : <c:out value= "${ protectList.board_num }" /></div>
 							<br />
-							<div class="myfont14">이름 : 아람</div>
+							<div class="myfont14">이름 : <c:out value= "${ protectList.animal_name }" /></div>
 							<br />
-							<div class="myfont14">나이 : 3살</div>
+							<div class="myfont14">나이 : <c:out value= "${ protectList.age }" />살</div>
 							<br />
-							<div class="myfont14">성별 : 여아</div>
+							<div class="myfont14">성별 : <c:out value= "${ protectList.sex }" /></div>
 							<br />
-							<div class="myfont14">품종 : 비숑</div>
+							<div class="myfont14">품종 : <c:out value= "${ protectList.variety }" /></div>
 							<br />
-							<div class="myfont14">중성화 유무 : 유</div>
+							<div class="myfont14">중성화 유무 : <c:out value= "${ protectList.tnr }" /></div>
 							<br />
-							<div class="myfont14">안락사까지 남은 기간 : 20일</div>
-							<br />
+							<div class="myfont14">안락사까지 남은 기간 : <c:out value= "${ protectList.euthanasia_day }" />일</div>
+							<br /> --%>
 						</div>
 					</div>
 				</div>
 			</div>
-
-
-			<div class="col-md-4 d-flex ftco-animate" id="animalList">
-				<div class="blog-entry align-self-stretch"
-					onclick="location.href='/adopt/animalDetails'" style="cursor:pointer;">
-					<img src="../images/any-dog1.jpg" class="img-fluid rounded" />
-					<div class="text p-4 col text-center">
-						<div class="meta mb-2">
-							<div class="myfont14">공고번호 : 230</div>
-							<br />
-							<div class="myfont14">이름 : 흰별이</div>
-							<br />
-							<div class="myfont14">나이 : 2살</div>
-							<br />
-							<div class="myfont14">성별 : 여아</div>
-							<br />
-							<div class="myfont14">품종 : 말티즈</div>
-							<br />
-							<div class="myfont14">중성화 유무 : 유</div>
-							<br />
-							<div class="myfont14">안락사까지 남은 기간 : 40일</div>
-							<br />
-						</div>
-					</div>
-				</div>
-			</div>
-
-
-			<div class="col-md-4 d-flex ftco-animate" id="animalList">
-				<div class="blog-entry align-self-stretch"
-					onclick="location.href='/adopt/animalDetails'" style="cursor:pointer;">
-					<img src="../images/any-dog3.jpg" class="img-fluid rounded" />
-					<div class="text p-4 col text-center">
-						<div class="meta mb-2" style="color: black">
-							<div class="myfont14">공고번호 : 230</div>
-							<br />
-							<div class="myfont14">이름 : 초코</div>
-							<br />
-							<div class="myfont14">나이 : 1살</div>
-							<br />
-							<div class="myfont14">성별 : 남아</div>
-							<br />
-							<div class="myfont14">품종 : 믹스견</div>
-							<br />
-							<div class="myfont14">중성화 유무 : 무</div>
-							<br />
-							<div class="myfont14">안락사까지 남은 기간 : 50일</div>
-							<br />
-						</div>
-					</div>
-				</div>
-			</div>
-
-
-			<div class="col-md-4 d-flex ftco-animate" id="animalList">
-				<div class="blog-entry align-self-stretch"
-					onclick="location.href='/adopt/animalDetails'" style="cursor:pointer;">
-					<img src="../images/any-cat1.jpg" class="img-fluid rounded" />
-					<div class="text p-4 col text-center">
-						<div class="meta mb-2">
-							<div class="myfont14">공고번호 : 229</div>
-							<br />
-							<div class="myfont14">이름 : 치즈</div>
-							<br />
-							<div class="myfont14">나이 : 6개월</div>
-							<br />
-							<div class="myfont14">성별 : 여아</div>
-							<br />
-							<div class="myfont14">품종 : 코리안숏헤어</div>
-							<br />
-							<div class="myfont14">중성화 유무 : 무</div>
-							<br />
-							<div class="myfont14">안락사까지 남은 기간 : 35일</div>
-							<br />
-						</div>
-					</div>
-				</div>
-			</div>
-
-
-			<div class="col-md-4 d-flex ftco-animate" id="animalList">
-				<div class="blog-entry align-self-stretch"
-					onclick="location.href='/adopt/animalDetails'" style="cursor:pointer;">
-					<img src="../images/any-cat2.jpg" class="img-fluid rounded" />
-					<div class="text p-4 col text-center">
-						<div class="meta mb-2">
-							<div class="myfont14">공고번호 : 228</div>
-							<br />
-							<div class="myfont14">이름 : 왕자</div>
-							<br />
-							<div class="myfont14">나이 : 1살</div>
-							<br />
-							<div class="myfont14">성별 : 남아</div>
-							<br />
-							<div class="myfont14">품종 : 코리안숏헤어</div>
-							<br />
-							<div class="myfont14">중성화 유무 : 무</div>
-							<br />
-							<div class="myfont14">안락사까지 남은 기간 : 40일</div>
-							<br />
-						</div>
-					</div>
-				</div>
-			</div>
-
-
-			<div class="col-md-4 d-flex ftco-animate" id="animalList">
-				<div class="blog-entry align-self-stretch"
-					onclick="location.href='/adopt/animalDetails'" style="cursor:pointer;">
-					<img src="../images/any-cat3.jpg" class="img-fluid rounded" />
-					<div class="text p-4 col text-center">
-						<div class="meta mb-2">
-							<div class="myfont14">공고번호 : 227</div>
-							<br />
-							<div class="myfont14">이름 : 호두</div>
-							<br />
-							<div class="myfont14">나이 : 4개월</div>
-							<br />
-							<div class="myfont14">성별 : 여아</div>
-							<br />
-							<div class="myfont14">품종 : 코리안숏헤어</div>
-							<br />
-							<div class="myfont14">중성화 유무 : 무</div>
-							<br />
-							<div class="myfont14">안락사까지 남은 기간 : 40일</div>
-							<br />
-						</div>
-					</div>
-				</div>
-			</div>
+			</c:forEach>
 		</div>
 	</div>
 <div class='row' style="color: black; font-family: 'NanumSquareNeo';">
 	<div class="col text-center">
-		<form id='searchForm' action="/adpot/protectAnimal" method='get'>
+		<form id='searchForm' action="/adopt/protectAnimal" method='get'>
 			<select name='type'>
 				<option value="" <c:out value="${ pageMaker.cri.type == null?'selected':'' }" />>선택</option>
-				<option value="T" <c:out value="${ pageMaker.cri.type eq 'T'?'selected':'' }" />>제목</option>
-				<option value="C" <c:out value="${ pageMaker.cri.type eq 'C'?'selected':'' }" />>내용</option>
-				<option value="I" <c:out value="${ pageMaker.cri.type eq 'W'?'selected':'' }" />>작성자</option>
-				<option value="TC" <c:out value="${ pageMaker.cri.type eq 'TC'?'selected':'' }" />>제목+내용</option>
-				<option value="TI" <c:out value="${ pageMaker.cri.type eq 'TW'?'selected':'' }" />>제목+작성자</option>
-				<option value="TIC" <c:out value="${ pageMaker.cri.type eq 'TWC'?'selected':'' }" />>제목+내용+작성자</option>
+				<option value="N" <c:out value="${ pageMaker.cri.type eq 'T'?'selected':'' }" />>이름</option>
+				<option value="V" <c:out value="${ pageMaker.cri.type eq 'C'?'selected':'' }" />>품종</option>
 			</select> 
 			<input type='text' name='keyword' value='<c:out value="${pageMaker.cri.keyword}"/>' /> 
 			<input type='hidden' name='pageNum' value='<c:out value="${pageMaker.cri.pageNum}"/>' />
 			<input type='hidden' name='amount' value='<c:out value="${pageMaker.cri.amount}"/>' />
-			<button class='btn btn-default btn-xs'><i class="fa fa-search" aria-hidden="true"></i>검색하기
-			</button>
+			<button type="button" class="btn btn-primary ml-2" style="font-family: 'NanumSquareNeo';"><i class="fa fa-search" aria-hidden="true"></i>검색<span class="ion-ios-arrow-forward"></span></button>
 		</form>
 	</div>
 </div>
@@ -252,7 +143,7 @@
 </div>
 <br />
 
-<form id="actionForm" action="/adpot/protectAnimal" method="get">
+<form id="actionForm" action="/adopt/protectAnimal" method="get">
 	<input type="hidden" name="pageNum" value="${pageMaker.cri.pageNum }">
 	<input type="hidden" name="amount" value="${pageMaker.cri.amount }">
 	<input type="hidden" name="type" value="${pageMaker.cri.type }">
@@ -288,34 +179,64 @@ $(document).ready(function(){
 		actionForm.submit();
 	});
 	
-	$(".move").on("click", function(e){
-		e.preventDefault();
-		actionForm.append("<input type='hidden' name='bno' value='"+$(this).attr("href")+"'>");
-		actionForm.attr("action", "/adpot/protectAnimal");
+   	$(".blog-entry.align-self-stretch").on("click", function(e){
+		actionForm.append("<input type='hidden' name='board_num' value='"+$(this).attr("pk") + "'>");
+		actionForm.attr("action", "/adopt/animalDetails");
 		actionForm.submit();
-	});
+	});  
 	
- 		var searchForm = $("#searchForm");
+ 	var searchForm = $("#searchForm");
  		
- 		$("#searchForm button").on("click", function(e){
- 			if(!searchForm.find("option:selected").val()){ // 검색 조건을 선택하지 않았다면
- 				$(".modal-body").html("검색 종류를 선택하세요.");
- 				$("#alertModal").modal("show");
- 				return false;
- 			}
+ 	$("#searchForm button").on("click", function(e){
+ 		if(!searchForm.find("option:selected").val()){ // 검색 조건을 선택하지 않았다면
+ 			$(".modal-body").html("검색 종류를 선택하세요.");
+ 			$("#alertModal").modal("show");
+ 			return false;
+ 		}
  			
- 			if(!searchForm.find("input[name='keyword']").val()){ // 검색어가 없다면
- 				$(".modal-body").html("검색어를 입력하세요.");
- 				$("#alertModal").modal("show");
- 				return false;
- 			}
+ 		if(!searchForm.find("input[name='keyword']").val()){ // 검색어가 없다면
+ 			$(".modal-body").html("검색어를 입력하세요.");
+ 			$("#alertModal").modal("show");
+ 			return false;
+ 		}
  			
- 			searchForm.find("input[name='pageNum']").val("1"); // 검색은 1페이지가 뜨도록 한다.
- 			e.preventDefault();
+ 		searchForm.find("input[name='pageNum']").val("1"); // 검색은 1페이지가 뜨도록 한다.
+ 		e.preventDefault();
  			
- 			searchForm.submit();
- 		});	
+ 		searchForm.submit();
+ 	});	
+ 	
+ 	
 }); 
 </script>
+
+<!-- <script>
+$(document).ready(function(){
+	(function(){
+		var bno = '<c:out value="${protectList.board_num}"/>'; 
+
+ 		$.getJSON("/adopt/protectAnimalGetAttachList",{bno:bno}, function(arr){
+			
+			console.log(arr);
+			var str = "";
+			$(arr).each(function(i, attach){
+				if(attach.fileType == false){
+		        var fileCallPath =  encodeURIComponent( attach.uploadPath+ "/"+attach.uuid +"_"+attach.fileName);
+		           
+				str += "<img class='img-fluid rounded' src='/adopt/protectAnimalDisplay?fileName="+fileCallPath+"'>";
+		      }
+				
+		      $(".uploadResult").html(str);
+		      
+			});
+		}); 		
+		
+	})();
+	
+	
+});
+</script> -->
+
+
 
 <%@include file="../includes/footer.jsp"%>

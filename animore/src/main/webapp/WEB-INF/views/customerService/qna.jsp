@@ -4,57 +4,68 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <%@include file="../includes/header.jsp"%>
 
+<script>
+	document.getElementById("home").setAttribute("class", "nav-item");
+</script>
+
+<style>
+	a{
+		color:#808080;
+	}
+	select, input {
+		font-size:15px;
+		height:40px;
+	}
+</style>
+
 <section class="hero-wrap hero-wrap-2"
-	style="background-image: url('../images/bg_2.jpg');"
+	style="background-image: url('../images/cat-bg.jpg');"
 	data-stellar-background-ratio="0.5">
 	<div class="overlay"></div>
 	<div class="container" style="font-family: 'NanumSquareNeo';">
 		<div class="row no-gutters slider-text align-items-end">
 			<div class="col-md-9 ftco-animate pb-5">
-				<p class="breadcrumbs mb-2">
-					<span class="mr-2"><a href="/index">Home <i
-							class="ion-ios-arrow-forward"></i></a></span>
-				</p>
-				<h1 class="mb-0 bread" style="font-family: 'NanumSquareNeo';">QNA</h1>
-				<br>
-				<p class="breadcrumbs mb-2">
-					<span class="mr-2"><a href="/customerService/notice">공지사항<i
-							class="ion-ios-arrow-forward"></i></a></span> <span class="mr-2"><a
-						href="/customerService/faq">FAQ<i
-							class="ion-ios-arrow-forward"></i></a></span> <span class="mr-2"><a
-						href="/customerService/qna">QNA<i
-							class="ion-ios-arrow-forward"></i></a></span>
+				<h1 class="mb-0 bread" style="font-family: 'NanumSquareNeo';">문의하기</h1>
+				<p class="breadcrumbs mb-2" style="padding:10px;">
+					<!-- <span class="mr-2" style="color: gray;"></span> -->
+					<span class="mr-2"><a href="/customerService/notice">공지사항<i class="ion-ios-arrow-forward"></i></a></span>
+					<span class="mr-2">/</span> 
+					<span class="mr-2"><a href="/customerService/faq">자주묻는 질문<i class="ion-ios-arrow-forward"></i></a></span>
+					<!-- <span class="mr-2" style="color: gray;">자주묻는 질문</span> -->
+					<span class="mr-2">/</span> 
+					<!-- <span class="mr-2"><a href="/customerService/qna">문의하기<i class="ion-ios-arrow-forward"></i></a></span> -->
+					<span class="mr-2" style="color: gray;">문의하기</span>
 				</p>
 			</div>
 		</div>
 	</div>
 </section>
 
-<br />
+<div class="title">
+	<h1>문의하기</h1>
+	궁금한 점이나 각종 건의, 불편사항을 서슴지 않고 문의해주세요.
+</div>
+
+<section class="ftco-section" style="color: black; font-family: 'NanumSquareNeo';">
 <div class="container"
 	style="color: black; font-family: 'NanumSquareNeo';">
 	<div class="row" align="center">
 		<div class="col-lg-12">
-			<div class="text-center ftco-animate">
-				<span><img src="../images/chat.png"></span>
-				<h2>QNA</h2>
-				<h5>궁금한 점이나 각종 건의, 불편사항을 서슴지 않고 문의 해주세요.</h5>
-			</div>
-			<br />
 
 			<table class="table table-bordered table-hover table-condensed text-center">
-				<tr>
+				<thead>
 					<th>번호</th>
 					<th>제목</th>
 					<th>작성자</th>
 					<th>작성일</th>
 					<th>조회수</th>
-				</tr>
+				</thead>
 					<c:forEach items="${list}" var="board">
 						<tr>
 							<td><c:out value="${board.bno}" /></td>
 							<td><a class='move' href='<c:out value="${board.bno}"/>'>
-							<c:out value="${board.title}"/></a></td>
+							<c:out value="${board.title}"/>
+							<b>[<c:out value="${ board.replycnt }" />]</b></a></td>
 							<td><c:out value="${board.id}" /></td>
 							<td><fmt:formatDate pattern="yyyy-MM-dd"
 									value="${board.regdate}" /></td>
@@ -64,8 +75,7 @@
 						</tr>
 					</c:forEach>
 			</table>
-			<button id='regBtn' type="button"
-				class="btn btn-outline-dark pull-right">글쓰기</button>
+			<button id='regBtn' type="button" class="btn btn-primary" style="font-family: 'NanumSquareNeo'; float:right;"><i class="fa-light fa-file-pen"></i>작성하기<span class="ion-ios-arrow-forward"></span></button>
 		</div>
 	</div>
 </div>
@@ -86,8 +96,9 @@
 			<input type='text' name='keyword' value='<c:out value="${pageMaker.cri.keyword}"/>' /> 
 			<input type='hidden' name='pageNum' value='<c:out value="${pageMaker.cri.pageNum}"/>' />
 			<input type='hidden' name='amount' value='<c:out value="${pageMaker.cri.amount}"/>' />
-			<button class='btn btn-default btn-xs'><i class="fa fa-search" aria-hidden="true"></i>검색하기
-			</button>
+<!-- 			<button class='btn btn-default btn-xs'><i class="fa fa-search" aria-hidden="true"></i>검색하기
+			</button> -->
+			<button type="button" class="btn btn-primary ml-2" style="font-family: 'NanumSquareNeo';"><i class="fa fa-search" aria-hidden="true"></i>검색<span class="ion-ios-arrow-forward"></span></button>
 		</form>
 	</div>
 </div>
@@ -112,6 +123,7 @@
 		</div>
 	</div>
 </div>
+</section>
 
 <br />
 
@@ -157,9 +169,14 @@ $(document).ready(function(){
 		$("#alertModal").modal("show");
 	};
 	
-	// 글쓰기 버튼을 눌렀을 때
+		// 글쓰기 버튼을 눌렀을 때
 		$("#regBtn").on("click", function() {
+			if("${member.id}" == ""){
+				$(".modal-body").html("로그인 후 이용해주세요.");			
+				$("#alertModal").modal("show");
+			} else {
 			self.location = "/customerService/register";
+			}
 		});
 
 		var actionForm = $("#actionForm");
@@ -173,8 +190,17 @@ $(document).ready(function(){
  		$(".move").on("click", function(e){
 			e.preventDefault();
 			actionForm.append("<input type='hidden' name='bno' value='"+$(this).attr("href")+"'>");
-			actionForm.attr("action", "/customerService/get");
-			actionForm.submit();
+ 			if("${member.id}" == ""){
+ 				e.preventDefault();
+ 				actionForm.append("<input type='hidden' name='bno' value='"+$(this).attr("href")+"'>");
+ 				$(".modal-body").html("로그인 후 이용해주세요.");			
+ 				$("#alertModal").modal("show");				 				
+ 			} else {
+ 				e.preventDefault();
+ 				actionForm.append("<input type='hidden' name='bno' value='"+$(this).attr("href")+"'>"); 				
+				actionForm.attr("action", "/customerService/get");
+				actionForm.submit();
+ 			}
 		});
  		
  		var searchForm = $("#searchForm");

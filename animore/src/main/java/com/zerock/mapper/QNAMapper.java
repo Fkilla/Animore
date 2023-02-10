@@ -2,6 +2,8 @@ package com.zerock.mapper;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Param;
+
 import com.zerock.domain.Criteria;
 import com.zerock.domain.QNAVO;
 
@@ -30,5 +32,7 @@ public interface QNAMapper {
 	
 	// 조회수 증가
 	public int viewCount(Long bno);
+
+	public void updateReplyCnt(@Param("bno") Long bno, @Param("amount") int amount);
 
 }

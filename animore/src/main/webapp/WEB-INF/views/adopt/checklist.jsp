@@ -4,6 +4,11 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <%@include file="../includes/header.jsp"%>
 
+<script>
+	document.getElementById("home").setAttribute("class", "nav-item");
+	document.getElementById("adopt").setAttribute("class", "nav-item dropdown active");
+</script>
+
 <section class="ftco-section text-center" style="font-family: 'NanumSquareNeo';">
 	<div class="overlay"></div>
 	<div class="container">
@@ -25,10 +30,14 @@
 			<hr>
 			<label><input id="check" type="checkbox"/> &nbsp;확인</label>
 		</div>
-		<button id="formBtn" type="button" class="btn btn-outline-secondary">신청서 작성하기</button>
+		<button id="formBtn" type="button" class="btn btn-primary">신청서 작성하기</button>
 
 	</div>
 </section>
+
+<form id="actionForm" action="/adopt/animalform" method="get">
+	<input type='hidden' name='board_num' value='<%=request.getParameter("board_num") %>' />
+</form>
 
 
 <!-- 모달창 -->
@@ -37,7 +46,7 @@
 	<div class="modal-dialog modal-dialog-centered text-center">
 		<div class="modal-content">
 			<div class="modal-header">
-				<h5 class="modal-title" id="exampleModalLabel">경고</h5>
+				<h5 class="modal-title" id="exampleModalLabel">알림</h5>
 			</div>
 			<div class="modal-body">체크리스트를 확인해주세요.</div>
 			<div class="modal-footer">
@@ -48,17 +57,17 @@
 </div>
 
 
-
 <script>
 	// 신청서 작성하기 버튼 눌렀을 시 체크박스가 체크되어 있지 않으면 모달창, 체크되어 있으면 입양신청 폼으로 이동
 	$(function() {
-		$("#formBtn").on("click", function() {
-
-			if (!$("#check").is(':checked')) {
+		var actionForm = $("#actionForm");
+		
+		$("#formBtn").on("click", function(e) {
+			if (!$("#check").is(':checked')) {		
 				$("#exampleModal").modal("show");
 				return;
 			} else {
-				self.location = "/adopt/animalform";
+				actionForm.submit();
 			}
 		});
 	});

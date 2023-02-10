@@ -15,10 +15,10 @@
 <select id="getListPaging" resultType="com.zerock.domain.QNAVO">
 	<![CDATA[
 	select
-		bno, title, content, id, regdate, updatedate, count from
+		bno, title, content, id, regdate, updatedate, count, replycnt from
 			(
 				select /*+INDEX_DESC(qna pk_qna) */
-				rownum rn, bno, title, content, id, regdate, updatedate, count
+				rownum rn, bno, title, content, id, regdate, updatedate, count, replycnt
 				from qna
 				where
 	]]>
@@ -77,11 +77,11 @@
 
 <!-- qna 쓰기 -->
 <insert id="insertSelectKey">
-	<selectKey keyProperty="bno" order="BEFORE" resultType="long">
-		select seq_qna.nextval from dual
-	</selectKey>
-	insert into qna (bno, title, content, id)
-	values (#{bno}, #{title}, #{content}, #{id})
+   <selectKey keyProperty="bno" order="BEFORE" resultType="long">
+      select seq_qna.nextval from dual
+   </selectKey>
+   insert into qna (bno, title, content, id, count)
+   values (#{bno}, #{title}, #{content}, #{id},  #{count})
 </insert>
 
 
@@ -112,5 +112,11 @@
 	count = count + 1
 	where bno = #{bno}
 </update>
+
+<!-- 댓글 -->
+<update id="updateReplyCnt">
+   update qna set replycnt = replycnt + #{amount} where bno = #{bno}
+</update>
+
 
 </mapper>
