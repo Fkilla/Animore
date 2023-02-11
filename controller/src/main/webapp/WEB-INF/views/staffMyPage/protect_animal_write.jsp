@@ -107,7 +107,7 @@
 						<!-- end panel -->
 					</div>
 			
-			         <a href="/staffMyPage/protect_aniaml"><button type="button" class="btn btn-primary" style="float: right; margin-right: 10px;">목록</button></a>
+			         <a href="/staffMyPage/protect_animal"><button type="button" class="btn btn-primary" style="float: right; margin-right: 10px;">목록</button></a>
 			         <button type="submit" class="btn btn-primary" style="float: right; margin-right: 10px;">등록</button></a>
 			         <button type="reset" class="btn btn-primary" style="float: right; margin-right: 10px;">취소</button></a>  
 			          

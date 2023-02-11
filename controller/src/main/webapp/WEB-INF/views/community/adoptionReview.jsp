@@ -176,9 +176,7 @@
 				return;
 			}
 			
-			if(parseInt(result) > 0) {
-				$(".modal-body").html("게시글 " + parseInt(result) + "번이 등록되었습니다.");
-			}
+			$(".modal-body").html("게시글이 처리되었습니다.");
 			$("#alertModal").modal("show");
 		}
 		

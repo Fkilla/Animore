@@ -239,7 +239,7 @@ td {
 	                            <p><button type="button" class="btn btn-primary px-2 py-2" onclick='location.href="/anymoremall/cart_delete?c_num=${cartList.c_num}"'>상품삭제</button><p>
 	                        </td>
 	                        <td>
-	                        	<p><fmt:formatNumber value="${ cartList.quantity * cartList.price }" pattern="###,###"/></p>
+	                        	<p><c:out value="${ cartList.quantity * cartList.price }" /></p>
 	                            <p><button type="button" class="btn btn-primary px-2 py-2">주문하기</button></p>
 	                        </td>
 	                        <td><p>무료</p></td>
