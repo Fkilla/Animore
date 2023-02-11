@@ -8,6 +8,9 @@ import com.zerock.domain.CriteriaAR;
 
 public interface ARService {
 	
+	// 유진 수정 - 메인 값 불러오기 용도
+	public List<ARVO> getARList();
+	
 	public void register(ARVO adoptionReview);
 	
 	public ARVO get(Long bno);

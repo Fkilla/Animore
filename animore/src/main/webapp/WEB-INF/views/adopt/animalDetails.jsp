@@ -49,7 +49,7 @@
 					<div id="zzimDiv" class="text p-4" >
   					<c:forEach items="${image}" var="protectImage">
 	  					<c:if test="${ details.board_num == protectImage.board_num }">
-							<img class="img-fluid rounded" style="weight: 1080px; height: 720px"
+							<img class="img-fluid rounded" style="weight: 1080px; height: 720px;"
 							src="/adopt/protectAnimalDisplay?fileName=${ protectImage.uploadPath }/${ protectImage.uuid }_${ protectImage.fileName }"/>
 						</c:if> 
 					</c:forEach>		

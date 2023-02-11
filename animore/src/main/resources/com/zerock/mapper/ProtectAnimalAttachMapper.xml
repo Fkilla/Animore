@@ -5,7 +5,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <mapper namespace="com.zerock.mapper.ProtectAnimalAttachMapper">
 	<insert id="insert">
 		insert into animal_fileupload(fno, uuid, uploadpath, uploaddate, fileName, filetype, board_num)
-		values (seq_NoticeFile.nextval, #{uuid}, #{uploadPath},sysdate, #{fileName}, #{fileType}, #{board_num})
+		values (seq_animal_file.nextval, #{uuid}, #{uploadPath},sysdate, #{fileName}, #{fileType}, #{board_num})
 		
 	</insert>
 	

@@ -26,6 +26,14 @@ public class ARServiceImpl implements ARService {
 	
 	@Setter(onMethod_ = @Autowired)
 	private ARAttachMapper attachMapper;
+
+	
+	// 유진 수정 - 메인 값 불러오기 용도	
+	@Override
+	public List<ARVO> getARList() {
+		log.info("get List.........");
+		return mapper.getARList();
+	}
 	
 	@Transactional
 	@Override
@@ -124,6 +132,8 @@ public class ARServiceImpl implements ARService {
 		
 		return attachMapper.imageList();
 	}
+
+
 
 	
 }

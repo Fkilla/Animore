@@ -7,8 +7,7 @@
 	<!-- ProtectAnimal 전체 목록 -->
 	<select id="animalList" resultType="com.zerock.domain.ProtectAnimalVO">
 		<![CDATA[
-		select board_num, animal_name, variety, age, sex, tnr, euthanasia_day, identity
-		from animal_info
+		SELECT * FROM animal_info WHERE ROWNUM <= 10
 		]]>
 	</select>
 
@@ -113,22 +112,21 @@
 		select * from animal_info where board_num = #{board_num}
 	</select>
 	
-	<!-- 글 등록하기 -->
-	<insert id="insert" parameterType="com.zerock.domain.ProtectAnimalVO">
-		insert into animal_info(board_num, animal_name, enter_day, protect_day, variety, age, sex, tnr, identity, euthanasia_day)
-		values(
-    		seq_Protectanimal.nextval, #{animal_name}, sysdate, sysdate + 90,  #{variety}, #{age}, #{sex}, #{tnr}, #{identity}, TO_CHAR(sysdate + 90, 'YYYY-MM-DD')
-    		)
-
-	</insert>
-	
-	<insert id = "insertSelectKey">
-		<selectKey keyProperty="board_num" order="BEFORE" resultType="int">
-			select seq_Protectanimal.nextval from dual
-		</selectKey>
-			insert into animal_info(board_num, animal_name, enter_day, protect_day,variety, age,sex,tnr,identity, euthanasia_day)
-			values (#{board_num},#{animal_name}, sysdate, sysdate + 90,  #{variety}, #{age}, #{sex}, #{tnr}, #{identity}, TO_CHAR( sysdate+90, 'YYYY/MM/DD'))
-	</insert>
+   <!-- 글 등록하기 -->
+   <insert id="insert" parameterType="com.zerock.domain.ProtectAnimalVO">
+      insert into animal_info(board_num, animal_name, enter_day, protect_day, variety, age, sex, tnr, identity, euthanasia_day)
+      values(
+          seq_protectanimal.nextval, #{animal_name}, sysdate, sysdate + 90,  #{variety}, #{age}, #{sex}, #{tnr}, #{identity}, TO_CHAR(sysdate + 90, 'YYYY-MM-DD')
+          )
+   </insert>
+   
+   <insert id = "insertSelectKey">
+      <selectKey keyProperty="board_num" order="BEFORE" resultType="int">
+         select seq_Protectanimal.nextval from dual
+      </selectKey>
+         insert into animal_info(board_num, animal_name, enter_day, protect_day,variety, age,sex,tnr,identity, euthanasia_day)
+         values (#{board_num},#{animal_name}, sysdate, sysdate + 90,  #{variety}, #{age}, #{sex}, #{tnr}, #{identity}, TO_CHAR( sysdate+90, 'YYYY/MM/DD'))
+   </insert>
 	
 	
 	<update id="update">
