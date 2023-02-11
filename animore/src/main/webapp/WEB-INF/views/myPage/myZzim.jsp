@@ -61,7 +61,13 @@
 	
 			<div class="col-lg-10">
 				<h3 style="margin-bottom: 30px"><b>나의 찜 목록</b></h3>		
-         
+         <c:if test="${empty list}">
+               <tr>
+               <hr>
+                  <td colspan="6"><p style="margin-top: 16px; font-size: 15px; text-align:center;">찜 목록이 존재하지 않습니다.</p></td>
+               <hr>
+               </tr>
+            </c:if>
          <div class="row d-flex">
          <c:forEach items="${list}" var="protectList">
             <div class="col-md-4 d-flex ftco-animate">

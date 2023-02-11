@@ -102,10 +102,6 @@
 					</div>
 				</div>
 			</div>			
-			
-			<div class="form-group">
-				<label>비밀글</label> <input name="secret" id="secret" type="checkbox" />
-			</div> 
         	
 			<button id="register" type="submit" class="btn btn-primary">등록</button>
 			<button type="reset" class="btn btn-primary">새로작성</button>
