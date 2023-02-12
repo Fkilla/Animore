@@ -221,7 +221,7 @@ td {
 			<!-- DB 연동 -->
 			<thead>
 				<tr>
-					<td colspan="3">상품정보</td>
+					<td colspan="3">상품이름</td>
 					<td>옵션</td>
 					<td>상품금액</td>
 					<td>배송비</td>
@@ -230,16 +230,15 @@ td {
         		<form>
         			<c:forEach items="${cart_list}" var="cartList">
 	        			<tr class="cart_list_detail">
-	        				<td width="20%"><img src="../images/product-4.jpg" alt="magic keyboard"></td>
-	        				<td colspan="2">
-	                            <p style="text-align: left;"><c:out value="${ cartList.product_name }" /></p>
+	        				<td colspan="3">
+	                            <p style="text-align: center;"><c:out value="${ cartList.product_name }" /></p>
 	                        </td>
 	                        <td>
 	                            <p><c:out value="${ cartList.quantity }" /></p>
 	                            <p><button type="button" class="btn btn-primary px-2 py-2" onclick='location.href="/anymoremall/cart_delete?c_num=${cartList.c_num}"'>상품삭제</button><p>
 	                        </td>
 	                        <td>
-	                        	<p><c:out value="${ cartList.quantity * cartList.price }" /></p>
+	                        	<p><fmt:formatNumber value="${ cartList.quantity * cartList.price }" pattern="###,###"/></p>
 	                            <p><button type="button" class="btn btn-primary px-2 py-2">주문하기</button></p>
 	                        </td>
 	                        <td><p>무료</p></td>

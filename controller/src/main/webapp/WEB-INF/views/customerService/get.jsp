@@ -71,31 +71,18 @@ ul {
 		</div>
 		<hr>
 
-		<div class="form-group">
-			<div class="row">
-				<div class="col-md-12">
-					<b>내용</b>
-				</div>
+      <div class="form-group" style="margin-bottom:100px;">
+         <div class="row">
+            <div class="col-md-12"><b>내용</b></div>
+         </div><hr>
+         <div class="col-lg-12 ftco-animate" align="center">
+            <div class='uploadResult'>
+				<ul>
+				</ul>
 			</div>
-			<hr>
-			<div class="col-lg-12 ftco-animate" align="center">
-
-
-				<!-- 파일업로드 -->
-				<div class='uploadResult'>
-					<ul>
-					</ul>
-				</div>
-				<br>
-
-
-				<!-- <img src="../images/image_1.jpg" alt="" class="img-fluid"> -->
-				<p>
-					<c:out value="${board.content}"></c:out>
-				</p>
-			</div>
-		</div>
-		<hr />
+            <p><c:out value="${board.content}"></c:out></p>
+         </div>
+      </div>
 
 
 		<!-- 파일업로드 -->
@@ -112,12 +99,22 @@ ul {
 					</div>
 				</div>
 			</div>
-		</div> 
+		</div>
+		
 
-<!--  		<div class='bigPictureWrapper'>
-			<div class='bigPicture'></div>
-		</div> -->
-
+		<form id="operForm" action="/customerService/modify" method="get">
+			<input type="hidden" id="bno" name="bno"
+				value='<c:out value="${ board.bno }" />'> <input
+				type="hidden" name="pageNum"
+				value='<c:out value="${ cri.pageNum }" />'> <input
+				type="hidden" name="amount"
+				value='<c:out value="${ cri.amount }" />'> <input
+				type="hidden" name="type" value='<c:out value="${ cri.type }" />'>
+			<input type="hidden" name="keyword"
+				value='<c:out value="${ cri.keyword }" />'>
+		</form>
+		
+		
 
 		<!-- 댓글창 -->
 		<section class="card bg-light col-lg-12"
@@ -148,7 +145,7 @@ ul {
 		<div class="text-center" style="margin-bottom: 100px">
 			<c:set var="arId" value="${board.id}" />
 			<c:choose>
-				<c:when test="${member.id eq arId}">
+				<c:when test="${member.id eq arId || member.id eq 'admin'}">
 					<button data-oper="modify" class="btn btn-primary ">수정</button>
 					<button data-oper="list" class="btn btn-primary">목록</button>
 				</c:when>
@@ -158,18 +155,6 @@ ul {
 			</c:choose>
 		</div>
 
-		<form id="operForm" action="/customerService/modify" method="get">
-			<input type="hidden" id="bno" name="bno"
-				value='<c:out value="${ board.bno }" />'> <input
-				type="hidden" name="pageNum"
-				value='<c:out value="${ cri.pageNum }" />'> <input
-				type="hidden" name="amount"
-				value='<c:out value="${ cri.amount }" />'> <input
-				type="hidden" name="type" value='<c:out value="${ cri.type }" />'>
-			<input type="hidden" name="keyword"
-				value='<c:out value="${ cri.keyword }" />'>
-		</form>
-
 
 	</div>
 </section>
@@ -178,38 +163,39 @@ ul {
 
 <!-- 댓글 추가 모달창 -->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog"
-	aria-labelledby="myModalLabel" aria-hidden="true">
-	<div class="modal-dialog">
-		<div class="modal-content">
-			<div class="modal-header">
-				<button type="button" class="close" data-dismiss="modal"
-					aria-hidden="true">&times;</button>
-				<h4 class="modal-title" id="myModalLabel"></h4>
-			</div>
-			<div class="modal-body">
-				<div class="form-group">
-					<label>작성자</label> <input class="form-control" name='id'
-						placeholder="${ member.id }" value="${ member.id }">
-				</div>
-				<div class="form-group">
-					<label>내용</label>
-					<textarea style="resize: none;" spellcheck="false" rows="8"
-						class="form-control" name='reply'></textarea>
-				</div>
-				<div class="form-group">
-					<label>작성일자</label> <input class="form-control" name='replydate'
-						value=''>
-				</div>
-			</div>
+   aria-labelledby="myModalLabel" aria-hidden="true" style="font-family: 'NanumSquareNeo';">
+   <div class="modal-dialog">
+      <div class="modal-content">
+         <div class="modal-header">
+         <h5 class="modal-title" id="alertModal">알림</h5>
+            <button type="button" class="close" data-dismiss="modal"
+               aria-hidden="true">&times;</button>
+            <h4 class="modal-title" id="myModalLabel"></h4>
+         </div>
+         <div class="modal-body text-center">
+            <div class="form-group">
+               <label>작성자</label> <input class="form-control" name='id'
+                   value="${ member.id }" readonly>
+            </div>
+            <div class="form-group">
+               <label>내용</label>
+               <textarea style="resize: none;" spellcheck="false" rows="8"
+                  class="form-control" name='reply'></textarea>
+            </div>
+            <div class="form-group">
+               <label>작성일자</label> <input class="form-control" name='replydate'
+                  value=''>
+            </div>
+         </div>
 
-			<div class="modal-footer" style="font-family: 'NanumSquareNeo';">
-				<button id='modalModBtn' type="button" class="btn btn-primary">수정</button>
-				<button id='modalRemoveBtn' type="button" class="btn btn-primary">삭제</button>
-				<button id='modalRegisterBtn' type="button" class="btn btn-primary">등록</button>
-				<button id='modalCloseBtn' type='button' class='btn btn-primary'>닫기</button>
-			</div>
-		</div>
-	</div>
+         <div class="modal-footer" style="font-family: 'NanumSquareNeo';">
+            <button id='modalModBtn' type="button" class="btn btn-primary">수정</button>
+            <button id='modalRemoveBtn' type="button" class="btn btn-primary">삭제</button>
+            <button id='modalRegisterBtn' type="button" class="btn btn-primary modalRegisterBtn">등록</button>
+            <button id='modalCloseBtn' type='button' class='btn btn-primary'>닫기</button>
+         </div>
+      </div>
+   </div>
 </div>
 
 <script type="text/javascript" src="../js/reply.js"></script>
@@ -241,9 +227,6 @@ ul {
                      str +="       </div>";
                      str +="    </div>";
                      str +="</li>";
-                     
-                     
-                     
                      str +="<hr>";
                   }
      
@@ -261,6 +244,9 @@ ul {
           var modalRemoveBtn = $("#modalRemoveBtn");
           var modalRegisterBtn = $("#modalRegisterBtn");
           
+          var x = document.getElementsByName("id")[0].value;
+          console.log("아이디:" + x);
+
           // 모달창 Close 눌러서 닫아 지게 하는 기능
          $("#modalCloseBtn").on("click", function(e){
            
@@ -271,19 +257,20 @@ ul {
          $(".modal").modal("show");
       });
          
-          // 처음 새 댓글을 등록할 때, 날짜, 수정, 삭제 기능은 가려지게 하는 기능
+       // 처음 새 댓글을 등록할 때, 날짜, 수정, 삭제 기능은 가려지게 하는 기능
        $("#addReplyBtn").on("click", function(e){
-             
-            modal.find("textarea").val("");
+
+             modal.find("textarea").val("");
              modalInputReplydate.closest("div").hide();
              modal.find("button[id !='modalCloseBtn']").hide();
              
              modalRegisterBtn.show();
              
              $(".modal").modal("show"); 
+
        });     
           
-          // 새로운 댓글을 등록하는 기능 (json 형식 key:value)
+       // 새로운 댓글을 등록하는 기능 (json 형식 key:value)
        modalRegisterBtn.on("click", function(e){
           var reply = {
                 reply: modalInputReply.val(),

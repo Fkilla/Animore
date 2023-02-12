@@ -121,4 +121,9 @@
 	WHERE perchase_num > 0 AND id = #{id}
 </select>
 
+<delete id="account_delete">
+	DELETE FROM member
+	WHERE id = #{id} AND password = #{password}
+</delete>
+
 </mapper>

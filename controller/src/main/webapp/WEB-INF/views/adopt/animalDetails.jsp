@@ -44,8 +44,16 @@
 		<div class="row d-flex">
 			<div class="col-md-12 d-flex ftco-animate">
 				<div class="blog-entry align-self-stretch">
-					<img style="weight: 1080px; height: 720px" src="../images/any-dog2.jpg" class="img-fluid rounded" /> 
+				
+<!-- 					<img style="weight: 1080px; height: 720px" src="../images/any-dog2.jpg" class="img-fluid rounded" />  -->
 					<div id="zzimDiv" class="text p-4" >
+  					<c:forEach items="${image}" var="protectImage">
+	  					<c:if test="${ details.board_num == protectImage.board_num }">
+							<img class="img-fluid rounded" "
+							src="/adopt/protectAnimalDisplay?fileName=${ protectImage.uploadPath }/${ protectImage.uuid }_${ protectImage.fileName }"/>
+						</c:if> 
+					</c:forEach>		
+					<br><br>		
 							<div class="meta mb-4" style="color: black">
 								<h5>공고번호 : <c:out value= "${ details.board_num }" /></h5>
 								<h5>이름 : <c:out value= "${ details.animal_name }" /></h5>

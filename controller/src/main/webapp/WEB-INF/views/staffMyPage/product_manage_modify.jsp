@@ -62,11 +62,11 @@
 				</div>
 				<div class = "form-group">
 					<label>가격</label>
-					<textarea class="form-control" rows="3" name='price'><c:out value = "${product.price }" /> </textarea>
+					<textarea class="form-control" rows="3" name='price'><c:out value = "${product.price}" /></textarea>
 				</div>
 				<div class = "form-group">
 					<label>재고수량</label>
-					<input class="form-control" name='amount' value='<c:out value = "${product.amount }"/>'>
+					<input class="form-control" name='amount' value='<c:out value = "${product.amount}"/>'>
 				</div>
 				
 				<div class="form-group">

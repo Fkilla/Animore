@@ -23,6 +23,9 @@ select, input {
 }
 </style>
 
+<script>
+</script>
+
 
 <section class="hero-wrap hero-wrap-2"
 	style="background-image: url('../images/cat-bg.jpg');"
@@ -54,13 +57,22 @@ select, input {
 	<div class="container">
 
 
+<!-- <img src="c:\upload\2023\02\08\2b7911b1-6e0b-4318-b75f-20531cf26e2b_any-cat2.jpg" /> -->		
 		<!-- 보호동물목록 -->
+		
 		<div class="row d-flex">
 			<c:forEach items="${list}" var="protectList">
 			<div class="col-md-4 d-flex ftco-animate" id="animalList">
 				<div class="blog-entry align-self-stretch" pk="<c:out value= "${ protectList.board_num }" />"
 					 style="cursor:pointer;">
-					<img src="../images/any-dog2.jpg" class="img-fluid rounded" />
+					 <!-- <img src="../images/any-dog2.jpg" class="img-fluid rounded" /> -->
+
+  					<c:forEach items="${image}" var="protectImage">
+	  					<c:if test="${ protectList.board_num == protectImage.board_num }">
+							<img class="img-fluid rounded" src="/adopt/protectAnimalDisplay?fileName=${ protectImage.uploadPath }/${ protectImage.uuid }_${ protectImage.fileName }"/>
+						</c:if> 
+					</c:forEach>
+
 					<div class="text p-4 col text-center" >
 						<div class="meta mb-2">
 							<div class="myfont14">
@@ -197,5 +209,34 @@ $(document).ready(function(){
  	
 }); 
 </script>
+
+<!-- <script>
+$(document).ready(function(){
+	(function(){
+		var bno = '<c:out value="${protectList.board_num}"/>'; 
+
+ 		$.getJSON("/adopt/protectAnimalGetAttachList",{bno:bno}, function(arr){
+			
+			console.log(arr);
+			var str = "";
+			$(arr).each(function(i, attach){
+				if(attach.fileType == false){
+		        var fileCallPath =  encodeURIComponent( attach.uploadPath+ "/"+attach.uuid +"_"+attach.fileName);
+		           
+				str += "<img class='img-fluid rounded' src='/adopt/protectAnimalDisplay?fileName="+fileCallPath+"'>";
+		      }
+				
+		      $(".uploadResult").html(str);
+		      
+			});
+		}); 		
+		
+	})();
+	
+	
+});
+</script> -->
+
+
 
 <%@include file="../includes/footer.jsp"%>

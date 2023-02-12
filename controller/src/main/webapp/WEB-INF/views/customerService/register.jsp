@@ -102,14 +102,10 @@
 					</div>
 				</div>
 			</div>			
-			
-			<div class="form-group">
-				<label>비밀글</label> <input name="secret" id="secret" type="checkbox" />
-			</div> 
         	
 			<button id="register" type="submit" class="btn btn-primary">등록</button>
 			<button type="reset" class="btn btn-primary">새로작성</button>
-			<button id="listBtn" type="button" class="btn btn-primary">목록</button>
+			<button id="listBtn" type="button" class="btn btn-primary" onclick="location.href='/customerService/qna'">목록</button>
 		</form>
 	</div>
 </section>
@@ -152,11 +148,7 @@ $(document).ready(function(e){
 		    $("#content").focus();
 		    return false;
 		}
-		
-		
-		$("#listBtn").on("click", function() {
-			self.location = "/customerService/qna";
-		});
+
 		
 		var str = "";
 		

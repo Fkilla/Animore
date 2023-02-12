@@ -11,4 +11,5 @@
 	from animal_info where board_num = #{board_num}
 </select>
 
+
 </mapper>
