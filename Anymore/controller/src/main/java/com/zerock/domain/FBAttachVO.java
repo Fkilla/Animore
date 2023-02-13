@@ -3,7 +3,8 @@ package com.zerock.domain;
 import lombok.Data;
 
 @Data
-public class NoticeAttachVO {
+public class FBAttachVO {
+	
 	private String uuid;
 	private String uploadPath;
 	private String fileName;

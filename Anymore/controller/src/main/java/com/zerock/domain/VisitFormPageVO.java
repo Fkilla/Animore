@@ -1,23 +1,22 @@
 package com.zerock.domain;
 
 
-
+	
 import lombok.Getter;
 import lombok.ToString;
 
 @Getter
 @ToString
-public class ARPageDTO {
+public class VisitFormPageVO {
 	
 	private int startPage;
 	private int endPage;
 	private boolean prev, next;
 	
 	private int total;
-	private CriteriaAR cri;
-
+	private CriteriaMypage cri;
 	
-	public ARPageDTO(CriteriaAR cri, int total) {
+	public VisitFormPageVO(CriteriaMypage cri, int total) {
 		this.cri = cri;
 		this.total = total;
 		
