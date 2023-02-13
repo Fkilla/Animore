@@ -221,26 +221,29 @@ td {
 			<!-- DB 연동 -->
 			<thead>
 				<tr>
-					<td colspan="3">상품정보</td>
+					<td colspan="3">상품이름</td>
 					<td>옵션</td>
 					<td>상품금액</td>
 					<td>배송비</td>
 				</tr>
 			</thead>
-        		<form>
+        		<form method="POST" action="/anymoremall/import">
         			<c:forEach items="${cart_list}" var="cartList">
 	        			<tr class="cart_list_detail">
-	        				<td width="20%"><img src="../images/product-4.jpg" alt="magic keyboard"></td>
-	        				<td colspan="2">
-	                            <p style="text-align: left;"><c:out value="${ cartList.product_name }" /></p>
+	        				<td colspan="3">
+	                            <p style="text-align: center;"><c:out value="${ cartList.product_name }" /></p>
 	                        </td>
 	                        <td>
 	                            <p><c:out value="${ cartList.quantity }" /></p>
 	                            <p><button type="button" class="btn btn-primary px-2 py-2" onclick='location.href="/anymoremall/cart_delete?c_num=${cartList.c_num}"'>상품삭제</button><p>
 	                        </td>
 	                        <td>
-	                        	<p><c:out value="${ cartList.price }" /></p>
-	                            <p><button type="button" class="btn btn-primary px-2 py-2">주문하기</button></p>
+	                        	<p name="price" ><c:out value="${ cartList.price }"/></p>
+	                        		<input type="hidden" id="product_num" name="product_num" value="${cartList.product_num}" />
+	                        		<input type="hidden" id="product_name" name="product_name" value="${cartList.product_name}" />
+	                        		<input type="hidden" id="quantity" name="quantity" value="${cartList.quantity}" />
+	                        		<input type="hidden" id="price" name="price" value="${cartList.price}" />
+	                        		<p><button type="submit" class="btn btn-primary px-2 py-2">주문하기</button></p>
 	                        </td>
 	                        <td><p>무료</p></td>
 	        			</tr>
@@ -251,20 +254,13 @@ td {
         				</tr>
         			</c:if>
         		</form>
-
         </table>
         <div class="col-md-12 align-items-center d-flex justify-content-center"
         	style="margin-top: 50px">
-            <!-- <button class="cart__bigorderbtn left">쇼핑 계속하기</button> -->
-            <button type="button" class="btn btn-primary mr-2">쇼핑 계속하기</button>
-            <!-- <button class="cart__bigorderbtn right">주문하기</button> -->
-            <a href="/anymoremall/import2"><button type="button" class="btn btn-primary">전체 주문하기</button></a>
+            <button id="listBtn" type="button" class="btn btn-primary mr-2">쇼핑 계속하기</button>
+           <a href="/anymoremall/import2"><button id="allOrderBtn" type="button" class="btn btn-primary">전체 주문하기</button> </a>
             <!-- 로그인 상태일 때 활성화 -->
             <c:choose>
-            	<%-- <c:when test="${member.id != null}">
-            	<button type="button" class="btn btn-primary ml-2" 
-            		onclick='location.href="/anymoremall/cart_delete_all"'>전체 삭제하기</button>
-	            </c:when> --%>
 	            <c:when test="${member.id != null && cart_list.size() != 0	}">
 	            	<button type="button" class="btn btn-primary ml-2" 
 	            		onclick='location.href="/anymoremall/cart_delete_all"'>전체 삭제하기</button>
@@ -272,5 +268,15 @@ td {
             </c:choose>
         </div>
     </section>
+    
+<script type="text/javascript">
+	// 쇼핑 계속하기 버튼
+	$('#listBtn').on('click', function(){
+		location.href = "/anymoremall/product_list";
+	});
+	
+	// 주문 페이지로 이동
+	
+</script>
 
 <%@include file="../includes/footer.jsp"%>

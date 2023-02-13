@@ -46,10 +46,10 @@
 					</thead>
 					<tr>
 						<td>주문번호</td>
-						<td>751641364</td>
+						<td><c:out value = "${perchase.perchase_num}"/></td>
 						<td>주문일</td>
-						<td>2023-01-17 16:04</td>
-						<td>배송완료</td>
+						<td><c:out value = "${perchase.ordered_date}"/></td>
+						<td><c:out value = "${perchase.delivery_status}"/></td>
 					</tr>
 				</table>
 				
@@ -66,13 +66,10 @@
                     <tbody>
                     	<tr>
                     		<td colspan="2">
-                    			<a href="#">그립톡</a><br/>
-                    			<img src="../image/keyboard.jpg" alt="magic keyboard"><br/>
-                    			<p>색상: 블루</p>
-                    			<p>디자인: A형</p>
+                    			<a href="#"><c:out value = "${perchase.perchased_product}"/></a><br/>
                     		</td>
-                    		<td>1</td>
-                    		<td>30,000</td>
+                    		<td><c:out value = "${perchase.amount}"/></td>
+                    		<td><c:out value = "${perchase.product_price}"/></td>
                     		<td>무료</td>
                     	</tr>
                     </tbody>
@@ -90,10 +87,10 @@
                     </r>
                     <tbody>
                     	<tr>
-                    		<td>김00</td>
-                    		<td>서울시 강서구 방학동 11-00 번지 5층</td>
-                    		<td>010-1537-4887</td>
-                    		<td>부재시 경비실에 맡겨 주세요</td>
+                    		<td><c:out value = "${perchase.name}"/></td>
+                    		<td><c:out value = "${perchase.address}"/></td>
+                    		<td><c:out value = "${perchase.phone}"/></td>
+                    		<td><c:out value = "${perchase.requests}"/></td>
                     	</tr>
                     </tbody>
 				</table>
@@ -108,14 +105,13 @@
 						<td>결제방법</td>
 					</tr>
 					<tbody>
-						<td>30,000원</td>
+						<td><c:out value = "${perchase.all_price}"/></td>
 						<td>무료</td>
-						<td>결제방법: 신용카드</td>
+						<td><c:out value = "${perchase.payment}"/></td>
 					</tbody>
 				</table>
 				
 				<button type="button" class="btn btn-primary ml-2" style="float: right;" onclick="location.href='/staffMyPage/current_perchase'">확인</button>
-				<button type="button" class="btn btn-primary ml-2" style="float: right;" onclick="location.href='/staffMyPage/current_perchase_modify'">수정</button>
 			</div>
 		</div>
 	</div>

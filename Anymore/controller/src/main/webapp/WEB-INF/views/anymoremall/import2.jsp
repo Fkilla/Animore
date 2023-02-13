@@ -33,6 +33,10 @@
 	.join_form .form-group{
 		margin-bottom:50px;
 	}
+	
+	th, td {
+	padding: 15px;
+    }
 
 </style>
 
@@ -43,15 +47,69 @@
 			<div class="col-md-6 text-center mb-5">
 				<h2 class="heading-section">결제 페이지</h2>
 			</div>
-		</div>
+		</div>		        
 		<div class="row justify-content-center">
 			<div class="col-md-12">
 				<div class="wrapper">
 					<div class="row no-gutters terms_content">
 						<div class="col-md-12">
 							<div class="contact-wrap w-100 p-md-5 p-4">
-								<h3 class="mb-4">정보 입력</h3>
-								<form method="POST" action="/anymoremall/import" id="joinform" name="joinform" class="joinform">
+								<form method="POST" action="/anymoremall/iamport">
+									<h3 class="mb-4">상품 정보</h3>
+									<table>
+										<thead>
+											<tr>
+												<th>상품정보</th>
+												<th>옵션</th>
+												<th>상품금액</th>
+												<th>배송비</th>
+											</tr>
+										</thead>
+							        		
+							        		
+							        			<c:set var= "kind" value="0"/>
+							        			<c:set var = "total" value = "0" />
+							        			<c:set var = "cnt" value = "0" />
+							        			<c:set var = "total_cnt" value = "0" />
+							        			<c:forEach items="${cart_list}" var="cartList">
+								        			<tr class="cart_list_detail">
+								  
+								        				<td>
+								                            <!-- <c:out value="${ cartList.product_name }" /> -->
+								                             ${ cartList.product_name }
+								                        </td>
+								                        <td>
+								                            ${ cartList.quantity }
+								                        </td>
+								                        <td>
+								                        	${ cartList.price }
+								                        </td>
+								                        <td>무료</td>
+								                        
+								                        <c:set var= "total" value="${total + (cartList.price * cartList.quantity)}"/>
+								                        <c:set var= "cnt" value="${cnt}"/>
+								                        <c:set var= "total_cnt" value="${total_cnt + cartList.quantity}"/>
+								                        
+								                       
+
+								        			</tr>
+								        			<div class="form-group">
+								        				<input type="hidden" id="product_num" name="product_num" value="${cartList.product_num}" />
+														<input type="hidden" id="product_name" name="product_name" value="${ cartList.product_name }" />
+														<input type="hidden" id="quantity" name="quantity" value="${ cartList.quantity }" />
+													</div>
+							        			</c:forEach>
+							        		
+							        			<c:if test="${empty cart_list}">
+							        				<tr>
+							        					<td colspan="6"><p style="margin-top: 16px; font-size: 20px;">장바구니가 비어있습니다.</p></td>
+							        				</tr>
+							        			</c:if>
+
+							        		
+							        </table>
+									<br><br><br>
+									<h3 class="mb-4">정보 입력</h3>
 									<div class="row">
 										<div class="col-md-12">
 											<div class="form-group">
@@ -87,12 +145,24 @@
 											</div>
 										</div>
 										<input type="hidden" id="address" name="address" value="">
+										<input type="hidden" id="total" name="total" value="${total}" />
+										<input type="hidden" id="cnt" name="cnt" value="${cnt}" />
+										<input type="hidden" id="total_cnt" name="total_cnt" value="${total_cnt}" />
+										<input type="hidden" class="form-control" name='delivery_status' value="배송준비중"/>
+										<input type="hidden" class="form-control" name='id' value="<c:out value='${member.id}'/>">
+										<input type="hidden" class="form-control" name="perchase_way" value="2" />
 										<div class="col-md-12">
-											<div class="form-group">
-												<label class="label" for="deli_ask">배송요청사항</label>
-												<input type="text" class="form-control" name="deli_ask" id="deli_ask" maxlength="11" placeholder="배송요청사항을 작성해주세요">
-											</div>
-										</div>
+											 <div class="form-group">
+									            <label class="label" for="deli_ask">배송요청사항</label><br>
+									            <select class="form-control" name="deli_ask" id="deli_ask" >
+													 <option value="" selected>-</option>
+													 <option value="택배는 경비실에 부탁드립니다.">택배는 경비실에 부탁드립니다.</option>
+													 <option value="문 앞에 놔주세요">문 앞에 놔주세요.</option>
+													 <option value="배송 전 연락 주세요">배송 전 연락 주세요</option>
+												</select>
+									         </div>
+								         </div>
+										 
 										<div class="col-md-12">
 											<div class="form-group">
 												<a href="#"><input type="button" value="이전" class="btn btn-primary"></a>
@@ -155,60 +225,41 @@
 		var phone = document.getElementById("phone");
 		var address_1 = document.getElementById("address_1");
 		var address_2 = document.getElementById("address_2");
-		var idChkVal = $("#id_check").val();
+		var deli_ask = document.getElementById("deli_ask");
 		
 		if(name.value == ""){
-			$(".modal-body").html("이름을 입력해주세요.");
-			$("#alertModal").modal("show");
+			alert("이름을 입력해주세요.");
 			name.focus();
 			return false;
 		}
 		
-		//이름 유효성 검증
-		if (!name_varify.test(name.value)) {
-			$(".modal-body").html("이름을 확인해주세요.");
-			$("#alertModal").modal("show");
-		 	name.focus();
-		    return false;
-		};
-		
 		if(phone.value == ""){
-			$(".modal-body").html("휴대폰 번호를 입력해주세요.");
-			$("#alertModal").modal("show");
+			alert("");
 			phone.focus();
 			return false;
 		}
 		
-		//휴대폰 번호 유효성 검증
-		if (!phone_varify.test(phone.value)) {
-			$(".modal-body").html("휴대폰 번호를 확인해주세요.");
-			$("#alertModal").modal("show");
-		 	phone.focus();
-		    return false;
-		};
 		
 		if(address_1.value == ""){
-			$(".modal-body").html("우편번호 검색을 진행해주세요.");
-			$("#alertModal").modal("show");
+			alert("우편번호 검색을 진행해주세요.");
 			address_1.focus();
 			return false;
 		}
 		
 		if(address_2.value == ""){
-			$(".modal-body").html("상세 주소를 입력해주세요.");
-			$("#alertModal").modal("show");
+			alert("상세주소 입력을 진행해주세요.");
 			address_2.focus();
 			return false;
 		}
 		
 		if(deli_ask.value == ""){
-			$(".modal-body").html("상세 주소를 입력해주세요.");
-			$("#alertModal").modal("show");
+			alert("배송요청사항을  선택해주세요.");
 			deli_ask.focus();
 			return false;
 		}
 		
 	}
+	
 	
 	//우편번호 검색
 	function open_Postcode(){  

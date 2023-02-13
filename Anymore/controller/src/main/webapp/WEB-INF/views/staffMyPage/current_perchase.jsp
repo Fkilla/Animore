@@ -81,14 +81,14 @@
 			    <c:forEach items="${perchase_list}" var="perchase">
 					<tr>
 						<td><c:out value="${perchase.perchase_num }"></c:out></td>
-						<td><a href="protect_animal_watch"><c:out value="${perchase.name }"></c:out></a></td>
+						<td><c:out value="${perchase.name }"></c:out></td>
 						<td><c:out value="${perchase.perchased_product }"></c:out></td>
 						<td><c:out value="${perchase.all_price }"></c:out></td>
 						<td><c:out value="${perchase.address}"></c:out></td>
 						<td><c:out value="${perchase.phone}"></c:out></td>
 						<td><c:out value="${perchase.ordered_date }"></c:out></td>
 						<td><c:out value="${perchase.delivery_status }"></c:out></td>
-						<td><a href="current_perchase_watch">상세보기</a></td>
+						<td><a class='move' href='<c:out value="${perchase.perchase_num }" />'>상세보기</a></td>
 					</tr>
 				</c:forEach>
 			 </table>
@@ -144,7 +144,7 @@
 			e.preventDefault();
 			
 			actionForm.append("<input type ='hidden' name='perchase_num' value='"+$(this).attr("href")+"'>");
-			actionForm.attr("action","/staffMyPage/Current_perchase_get");
+			actionForm.attr("action","/staffMyPage/current_perchase_watch");
 			actionForm.submit();
 		});
 		

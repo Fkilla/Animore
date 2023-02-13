@@ -44,16 +44,24 @@
 		<div class="row d-flex">
 			<div class="col-md-12 d-flex ftco-animate">
 				<div class="blog-entry align-self-stretch">
-					<img style="weight: 1080px; height: 720px" src="../images/any-dog2.jpg" class="img-fluid rounded" /> 
+				
+<!-- 					<img style="weight: 1080px; height: 720px" src="../images/any-dog2.jpg" class="img-fluid rounded" />  -->
 					<div id="zzimDiv" class="text p-4" >
+  					<c:forEach items="${image}" var="protectImage">
+	  					<c:if test="${ details.board_num == protectImage.board_num }">
+							<img class="img-fluid rounded" "
+							src="/adopt/protectAnimalDisplay?fileName=${ protectImage.uploadPath }/${ protectImage.uuid }_${ protectImage.fileName }"/>
+						</c:if> 
+					</c:forEach>		
+					<br><br>		
 							<div class="meta mb-4" style="color: black">
 								<h5>공고번호 : <c:out value= "${ details.board_num }" /></h5>
 								<h5>이름 : <c:out value= "${ details.animal_name }" /></h5>
 								<h5>나이 : <c:out value= "${ details.age }" />살 </h5>
 								<h5>성별 : <c:out value= "${ details.sex }" /> </h5>
 								<h5>품종 : <c:out value= "${ details.variety }" /> </h5>
-								<h5>중성화유무 : <c:out value= "${ details.tnr }" /> </h5>
-								<h5>안락사까지 남은 기간  : <c:out value= "${ details.euthanasia_day }" />일 </h5>
+								<h5>중성화 유무 : <c:out value= "${ details.tnr }" /> </h5>
+								<h5>안락사 날짜  : <c:out value= "${ details.euthanasia_day }" /> </h5>
 								<h5>특징 : <br> <c:out value= "${ details.identity }" /></h5> 
 							</div>
 							<c:choose>

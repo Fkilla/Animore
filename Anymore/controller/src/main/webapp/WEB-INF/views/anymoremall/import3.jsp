@@ -3,7 +3,7 @@
 <%
 
 	String product_name = request.getParameter("product_name");
-	String quantity = request.getParameter("quantity");
+	String quantity_num = request.getParameter("quantity_num");
 	String price = request.getParameter("price");
 	String product_num = request.getParameter("product_num");
 
@@ -73,26 +73,27 @@
 												<th>배송비</th>
 											</tr>
 										</thead>
-							        		
-							        		
-							        		
+												
+												<c:set var="p" value="<%= price %>" />
+							        			<c:set var="q" value="<%= quantity_num %>" />
+
+							        			<c:set var= "total" value="${ q * p } "/>
+												
 							        			<td><%= product_name %></td>
-								                <td><%= quantity %></td>
-								                <td><%=  price %></td>
+								                <td><%= quantity_num %></td>
+								                <td>${ total }</td>
 								                <td>무료</td>
 							        			
 							        			
-							        			<c:set var="p" value="<%= price %>" />
-							        			<c:forEach items="<%= quantity %>" var="cartList">
-							        				<c:set var= "total" value="${ total + p } "/>
-							        			</c:forEach>
+							        			
+
 								                <c:set var= "cnt" value="1"/>
-								                <c:set var= "total_cnt" value="<%= quantity%>"/>
+								                <c:set var= "total_cnt" value="<%= quantity_num %>"/>
 								                
 							        			<div class="form-group">
 													<input type="hidden" id="product_name" name="product_name" value='<%=product_name %>'  />
 													<input type="hidden" id="price" name="price" value='<%=price %>'  />
-													<input type="hidden" id="quantity" name="quantity" value='<%=quantity %>' />
+													<input type="hidden" id="quantity" name="quantity" value='<%=quantity_num %>' />
 													<input type="hidden" id="product_num" name="product_num" value='<%=product_num %>' />
 												</div>
 
@@ -140,8 +141,7 @@
 										<input type="hidden" id="total_cnt" name="total_cnt" value="${total_cnt}" />
 										<input type="hidden" class="form-control" name='delivery_status' value="배송준비중"/>
 										<input type="hidden" class="form-control" name='id' value="<c:out value='${member.id}'/>">
-										<input type="hidden" class="form-control" name="perchase_way" value="1" />
-										
+										<input type="hidden" class="form-control" name="perchase_way" value="3" />
 										<div class="col-md-12">
 											 <div class="form-group">
 									            <label class="label" for="deli_ask">배송요청사항</label><br>
@@ -250,6 +250,7 @@
 		}
 		
 	}
+	
 	
 	//우편번호 검색
 	function open_Postcode(){  
