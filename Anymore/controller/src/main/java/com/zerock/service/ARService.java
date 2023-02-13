@@ -2,10 +2,14 @@ package com.zerock.service;
 
 import java.util.List;
 
+import com.zerock.domain.ARAttachVO;
 import com.zerock.domain.ARVO;
 import com.zerock.domain.CriteriaAR;
 
 public interface ARService {
+	
+	// 유진 수정 - 메인 값 불러오기 용도
+	public List<ARVO> getARList();
 	
 	public void register(ARVO adoptionReview);
 	
@@ -21,6 +25,11 @@ public interface ARService {
 	
 	public int updateVisitCnt(Long bno);
 	
-//	public List<BoardAttachVO> getAttachList(Long bno);
+	public List<ARAttachVO> getAttachList(Long bno);
+	
+//	public List<ARAttachVO> getAttachImg(Long bno);
+	
+	// 업로드된 보호중인 아이 파일 이미지 불러오기
+	public List<ARAttachVO> imageList();
 	
 }
