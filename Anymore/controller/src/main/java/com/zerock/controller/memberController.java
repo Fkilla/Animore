@@ -51,7 +51,7 @@ public class memberController {
 			return "redirect:/member/login";
 		}else {
 			session.setAttribute("member", loginvo);
-			return "/index";
+			return "redirect:/index";
 		}
     }
 	

@@ -137,7 +137,7 @@ public class staffMyPageController {
 			rttr.addAttribute("type",cri.getType());
 			rttr.addAttribute("keyword",cri.getKeyword());
 							
-			return "redirect:/staffMyPage/product_manage";
+			return "redirect:/staffMyPage/protect_animal";
 		}
 		
 		private void product_deleteFiles(List<ProductAttachVO> attachList) {
@@ -185,14 +185,11 @@ public class staffMyPageController {
 			
 			model.addAttribute("pageMaker", new PageDTO(cri,total));
 		}
-		@GetMapping({"/Current_perchase_get","modify"})
-		public void Current_perchase_get(@RequestParam("bno") Long bno, @ModelAttribute("cri") Criteria cri, Model model) {
-			log.info("/Current_perchase_get or modify");
-			model.addAttribute("perchase", CurrentPerchaseService.get(bno));
+		@GetMapping({"/current_perchase_watch","current_perchase_modify"})
+		public void current_perchase_watch(@RequestParam("perchase_num") Long perchase_num, @ModelAttribute("cri") Criteria cri, Model model) {
+			log.info("/Current_perchase_get or current_perchase_modify");
+			model.addAttribute("perchase", CurrentPerchaseService.get(perchase_num));
 		}
-		
-		
-		
 		
 		
 		//관리자 마이페이지 : 보호동물 보기 리스트 
@@ -380,12 +377,12 @@ public class staffMyPageController {
 		
 		
 		//관리자 마이페이지 : 배송정보/구매내역관리 상세보기
-		@GetMapping("/current_perchase_watch")
-		public String current_perchase_watch() {
-		  
-			return "/staffMyPage/current_perchase_watch";
-		}
-		
+//		@GetMapping("/current_perchase_watch")
+//		public String current_perchase_watch() {
+//		  
+//			return "/staffMyPage/current_perchase_watch";
+//		}
+//		
 		
 		
 		//관리자 마이페이지 : 상품 글 수정
